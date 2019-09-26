@@ -45,8 +45,7 @@ vector<i64> dijkstra(Graph G, i64 s){
     return dist;
 }
 
-int main(){
-    // https://onlinejudge.u-aizu.ac.jp/status/users/kobaryo222/submissions/1/GRL_1_A/judge/3892499/C++14
+void GRL_1_A(){
     i64 v, e, r;
     cin >> v >> e >> r;
     Graph G(v);
@@ -60,4 +59,8 @@ int main(){
         if(d == INF) cout << "INF" << endl;
         else cout << d << endl;
     }
+}
+
+int main(){
+    /* GRL_1_A(); /* https://onlinejudge.u-aizu.ac.jp/status/users/kobaryo222/submissions/1/GRL_1_A/judge/3892499/C++14 */
 }
