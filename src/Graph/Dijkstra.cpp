@@ -1,3 +1,5 @@
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A"
+
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -62,5 +64,5 @@ void GRL_1_A(){
 }
 
 int main(){
-    /* GRL_1_A(); /* https://onlinejudge.u-aizu.ac.jp/status/users/kobaryo222/submissions/1/GRL_1_A/judge/3892499/C++14 */
+    GRL_1_A(); // https://onlinejudge.u-aizu.ac.jp/status/users/kobaryo222/submissions/1/GRL_1_A/judge/3892499/C++14
 }
