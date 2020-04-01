@@ -31,9 +31,10 @@ layout: default
 
 * category: <a href="../../../index.html#6e5c608398952d411d1862b1f8dc05f5">src/Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/src/Graph/Dijkstra.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-09-26 11:32:59+09:00
+    - Last commit date: 2020-04-01 13:58:33+09:00
 
 
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A">https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A</a>
 
 
 ## Code
@@ -41,6 +42,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A"
+
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -105,7 +108,7 @@ void GRL_1_A(){
 }
 
 int main(){
-    /* GRL_1_A(); /* https://onlinejudge.u-aizu.ac.jp/status/users/kobaryo222/submissions/1/GRL_1_A/judge/3892499/C++14 */
+    GRL_1_A(); // https://onlinejudge.u-aizu.ac.jp/status/users/kobaryo222/submissions/1/GRL_1_A/judge/3892499/C++14
 }
 
 ```
@@ -115,6 +118,8 @@ int main(){
 {% raw %}
 ```cpp
 #line 1 "src/Graph/Dijkstra.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A"
+
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -179,7 +184,7 @@ void GRL_1_A(){
 }
 
 int main(){
-    /* GRL_1_A(); /* https://onlinejudge.u-aizu.ac.jp/status/users/kobaryo222/submissions/1/GRL_1_A/judge/3892499/C++14 */
+    GRL_1_A(); // https://onlinejudge.u-aizu.ac.jp/status/users/kobaryo222/submissions/1/GRL_1_A/judge/3892499/C++14
 }
 
 ```
