@@ -1,0 +1,5 @@
+contest_directory = "~/kyopro/{service_name}/{contest_id}/{problem_id}"
+problem_directory = "."
+
+[templates]
+"main.cpp" = "~/.config/online-judge-tools/template/customized.cpp"
