@@ -1,14 +1,14 @@
 #pragma once
 
+/**
+ * @brief Dijkstra
+ * @docs docs/dijkstra.md
+ */
+
 #include "graph-template.hpp"
 
 template <typename T>
 vector<T> dijkstra(Graph<T> &G, int s) {
-    //
-    // Dijkstra 法 O(ElogV)
-    // Graph<T> G : 有向グラフ
-    // int s : 始点の番号
-    //
     const auto INF = numeric_limits<T>::max();
     using P = pair<T, int>;
     int n = G.size();
