@@ -17,11 +17,11 @@ data:
   - name: src/Graph
     pages:
     - icon: ':warning:'
-      path: src/Graph/Dijkstra.cpp
-      title: src/Graph/Dijkstra.cpp
+      path: src/Graph/dijkstra.hpp
+      title: src/Graph/dijkstra.hpp
     - icon: ':warning:'
-      path: src/Graph/graph-template.cpp
-      title: src/Graph/graph-template.cpp
+      path: src/Graph/graph-template.hpp
+      title: src/Graph/graph-template.hpp
     - icon: ':warning:'
       path: src/Graph/lca.cpp
       title: src/Graph/lca.cpp
@@ -38,8 +38,13 @@ data:
   - name: src
     pages:
     - icon: ':warning:'
-      path: src/template.cpp
-      title: src/template.cpp
+      path: src/template.hpp
+      title: src/template.hpp
+  - name: src/test/verify
+    pages:
+    - icon: ':warning:'
+      path: src/test/verify/aoj-grl-1-a.cpp
+      title: src/test/verify/aoj-grl-1-a.cpp
   verificationCategories: []
 layout: toppage
 ---
