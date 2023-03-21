@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
-    title: src/Graph/dijkstra.hpp
+    title: Dijkstra
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-1-a.test.cpp

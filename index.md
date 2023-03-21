@@ -18,7 +18,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/Graph/dijkstra.hpp
-      title: src/Graph/dijkstra.hpp
+      title: Dijkstra
     - icon: ':heavy_check_mark:'
       path: src/Graph/graph-template.hpp
       title: src/Graph/graph-template.hpp
@@ -48,3 +48,8 @@ data:
       title: src/test/verify/aoj-grl-1-a.test.cpp
 layout: toppage
 ---
+[![kobaryo222](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fkobaryo222)](https://atcoder.jp/users/kobaryo222)
+
+絶賛整備中
+
+Twitter: [@6Lgug](https://twitter.com/6Lgug)
