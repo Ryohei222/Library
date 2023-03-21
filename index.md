@@ -16,10 +16,10 @@ data:
       title: src/DataStructure/Union-Find.cpp
   - name: src/Graph
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/Graph/dijkstra.hpp
       title: src/Graph/dijkstra.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/Graph/graph-template.hpp
       title: src/Graph/graph-template.hpp
     - icon: ':warning:'
@@ -37,14 +37,14 @@ data:
       title: src/String/Rolling-Hash.cpp
   - name: src
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/template.hpp
       title: src/template.hpp
+  verificationCategories:
   - name: src/test/verify
     pages:
-    - icon: ':warning:'
-      path: src/test/verify/aoj-grl-1-a.cpp
-      title: src/test/verify/aoj-grl-1-a.cpp
-  verificationCategories: []
+    - icon: ':heavy_check_mark:'
+      path: src/test/verify/aoj-grl-1-a.test.cpp
+      title: src/test/verify/aoj-grl-1-a.test.cpp
 layout: toppage
 ---

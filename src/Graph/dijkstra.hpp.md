@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: src/Graph/graph-template.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: src/test/verify/aoj-grl-1-a.cpp
-    title: src/test/verify/aoj-grl-1-a.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-1-a.test.cpp
+    title: src/test/verify/aoj-grl-1-a.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/Graph/dijkstra.hpp\"\n\n#line 2 \"src/Graph/graph-template.hpp\"\
@@ -63,11 +63,11 @@ data:
   - src/Graph/graph-template.hpp
   isVerificationFile: false
   path: src/Graph/dijkstra.hpp
-  requiredBy:
-  - src/test/verify/aoj-grl-1-a.cpp
+  requiredBy: []
   timestamp: '2023-03-21 22:14:03+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - src/test/verify/aoj-grl-1-a.test.cpp
 documentation_of: src/Graph/dijkstra.hpp
 layout: document
 redirect_from:

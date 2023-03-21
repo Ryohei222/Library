@@ -1,38 +1,41 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
     title: src/Graph/dijkstra.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: src/Graph/graph-template.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: src/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
-  bundledCode: "#line 1 \"src/test/verify/aoj-grl-1-a.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
-    \n\n#line 1 \"src/template.hpp\"\n#include <bits/stdc++.h>\n\nusing namespace\
-    \ std;\n\nusing i64 = long long;\n\nstruct IoSetup {\n    IoSetup() {\n      \
-    \  cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout << fixed\
-    \ << setprecision(10);\n        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\
-    \n#define _overload3(_1, _2, _3, name, ...) name\n#define _rep(i, n) repi(i, 0,\
-    \ n)\n#define repi(i, a, b) for(int i = int(a); i < int(b); ++i)\n#define rep(...)\
-    \ _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n#define all(x) std::begin(x),\
-    \ std::end(x)\n#define uniq(a)   \\\n    sort(all(a)); \\\n    a.erase(unique(all(a)),\
-    \ end(a))\n#define sum(...) accumulate(all(__VA_ARGS__), 0LL)\n\ntemplate <class\
-    \ T>\nauto min(const T& a) {\n    return *min_element(all(a));\n}\ntemplate <class\
-    \ T>\nauto max(const T& a) {\n    return *max_element(all(a));\n}\ntemplate <class\
-    \ T>\nbool chmin(T& a, const T& b) {\n    return a > b ? a = b, true : false;\n\
-    }\ntemplate <class T>\nbool chmax(T& a, const T& b) {\n    return a < b ? a =\
-    \ b, true : false;\n}\n#line 2 \"src/Graph/dijkstra.hpp\"\n\n#line 2 \"src/Graph/graph-template.hpp\"\
+  bundledCode: "#line 1 \"src/test/verify/aoj-grl-1-a.test.cpp\"\n#define PROBLEM\
+    \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\n\n#line\
+    \ 1 \"src/template.hpp\"\n#include <bits/stdc++.h>\n\nusing namespace std;\n\n\
+    using i64 = long long;\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
+    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
+    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\n#define _overload3(_1,\
+    \ _2, _3, name, ...) name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a,\
+    \ b) for(int i = int(a); i < int(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__,\
+    \ repi, _rep, )(__VA_ARGS__)\n#define all(x) std::begin(x), std::end(x)\n#define\
+    \ uniq(a)   \\\n    sort(all(a)); \\\n    a.erase(unique(all(a)), end(a))\n#define\
+    \ sum(...) accumulate(all(__VA_ARGS__), 0LL)\n\ntemplate <class T>\nauto min(const\
+    \ T& a) {\n    return *min_element(all(a));\n}\ntemplate <class T>\nauto max(const\
+    \ T& a) {\n    return *max_element(all(a));\n}\ntemplate <class T>\nbool chmin(T&\
+    \ a, const T& b) {\n    return a > b ? a = b, true : false;\n}\ntemplate <class\
+    \ T>\nbool chmax(T& a, const T& b) {\n    return a < b ? a = b, true : false;\n\
+    }\n#line 2 \"src/Graph/dijkstra.hpp\"\n\n#line 2 \"src/Graph/graph-template.hpp\"\
     \n\n/*\n** @ei1333 \u3055\u3093\u306E\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8(https://github.com/ei1333/library/blob/master/graph/graph-template.hpp)\
     \ \u3088\u308A\n*/\ntemplate <typename T = int>\nstruct Edge {\n    int from,\
     \ to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n    Edge(int from,\
@@ -64,7 +67,7 @@ data:
     \ u = t.second;\n        if(cost > dist[u]) continue;\n        for(auto e : G[u])\
     \ {\n            T v = e.to;\n            if(cost + e.cost < dist[v]) {\n    \
     \            dist[v] = cost + e.cost;\n                que.emplace(dist[v], v);\n\
-    \            }\n        }\n    }\n    return dist;\n}\n#line 5 \"src/test/verify/aoj-grl-1-a.cpp\"\
+    \            }\n        }\n    }\n    return dist;\n}\n#line 5 \"src/test/verify/aoj-grl-1-a.test.cpp\"\
     \n\nint main() {\n    i64 v, e, r;\n    cin >> v >> e >> r;\n    Graph<i64> G(v);\n\
     \    G.read(e, 0, true, true);\n    auto dist = dijkstra(G, r);\n    const i64\
     \ INF = std::numeric_limits<i64>::max();\n    for(auto d : dist) {\n        if(d\
@@ -81,16 +84,16 @@ data:
   - src/template.hpp
   - src/Graph/dijkstra.hpp
   - src/Graph/graph-template.hpp
-  isVerificationFile: false
-  path: src/test/verify/aoj-grl-1-a.cpp
+  isVerificationFile: true
+  path: src/test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2023-03-21 22:14:03+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2023-03-21 22:20:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: src/test/verify/aoj-grl-1-a.cpp
+documentation_of: src/test/verify/aoj-grl-1-a.test.cpp
 layout: document
 redirect_from:
-- /library/src/test/verify/aoj-grl-1-a.cpp
-- /library/src/test/verify/aoj-grl-1-a.cpp.html
-title: src/test/verify/aoj-grl-1-a.cpp
+- /verify/src/test/verify/aoj-grl-1-a.test.cpp
+- /verify/src/test/verify/aoj-grl-1-a.test.cpp.html
+title: src/test/verify/aoj-grl-1-a.test.cpp
 ---

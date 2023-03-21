@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: src/test/verify/aoj-grl-1-a.cpp
-    title: src/test/verify/aoj-grl-1-a.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-1-a.test.cpp
+    title: src/test/verify/aoj-grl-1-a.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/template.hpp\"\n#include <bits/stdc++.h>\n\nusing namespace\
@@ -41,11 +41,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/template.hpp
-  requiredBy:
-  - src/test/verify/aoj-grl-1-a.cpp
+  requiredBy: []
   timestamp: '2023-03-21 22:14:03+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - src/test/verify/aoj-grl-1-a.test.cpp
 documentation_of: src/template.hpp
 layout: document
 redirect_from:

@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
     title: src/Graph/dijkstra.hpp
-  - icon: ':warning:'
-    path: src/test/verify/aoj-grl-1-a.cpp
-    title: src/test/verify/aoj-grl-1-a.cpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-1-a.test.cpp
+    title: src/test/verify/aoj-grl-1-a.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://github.com/ei1333/library/blob/master/graph/graph-template.hpp)
@@ -64,10 +64,10 @@ data:
   path: src/Graph/graph-template.hpp
   requiredBy:
   - src/Graph/dijkstra.hpp
-  - src/test/verify/aoj-grl-1-a.cpp
   timestamp: '2023-03-21 22:14:03+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - src/test/verify/aoj-grl-1-a.test.cpp
 documentation_of: src/Graph/graph-template.hpp
 layout: document
 redirect_from:
