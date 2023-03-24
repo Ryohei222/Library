@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: src/Graph/graph-template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: src/template.hpp
   _extendedRequiredBy: []

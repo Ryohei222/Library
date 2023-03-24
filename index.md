@@ -19,13 +19,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/Graph/dijkstra.hpp
       title: Dijkstra
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/Graph/graph-template.hpp
       title: src/Graph/graph-template.hpp
     - icon: ':warning:'
       path: src/Graph/lca.cpp
       title: src/Graph/lca.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/Graph/scc.hpp
       title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - name: src/Math
@@ -40,7 +40,7 @@ data:
       title: src/String/Rolling-Hash.cpp
   - name: src
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/template.hpp
       title: src/template.hpp
   verificationCategories:
@@ -49,7 +49,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-1-a.test.cpp
       title: src/test/verify/aoj-grl-1-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-3-c.test.cpp
       title: src/test/verify/aoj-grl-3-c.test.cpp
 layout: toppage

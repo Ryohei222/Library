@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/template.hpp\"\n#include <bits/stdc++.h>\n\nusing namespace\
@@ -46,7 +46,7 @@ data:
   path: src/template.hpp
   requiredBy: []
   timestamp: '2023-03-21 22:14:03+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-1-a.test.cpp

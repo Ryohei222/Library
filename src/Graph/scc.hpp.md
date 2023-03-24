@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: src/Graph/graph-template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/scc.md
     document_title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
@@ -49,7 +49,7 @@ data:
     \        used.resize(N, false);\n        for(int i = 0; i < N; i++) {\n      \
     \      if(!used[i]) {\n                dfs(i);\n            }\n        }\n   \
     \     using Pi = pair<int, int>;\n        vector<Pi> sorted;\n        for(int\
-    \ i = 0; i < N; i++) {\n            sorted.emplace_back(order[i], i);\n      \
+    \ i = 0; i < N; i++) {\n            sorted.emplace_back(i, order[i]);\n      \
     \  }\n        sort(sorted.begin(), sorted.end(), greater<Pi>());\n        // \u9006\
     \u8FBA\u3092\u5F35\u3063\u305F\u30B0\u30E9\u30D5\u3067 DFS \u3092\u884C\u3046\n\
     \        rG.resize(N);\n        for(int i = 0; i < N; i++) {\n            for(Edge<T>\
@@ -77,9 +77,9 @@ data:
     \ N = G.size();\n        used.resize(N, false);\n        for(int i = 0; i < N;\
     \ i++) {\n            if(!used[i]) {\n                dfs(i);\n            }\n\
     \        }\n        using Pi = pair<int, int>;\n        vector<Pi> sorted;\n \
-    \       for(int i = 0; i < N; i++) {\n            sorted.emplace_back(order[i],\
-    \ i);\n        }\n        sort(sorted.begin(), sorted.end(), greater<Pi>());\n\
-    \        // \u9006\u8FBA\u3092\u5F35\u3063\u305F\u30B0\u30E9\u30D5\u3067 DFS \u3092\
+    \       for(int i = 0; i < N; i++) {\n            sorted.emplace_back(i, order[i]);\n\
+    \        }\n        sort(sorted.begin(), sorted.end(), greater<Pi>());\n     \
+    \   // \u9006\u8FBA\u3092\u5F35\u3063\u305F\u30B0\u30E9\u30D5\u3067 DFS \u3092\
     \u884C\u3046\n        rG.resize(N);\n        for(int i = 0; i < N; i++) {\n  \
     \          for(Edge<T> e : G[i]) {\n                rG.add_directed_edge(e.to,\
     \ e.from);\n            }\n        }\n        group.resize(N, -1);\n        int\
@@ -99,8 +99,8 @@ data:
   isVerificationFile: false
   path: src/Graph/scc.hpp
   requiredBy: []
-  timestamp: '2023-03-24 12:44:20+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-03-24 13:28:22+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-3-c.test.cpp
 documentation_of: src/Graph/scc.hpp
