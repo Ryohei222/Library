@@ -1,3 +1,3 @@
 ## 計算量
 
-$\Omicron(E \log V)$ 
+$\mathcal{O}(E \log V)$ 

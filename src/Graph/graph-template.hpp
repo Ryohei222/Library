@@ -37,6 +37,10 @@ struct Graph {
         return g.size();
     }
 
+    void resize(int n) {
+        g.resize(n);
+    }
+
     void add_directed_edge(int from, int to, T cost = 1) {
         g[from].emplace_back(from, to, cost, es++);
     }
