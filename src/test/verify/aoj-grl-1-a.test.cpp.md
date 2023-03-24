@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/Graph/graph-template.hpp
     title: src/Graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/template.hpp
     title: src/template.hpp
   _extendedRequiredBy: []
@@ -45,33 +45,33 @@ data:
     \ to; }\n};\n\ntemplate <typename T = int>\nstruct Graph {\n    vector<vector<Edge<T>>>\
     \ g;\n    int es;\n\n    Graph() = default;\n\n    explicit Graph(int n)\n   \
     \   : g(n)\n      , es(0) {\n    }\n\n    size_t size() const {\n        return\
-    \ g.size();\n    }\n\n    void add_directed_edge(int from, int to, T cost = 1)\
-    \ {\n        g[from].emplace_back(from, to, cost, es++);\n    }\n\n    void add_edge(int\
-    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es);\n\
-    \        g[to].emplace_back(to, from, cost, es++);\n    }\n\n    void read(int\
-    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n     \
-    \   for(int i = 0; i < M; i++) {\n            int a, b;\n            cin >> a\
-    \ >> b;\n            a += padding;\n            b += padding;\n            T c\
-    \ = T(1);\n            if(weighted)\n                cin >> c;\n            if(directed)\n\
-    \                add_directed_edge(a, b, c);\n            else\n             \
-    \   add_edge(a, b, c);\n        }\n    }\n\n    inline vector<Edge<T>>& operator[](const\
-    \ int& k) {\n        return g[k];\n    }\n\n    inline const vector<Edge<T>>&\
-    \ operator[](const int& k) const {\n        return g[k];\n    }\n};\n\ntemplate\
-    \ <typename T = int>\nusing Edges = vector<Edge<T>>;\n#line 9 \"src/Graph/dijkstra.hpp\"\
-    \n\ntemplate <typename T>\nvector<T> dijkstra(Graph<T> &G, int s) {\n    const\
-    \ auto INF = numeric_limits<T>::max();\n    using P = pair<T, int>;\n    int n\
-    \ = G.size();\n    vector<T> dist(n, INF);\n    dist[s] = 0;\n    priority_queue<P,\
-    \ vector<P>, greater<P>> que;\n    que.emplace(0, s);\n    while(!que.empty())\
-    \ {\n        P t = que.top();\n        que.pop();\n        T cost = t.first;\n\
-    \        int u = t.second;\n        if(cost > dist[u]) continue;\n        for(auto\
-    \ e : G[u]) {\n            T v = e.to;\n            if(cost + e.cost < dist[v])\
-    \ {\n                dist[v] = cost + e.cost;\n                que.emplace(dist[v],\
-    \ v);\n            }\n        }\n    }\n    return dist;\n}\n#line 5 \"src/test/verify/aoj-grl-1-a.test.cpp\"\
-    \n\nint main() {\n    i64 v, e, r;\n    cin >> v >> e >> r;\n    Graph<i64> G(v);\n\
-    \    G.read(e, 0, true, true);\n    auto dist = dijkstra(G, r);\n    const i64\
-    \ INF = std::numeric_limits<i64>::max();\n    for(auto d : dist) {\n        if(d\
-    \ == INF)\n            cout << \"INF\" << endl;\n        else\n            cout\
-    \ << d << endl;\n    }\n}\n"
+    \ g.size();\n    }\n\n    void resize(int n) {\n        g.resize(n);\n    }\n\n\
+    \    void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
+    \ to, cost, es++);\n    }\n\n    void add_edge(int from, int to, T cost = 1) {\n\
+    \        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
+    \ from, cost, es++);\n    }\n\n    void read(int M, int padding = -1, bool weighted\
+    \ = false, bool directed = false) {\n        for(int i = 0; i < M; i++) {\n  \
+    \          int a, b;\n            cin >> a >> b;\n            a += padding;\n\
+    \            b += padding;\n            T c = T(1);\n            if(weighted)\n\
+    \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
+    \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
+    \  }\n\n    inline vector<Edge<T>>& operator[](const int& k) {\n        return\
+    \ g[k];\n    }\n\n    inline const vector<Edge<T>>& operator[](const int& k) const\
+    \ {\n        return g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges\
+    \ = vector<Edge<T>>;\n#line 9 \"src/Graph/dijkstra.hpp\"\n\ntemplate <typename\
+    \ T>\nvector<T> dijkstra(Graph<T> &G, int s) {\n    const auto INF = numeric_limits<T>::max();\n\
+    \    using P = pair<T, int>;\n    int n = G.size();\n    vector<T> dist(n, INF);\n\
+    \    dist[s] = 0;\n    priority_queue<P, vector<P>, greater<P>> que;\n    que.emplace(0,\
+    \ s);\n    while(!que.empty()) {\n        P t = que.top();\n        que.pop();\n\
+    \        T cost = t.first;\n        int u = t.second;\n        if(cost > dist[u])\
+    \ continue;\n        for(auto e : G[u]) {\n            T v = e.to;\n         \
+    \   if(cost + e.cost < dist[v]) {\n                dist[v] = cost + e.cost;\n\
+    \                que.emplace(dist[v], v);\n            }\n        }\n    }\n \
+    \   return dist;\n}\n#line 5 \"src/test/verify/aoj-grl-1-a.test.cpp\"\n\nint main()\
+    \ {\n    i64 v, e, r;\n    cin >> v >> e >> r;\n    Graph<i64> G(v);\n    G.read(e,\
+    \ 0, true, true);\n    auto dist = dijkstra(G, r);\n    const i64 INF = std::numeric_limits<i64>::max();\n\
+    \    for(auto d : dist) {\n        if(d == INF)\n            cout << \"INF\" <<\
+    \ endl;\n        else\n            cout << d << endl;\n    }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
     \n\n#include \"../../template.hpp\"\n#include \"../../Graph/dijkstra.hpp\"\n\n\
     int main() {\n    i64 v, e, r;\n    cin >> v >> e >> r;\n    Graph<i64> G(v);\n\
@@ -86,7 +86,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2023-03-22 00:40:35+09:00'
+  timestamp: '2023-03-24 12:44:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-1-a.test.cpp
