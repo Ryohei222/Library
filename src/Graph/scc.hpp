@@ -29,7 +29,7 @@ struct SCC {
         using Pi = pair<int, int>;
         vector<Pi> sorted;
         for(int i = 0; i < N; i++) {
-            sorted.emplace_back(order[i], i);
+            sorted.emplace_back(i, order[i]);
         }
         sort(sorted.begin(), sorted.end(), greater<Pi>());
         // 逆辺を張ったグラフで DFS を行う
