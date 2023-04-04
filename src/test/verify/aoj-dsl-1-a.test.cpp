@@ -1,3 +1,4 @@
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A"
 #include "../../template.hpp"
 #include "../../DataStructure/union-find.hpp"
 
