@@ -11,9 +11,9 @@ data:
     - icon: ':warning:'
       path: src/DataStructure/BIT.cpp
       title: src/DataStructure/BIT.cpp
-    - icon: ':warning:'
-      path: src/DataStructure/Union-Find.cpp
-      title: src/DataStructure/Union-Find.cpp
+    - icon: ':x:'
+      path: src/DataStructure/union-find.hpp
+      title: Union-Find
   - name: src/Graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -40,12 +40,15 @@ data:
       title: src/String/Rolling-Hash.cpp
   - name: src
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/template.hpp
       title: src/template.hpp
   verificationCategories:
   - name: src/test/verify
     pages:
+    - icon: ':x:'
+      path: src/test/verify/aoj-dsl-1-a.test.cpp
+      title: src/test/verify/aoj-dsl-1-a.test.cpp
     - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-1-a.test.cpp
       title: src/test/verify/aoj-grl-1-a.test.cpp

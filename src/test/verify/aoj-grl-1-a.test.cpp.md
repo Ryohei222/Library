@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: src/Graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/template.hpp
     title: src/template.hpp
   _extendedRequiredBy: []
@@ -22,8 +22,8 @@ data:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
   bundledCode: "#line 1 \"src/test/verify/aoj-grl-1-a.test.cpp\"\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\n\n#line\
-    \ 1 \"src/template.hpp\"\n#include <bits/stdc++.h>\n\nusing namespace std;\n\n\
-    using i64 = long long;\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
+    \ 2 \"src/template.hpp\"\n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\
+    \nusing i64 = long long;\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
     \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
     \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\n#define _overload3(_1,\
     \ _2, _3, name, ...) name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a,\
@@ -86,7 +86,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2023-03-24 12:44:20+09:00'
+  timestamp: '2023-04-04 12:45:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-1-a.test.cpp
