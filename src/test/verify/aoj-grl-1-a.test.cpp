@@ -4,12 +4,12 @@
 #include "../../Graph/dijkstra.hpp"
 
 int main() {
-    i64 v, e, r;
+    ll v, e, r;
     cin >> v >> e >> r;
-    Graph<i64> G(v);
+    Graph<ll> G(v);
     G.read(e, 0, true, true);
     auto dist = dijkstra(G, r);
-    const i64 INF = std::numeric_limits<i64>::max();
+    const ll INF = std::numeric_limits<ll>::max();
     for(auto d : dist) {
         if(d == INF)
             cout << "INF" << endl;
