@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/Graph/graph-template.hpp
     title: src/Graph/graph-template.hpp
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: src/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
@@ -23,19 +23,31 @@ data:
   bundledCode: "#line 1 \"src/test/verify/aoj-grl-1-a.test.cpp\"\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\n\n#line\
     \ 2 \"src/template.hpp\"\n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\
-    \nusing i64 = long long;\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
-    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
-    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\n#define _overload3(_1,\
-    \ _2, _3, name, ...) name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a,\
-    \ b) for(int i = int(a); i < int(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__,\
-    \ repi, _rep, )(__VA_ARGS__)\n#define all(x) std::begin(x), std::end(x)\n#define\
-    \ uniq(a)   \\\n    sort(all(a)); \\\n    a.erase(unique(all(a)), end(a))\n#define\
-    \ sum(...) accumulate(all(__VA_ARGS__), 0LL)\n\ntemplate <class T>\nauto min(const\
-    \ T& a) {\n    return *min_element(all(a));\n}\ntemplate <class T>\nauto max(const\
-    \ T& a) {\n    return *max_element(all(a));\n}\ntemplate <class T>\nbool chmin(T&\
-    \ a, const T& b) {\n    return a > b ? a = b, true : false;\n}\ntemplate <class\
-    \ T>\nbool chmax(T& a, const T& b) {\n    return a < b ? a = b, true : false;\n\
-    }\n#line 2 \"src/Graph/dijkstra.hpp\"\n\n/**\n * @brief Dijkstra\n * @docs docs/dijkstra.md\n\
+    \nusing ll = long long;\nusing pl = pair<ll, ll>;\n#define vl vector<ll>\n#define\
+    \ vvl vector<vector<ll>>\n#define vvvl vector<vector<vector<ll>>>\n#define vm\
+    \ vector<mint>\n#define vvm vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n\
+    #define vp vector<pl>\n#define vvp vector<vector<pl>>\n#define vs vector<string>\n\
+    #define vvs vector<vector<string>>\n\n#define _overload3(_1, _2, _3, name, ...)\
+    \ name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(int i = int(a);\
+    \ i < int(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
+    #define all(x) std::begin(x), std::end(x)\n#define make_unique(v) v.erase(unique(all(v)),\
+    \ v.end());\n#define sum(...) accumulate(all(__VA_ARGS__), 0LL)\n#define inf (0x1fffffffffffffff)\n\
+    \ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for(auto&\
+    \ x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\n\
+    ostream& operator<<(ostream& os, const vector<T>& v) {\n    for(int i = 0; i <\
+    \ (int)v.size(); i++) {\n        if(i != (int)v.size() - 1)\n            os <<\
+    \ v[i] << \" \";\n        else\n            os << v[i];\n    }\n    return os;\n\
+    }\n\ntemplate <typename T, typename... Args>\nauto make_v(T x, int arg, Args...\
+    \ args) {\n    if constexpr(sizeof...(args) == 0)\n        return vector<T>(arg,\
+    \ x);\n    else\n        return vector(arg, make_v<T>(x, args...));\n}\n\ntemplate\
+    \ <class T>\nauto min(const T& a) {\n    return *min_element(all(a));\n}\n\ntemplate\
+    \ <class T>\nauto max(const T& a) {\n    return *max_element(all(a));\n}\n\ntemplate\
+    \ <class T>\nbool chmin(T& a, const T& b) {\n    return a > b ? a = b, true :\
+    \ false;\n}\n\ntemplate <class T>\nbool chmax(T& a, const T& b) {\n    return\
+    \ a < b ? a = b, true : false;\n}\n\nstruct IoSetup {\n    IoSetup() {\n     \
+    \   cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout << fixed\
+    \ << setprecision(10);\n        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\
+    #line 2 \"src/Graph/dijkstra.hpp\"\n\n/**\n * @brief Dijkstra\n * @docs docs/dijkstra.md\n\
     \ */\n\n#line 2 \"src/Graph/graph-template.hpp\"\n\n/*\n** @ei1333 \u3055\u3093\
     \u306E\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8(https://github.com/ei1333/library/blob/master/graph/graph-template.hpp)\
     \ \u3088\u308A\n*/\ntemplate <typename T = int>\nstruct Edge {\n    int from,\
@@ -86,8 +98,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2023-04-04 12:45:59+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-03 19:51:48+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-1-a.test.cpp
 layout: document

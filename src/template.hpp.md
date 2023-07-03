@@ -9,56 +9,82 @@ data:
   - icon: ':x:'
     path: src/test/verify/aoj-dsl-1-a.test.cpp
     title: src/test/verify/aoj-dsl-1-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-6-a.test.cpp
+    title: src/test/verify/aoj-grl-6-a.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/template.hpp\"\n\n#include <bits/stdc++.h>\n\nusing\
-    \ namespace std;\n\nusing i64 = long long;\n\nstruct IoSetup {\n    IoSetup()\
-    \ {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n       \
-    \ cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n\n#define _overload3(_1, _2, _3, name, ...) name\n#define\
-    \ _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(int i = int(a); i < int(b);\
-    \ ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
-    #define all(x) std::begin(x), std::end(x)\n#define uniq(a)   \\\n    sort(all(a));\
-    \ \\\n    a.erase(unique(all(a)), end(a))\n#define sum(...) accumulate(all(__VA_ARGS__),\
-    \ 0LL)\n\ntemplate <class T>\nauto min(const T& a) {\n    return *min_element(all(a));\n\
-    }\ntemplate <class T>\nauto max(const T& a) {\n    return *max_element(all(a));\n\
-    }\ntemplate <class T>\nbool chmin(T& a, const T& b) {\n    return a > b ? a =\
-    \ b, true : false;\n}\ntemplate <class T>\nbool chmax(T& a, const T& b) {\n  \
-    \  return a < b ? a = b, true : false;\n}\n"
+    \ namespace std;\n\nusing ll = long long;\nusing pl = pair<ll, ll>;\n#define vl\
+    \ vector<ll>\n#define vvl vector<vector<ll>>\n#define vvvl vector<vector<vector<ll>>>\n\
+    #define vm vector<mint>\n#define vvm vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n\
+    #define vp vector<pl>\n#define vvp vector<vector<pl>>\n#define vs vector<string>\n\
+    #define vvs vector<vector<string>>\n\n#define _overload3(_1, _2, _3, name, ...)\
+    \ name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(int i = int(a);\
+    \ i < int(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
+    #define all(x) std::begin(x), std::end(x)\n#define make_unique(v) v.erase(unique(all(v)),\
+    \ v.end());\n#define sum(...) accumulate(all(__VA_ARGS__), 0LL)\n#define inf (0x1fffffffffffffff)\n\
+    \ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for(auto&\
+    \ x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\n\
+    ostream& operator<<(ostream& os, const vector<T>& v) {\n    for(int i = 0; i <\
+    \ (int)v.size(); i++) {\n        if(i != (int)v.size() - 1)\n            os <<\
+    \ v[i] << \" \";\n        else\n            os << v[i];\n    }\n    return os;\n\
+    }\n\ntemplate <typename T, typename... Args>\nauto make_v(T x, int arg, Args...\
+    \ args) {\n    if constexpr(sizeof...(args) == 0)\n        return vector<T>(arg,\
+    \ x);\n    else\n        return vector(arg, make_v<T>(x, args...));\n}\n\ntemplate\
+    \ <class T>\nauto min(const T& a) {\n    return *min_element(all(a));\n}\n\ntemplate\
+    \ <class T>\nauto max(const T& a) {\n    return *max_element(all(a));\n}\n\ntemplate\
+    \ <class T>\nbool chmin(T& a, const T& b) {\n    return a > b ? a = b, true :\
+    \ false;\n}\n\ntemplate <class T>\nbool chmax(T& a, const T& b) {\n    return\
+    \ a < b ? a = b, true : false;\n}\n\nstruct IoSetup {\n    IoSetup() {\n     \
+    \   cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout << fixed\
+    \ << setprecision(10);\n        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n"
   code: "#pragma once\n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing\
-    \ i64 = long long;\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
-    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
-    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\n#define _overload3(_1,\
-    \ _2, _3, name, ...) name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a,\
-    \ b) for(int i = int(a); i < int(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__,\
-    \ repi, _rep, )(__VA_ARGS__)\n#define all(x) std::begin(x), std::end(x)\n#define\
-    \ uniq(a)   \\\n    sort(all(a)); \\\n    a.erase(unique(all(a)), end(a))\n#define\
-    \ sum(...) accumulate(all(__VA_ARGS__), 0LL)\n\ntemplate <class T>\nauto min(const\
-    \ T& a) {\n    return *min_element(all(a));\n}\ntemplate <class T>\nauto max(const\
-    \ T& a) {\n    return *max_element(all(a));\n}\ntemplate <class T>\nbool chmin(T&\
-    \ a, const T& b) {\n    return a > b ? a = b, true : false;\n}\ntemplate <class\
-    \ T>\nbool chmax(T& a, const T& b) {\n    return a < b ? a = b, true : false;\n\
-    }"
+    \ ll = long long;\nusing pl = pair<ll, ll>;\n#define vl vector<ll>\n#define vvl\
+    \ vector<vector<ll>>\n#define vvvl vector<vector<vector<ll>>>\n#define vm vector<mint>\n\
+    #define vvm vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n\
+    #define vp vector<pl>\n#define vvp vector<vector<pl>>\n#define vs vector<string>\n\
+    #define vvs vector<vector<string>>\n\n#define _overload3(_1, _2, _3, name, ...)\
+    \ name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(int i = int(a);\
+    \ i < int(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
+    #define all(x) std::begin(x), std::end(x)\n#define make_unique(v) v.erase(unique(all(v)),\
+    \ v.end());\n#define sum(...) accumulate(all(__VA_ARGS__), 0LL)\n#define inf (0x1fffffffffffffff)\n\
+    \ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for(auto&\
+    \ x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\n\
+    ostream& operator<<(ostream& os, const vector<T>& v) {\n    for(int i = 0; i <\
+    \ (int)v.size(); i++) {\n        if(i != (int)v.size() - 1)\n            os <<\
+    \ v[i] << \" \";\n        else\n            os << v[i];\n    }\n    return os;\n\
+    }\n\ntemplate <typename T, typename... Args>\nauto make_v(T x, int arg, Args...\
+    \ args) {\n    if constexpr(sizeof...(args) == 0)\n        return vector<T>(arg,\
+    \ x);\n    else\n        return vector(arg, make_v<T>(x, args...));\n}\n\ntemplate\
+    \ <class T>\nauto min(const T& a) {\n    return *min_element(all(a));\n}\n\ntemplate\
+    \ <class T>\nauto max(const T& a) {\n    return *max_element(all(a));\n}\n\ntemplate\
+    \ <class T>\nbool chmin(T& a, const T& b) {\n    return a > b ? a = b, true :\
+    \ false;\n}\n\ntemplate <class T>\nbool chmax(T& a, const T& b) {\n    return\
+    \ a < b ? a = b, true : false;\n}\n\nstruct IoSetup {\n    IoSetup() {\n     \
+    \   cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout << fixed\
+    \ << setprecision(10);\n        cerr << fixed << setprecision(10);\n    }\n} iosetup;"
   dependsOn: []
   isVerificationFile: false
   path: src/template.hpp
   requiredBy:
   - src/DataStructure/union-find.hpp
-  timestamp: '2023-04-04 12:45:59+09:00'
+  timestamp: '2023-07-03 19:51:48+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - src/test/verify/aoj-grl-6-a.test.cpp
+  - src/test/verify/aoj-dsl-1-a.test.cpp
   - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-1-a.test.cpp
-  - src/test/verify/aoj-dsl-1-a.test.cpp
 documentation_of: src/template.hpp
 layout: document
 redirect_from:

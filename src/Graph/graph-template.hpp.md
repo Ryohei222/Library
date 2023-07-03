@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
   - icon: ':heavy_check_mark:'
     path: src/Graph/scc.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://github.com/ei1333/library/blob/master/graph/graph-template.hpp)
@@ -71,10 +71,10 @@ data:
   isVerificationFile: false
   path: src/Graph/graph-template.hpp
   requiredBy:
-  - src/Graph/dijkstra.hpp
   - src/Graph/scc.hpp
+  - src/Graph/dijkstra.hpp
   timestamp: '2023-03-24 12:44:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-1-a.test.cpp

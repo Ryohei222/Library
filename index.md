@@ -14,12 +14,17 @@ data:
     - icon: ':x:'
       path: src/DataStructure/union-find.hpp
       title: Union-Find
-  - name: src/Graph
+  - name: src/Flow
     pages:
     - icon: ':heavy_check_mark:'
+      path: src/Flow/ford-fulkerson.hpp
+      title: Ford-Fulkerson
+  - name: src/Graph
+    pages:
+    - icon: ':x:'
       path: src/Graph/dijkstra.hpp
       title: Dijkstra
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/Graph/graph-template.hpp
       title: src/Graph/graph-template.hpp
     - icon: ':warning:'
@@ -49,12 +54,15 @@ data:
     - icon: ':x:'
       path: src/test/verify/aoj-dsl-1-a.test.cpp
       title: src/test/verify/aoj-dsl-1-a.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/test/verify/aoj-grl-1-a.test.cpp
       title: src/test/verify/aoj-grl-1-a.test.cpp
     - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-3-c.test.cpp
       title: src/test/verify/aoj-grl-3-c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: src/test/verify/aoj-grl-6-a.test.cpp
+      title: src/test/verify/aoj-grl-6-a.test.cpp
 layout: toppage
 ---
 [![kobaryo222](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fkobaryo222)](https://atcoder.jp/users/kobaryo222)
