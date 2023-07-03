@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/Flow/ford-fulkerson.hpp
     title: Ford-Fulkerson
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: src/template.hpp
   _extendedRequiredBy: []

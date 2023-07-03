@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: src/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A
+    - https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A
   bundledCode: "#line 1 \"src/test/verify/aoj-dsl-1-a.test.cpp\"\n#define PROBLEM\
-    \ \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A\"\n#line 2 \"src/template.hpp\"\
+    \ \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A\"\n#line 2 \"src/template.hpp\"\
     \n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll = long long;\n\
     using pl = pair<ll, ll>;\n#define vl vector<ll>\n#define vvl vector<vector<ll>>\n\
     #define vvvl vector<vector<vector<ll>>>\n#define vm vector<mint>\n#define vvm\
@@ -59,7 +59,7 @@ data:
     \ < q; ++i) {\n        int com, x, y;\n        cin >> com >> x >> y;\n       \
     \ if(com == 0)\n            uf.unite(x, y);\n        else\n            cout <<\
     \ uf.same(x, y) << endl;\n    }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_A\"\n#include\
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A\"\n#include\
     \ \"../../template.hpp\"\n#include \"../../DataStructure/union-find.hpp\"\n\n\
     int main() {\n    int n, q;\n    cin >> n >> q;\n    UnionFind uf(n);\n    for(int\
     \ i = 0; i < q; ++i) {\n        int com, x, y;\n        cin >> com >> x >> y;\n\
@@ -71,8 +71,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-dsl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2023-07-03 19:51:48+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-07-03 20:02:18+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-dsl-1-a.test.cpp
 layout: document

@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-dsl-1-a.test.cpp
     title: src/test/verify/aoj-dsl-1-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
   - icon: ':heavy_check_mark:'
@@ -18,9 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-6-a.test.cpp
     title: src/test/verify/aoj-grl-6-a.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/template.hpp\"\n\n#include <bits/stdc++.h>\n\nusing\
@@ -79,7 +79,7 @@ data:
   requiredBy:
   - src/DataStructure/union-find.hpp
   timestamp: '2023-07-03 19:51:48+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-6-a.test.cpp
   - src/test/verify/aoj-dsl-1-a.test.cpp

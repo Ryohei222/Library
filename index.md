@@ -11,7 +11,7 @@ data:
     - icon: ':warning:'
       path: src/DataStructure/BIT.cpp
       title: src/DataStructure/BIT.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/DataStructure/union-find.hpp
       title: Union-Find
   - name: src/Flow
@@ -21,10 +21,10 @@ data:
       title: Ford-Fulkerson
   - name: src/Graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/Graph/dijkstra.hpp
       title: Dijkstra
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/Graph/graph-template.hpp
       title: src/Graph/graph-template.hpp
     - icon: ':warning:'
@@ -45,16 +45,16 @@ data:
       title: src/String/Rolling-Hash.cpp
   - name: src
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/template.hpp
       title: src/template.hpp
   verificationCategories:
   - name: src/test/verify
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-dsl-1-a.test.cpp
       title: src/test/verify/aoj-dsl-1-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-1-a.test.cpp
       title: src/test/verify/aoj-grl-1-a.test.cpp
     - icon: ':heavy_check_mark:'

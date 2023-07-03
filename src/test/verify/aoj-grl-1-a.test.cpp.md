@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: src/Graph/graph-template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: src/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
@@ -80,15 +80,15 @@ data:
     \   if(cost + e.cost < dist[v]) {\n                dist[v] = cost + e.cost;\n\
     \                que.emplace(dist[v], v);\n            }\n        }\n    }\n \
     \   return dist;\n}\n#line 5 \"src/test/verify/aoj-grl-1-a.test.cpp\"\n\nint main()\
-    \ {\n    i64 v, e, r;\n    cin >> v >> e >> r;\n    Graph<i64> G(v);\n    G.read(e,\
-    \ 0, true, true);\n    auto dist = dijkstra(G, r);\n    const i64 INF = std::numeric_limits<i64>::max();\n\
+    \ {\n    ll v, e, r;\n    cin >> v >> e >> r;\n    Graph<ll> G(v);\n    G.read(e,\
+    \ 0, true, true);\n    auto dist = dijkstra(G, r);\n    const ll INF = std::numeric_limits<ll>::max();\n\
     \    for(auto d : dist) {\n        if(d == INF)\n            cout << \"INF\" <<\
     \ endl;\n        else\n            cout << d << endl;\n    }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
     \n\n#include \"../../template.hpp\"\n#include \"../../Graph/dijkstra.hpp\"\n\n\
-    int main() {\n    i64 v, e, r;\n    cin >> v >> e >> r;\n    Graph<i64> G(v);\n\
-    \    G.read(e, 0, true, true);\n    auto dist = dijkstra(G, r);\n    const i64\
-    \ INF = std::numeric_limits<i64>::max();\n    for(auto d : dist) {\n        if(d\
+    int main() {\n    ll v, e, r;\n    cin >> v >> e >> r;\n    Graph<ll> G(v);\n\
+    \    G.read(e, 0, true, true);\n    auto dist = dijkstra(G, r);\n    const ll\
+    \ INF = std::numeric_limits<ll>::max();\n    for(auto d : dist) {\n        if(d\
     \ == INF)\n            cout << \"INF\" << endl;\n        else\n            cout\
     \ << d << endl;\n    }\n}"
   dependsOn:
@@ -98,8 +98,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2023-07-03 19:51:48+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-07-03 20:02:18+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-1-a.test.cpp
 layout: document
