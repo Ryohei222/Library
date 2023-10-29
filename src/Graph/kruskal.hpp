@@ -5,7 +5,6 @@
  * @docs docs/kruskal.md
  */
 
-#include "../template.hpp"
 #include "graph-template.hpp"
 #include "../DataStructure/union-find.hpp"
 
