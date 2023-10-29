@@ -1,7 +1,4 @@
 #pragma once
-
-#include "../template.hpp"
-
 /**
  * @brief Union-Find
  * @docs docs/union-find.md
