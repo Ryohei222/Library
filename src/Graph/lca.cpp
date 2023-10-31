@@ -1,6 +1,5 @@
 #include "graph-template.cpp"
 
-//
 template<typename T>
 struct LCA{  
     // N: 頂点数, K: ダブリングで 2^0, 2^1, 2^2 , ... 個先の頂点を持つが、2 の何乗先の頂点まで持つかを表す
