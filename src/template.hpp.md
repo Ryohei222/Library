@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: src/DataStructure/union-find.hpp
-    title: Union-Find
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-dsl-1-a.test.cpp
@@ -12,6 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-2-a.test.cpp
+    title: src/test/verify/aoj-grl-2-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-2-a2.test.cpp
+    title: src/test/verify/aoj-grl-2-a2.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
@@ -76,15 +79,16 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/template.hpp
-  requiredBy:
-  - src/DataStructure/union-find.hpp
+  requiredBy: []
   timestamp: '2023-07-03 19:51:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - src/test/verify/aoj-grl-6-a.test.cpp
-  - src/test/verify/aoj-dsl-1-a.test.cpp
-  - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-1-a.test.cpp
+  - src/test/verify/aoj-grl-3-c.test.cpp
+  - src/test/verify/aoj-grl-2-a.test.cpp
+  - src/test/verify/aoj-dsl-1-a.test.cpp
+  - src/test/verify/aoj-grl-2-a2.test.cpp
+  - src/test/verify/aoj-grl-6-a.test.cpp
 documentation_of: src/template.hpp
 layout: document
 redirect_from:

@@ -27,9 +27,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/Graph/graph-template.hpp
       title: src/Graph/graph-template.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/Graph/kruskal.hpp
+      title: Kruskal
     - icon: ':warning:'
       path: src/Graph/lca.cpp
       title: src/Graph/lca.cpp
+    - icon: ':heavy_check_mark:'
+      path: src/Graph/prim.hpp
+      title: Prim
     - icon: ':heavy_check_mark:'
       path: src/Graph/scc.hpp
       title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
@@ -43,6 +49,11 @@ data:
     - icon: ':warning:'
       path: src/String/Rolling-Hash.cpp
       title: src/String/Rolling-Hash.cpp
+  - name: src/Tree
+    pages:
+    - icon: ':warning:'
+      path: src/Tree/euler-tour.hpp
+      title: src/Tree/euler-tour.hpp
   - name: src
     pages:
     - icon: ':heavy_check_mark:'
@@ -57,6 +68,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-1-a.test.cpp
       title: src/test/verify/aoj-grl-1-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: src/test/verify/aoj-grl-2-a.test.cpp
+      title: src/test/verify/aoj-grl-2-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: src/test/verify/aoj-grl-2-a2.test.cpp
+      title: src/test/verify/aoj-grl-2-a2.test.cpp
     - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-3-c.test.cpp
       title: src/test/verify/aoj-grl-3-c.test.cpp

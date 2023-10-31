@@ -6,12 +6,24 @@ data:
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
   - icon: ':heavy_check_mark:'
+    path: src/Graph/kruskal.hpp
+    title: Kruskal
+  - icon: ':heavy_check_mark:'
+    path: src/Graph/prim.hpp
+    title: Prim
+  - icon: ':heavy_check_mark:'
     path: src/Graph/scc.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-2-a.test.cpp
+    title: src/test/verify/aoj-grl-2-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-2-a2.test.cpp
+    title: src/test/verify/aoj-grl-2-a2.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
@@ -71,13 +83,17 @@ data:
   isVerificationFile: false
   path: src/Graph/graph-template.hpp
   requiredBy:
-  - src/Graph/scc.hpp
+  - src/Graph/kruskal.hpp
   - src/Graph/dijkstra.hpp
+  - src/Graph/prim.hpp
+  - src/Graph/scc.hpp
   timestamp: '2023-03-24 12:44:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-1-a.test.cpp
+  - src/test/verify/aoj-grl-3-c.test.cpp
+  - src/test/verify/aoj-grl-2-a.test.cpp
+  - src/test/verify/aoj-grl-2-a2.test.cpp
 documentation_of: src/Graph/graph-template.hpp
 layout: document
 redirect_from:
