@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/DataStructure/fenwick-tree.hpp
-    title: src/DataStructure/fenwick-tree.hpp
+    title: Fenwick tree
   - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
@@ -45,13 +45,14 @@ data:
     \ a < b ? a = b, true : false;\n}\n\nstruct IoSetup {\n    IoSetup() {\n     \
     \   cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout << fixed\
     \ << setprecision(10);\n        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\
-    #line 2 \"src/DataStructure/fenwick-tree.hpp\"\n\ntemplate<typename T = long long\
-    \ int>\nstruct FenwickTree{\n    int n;\n    vector<T> bit;\n    FenwickTree(int\
-    \ n) : n(n) {\n        bit.assign(n + 1, T(0));\n    };\n    FenwickTree(const\
-    \ vector<T> &a){\n        n = (int)a.size();\n        bit.assign(n + 1, T(0));\n\
-    \        for(int i = 0; i < n; ++i){\n            apply(i, a[i]);\n        }\n\
-    \    };\n    void apply(int idx, T x){\n        ++idx;\n        while(idx <= n){\n\
-    \            bit[idx] += x;\n            idx += idx & -idx;\n        }\n    };\n\
+    #line 2 \"src/DataStructure/fenwick-tree.hpp\"\n\n/**\n * @brief Fenwick tree\n\
+    \ * @docs docs/fenwick-tree.md\n */\n\ntemplate<typename T = long long int>\n\
+    struct FenwickTree{\n    int n;\n    vector<T> bit;\n    FenwickTree(int n) :\
+    \ n(n) {\n        bit.assign(n + 1, T(0));\n    };\n    FenwickTree(const vector<T>\
+    \ &a){\n        n = (int)a.size();\n        bit.assign(n + 1, T(0));\n       \
+    \ for(int i = 0; i < n; ++i){\n            apply(i, a[i]);\n        }\n    };\n\
+    \    void apply(int idx, T x){\n        ++idx;\n        while(idx <= n){\n   \
+    \         bit[idx] += x;\n            idx += idx & -idx;\n        }\n    };\n\
     \    T prod(int r){\n        T ret = T(0);\n        ++r;\n        while(r > 0){\n\
     \            ret += bit[r];\n            r -= r & -r;\n        }\n        return\
     \ ret;\n    };\n    T prod(int l, int r){\n        if(l == 0) return prod(r -\
@@ -72,7 +73,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-dsl-2-b.test.cpp
   requiredBy: []
-  timestamp: '2023-11-02 05:27:15+09:00'
+  timestamp: '2023-11-02 05:34:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-dsl-2-b.test.cpp

@@ -10,7 +10,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/fenwick-tree.hpp
-      title: src/DataStructure/fenwick-tree.hpp
+      title: Fenwick tree
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/union-find.hpp
       title: Union-Find
