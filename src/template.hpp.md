@@ -1,13 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: src/Graph/lca.hpp
-    title: src/Graph/lca.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/String/rolling-hash.hpp
-    title: src/String/rolling-hash.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-alds-1-14-b.test.cpp
@@ -40,8 +34,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/template.md
+    document_title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
     links: []
-  bundledCode: "#line 2 \"src/template.hpp\"\n\n#include <bits/stdc++.h>\n\nusing\
+  bundledCode: "#line 2 \"src/template.hpp\"\n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\
+    \u30FC\u30C8\n * @docs docs/template.md\n */\n\n#include <bits/stdc++.h>\n\nusing\
     \ namespace std;\n\nusing ll = long long;\nusing pl = pair<ll, ll>;\n#define vl\
     \ vector<ll>\n#define vvl vector<vector<ll>>\n#define vvvl vector<vector<vector<ll>>>\n\
     #define vm vector<mint>\n#define vvm vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n\
@@ -66,10 +63,11 @@ data:
     \ a < b ? a = b, true : false;\n}\n\nstruct IoSetup {\n    IoSetup() {\n     \
     \   cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout << fixed\
     \ << setprecision(10);\n        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n"
-  code: "#pragma once\n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing\
-    \ ll = long long;\nusing pl = pair<ll, ll>;\n#define vl vector<ll>\n#define vvl\
-    \ vector<vector<ll>>\n#define vvvl vector<vector<vector<ll>>>\n#define vm vector<mint>\n\
-    #define vvm vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n\
+  code: "#pragma once\n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n * @docs\
+    \ docs/template.md\n */\n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\n\
+    using ll = long long;\nusing pl = pair<ll, ll>;\n#define vl vector<ll>\n#define\
+    \ vvl vector<vector<ll>>\n#define vvvl vector<vector<vector<ll>>>\n#define vm\
+    \ vector<mint>\n#define vvm vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n\
     #define vp vector<pl>\n#define vvp vector<vector<pl>>\n#define vs vector<string>\n\
     #define vvs vector<vector<string>>\n\n#define _overload3(_1, _2, _3, name, ...)\
     \ name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(int i = int(a);\
@@ -94,10 +92,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/template.hpp
-  requiredBy:
-  - src/Graph/lca.hpp
-  - src/String/rolling-hash.hpp
-  timestamp: '2023-07-03 19:51:48+09:00'
+  requiredBy: []
+  timestamp: '2023-11-02 05:27:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-alds-1-14-b.test.cpp
@@ -114,5 +110,5 @@ layout: document
 redirect_from:
 - /library/src/template.hpp
 - /library/src/template.hpp.html
-title: src/template.hpp
+title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
 ---

@@ -3,10 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/Math/modint.hpp
-    title: src/Math/modint.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/template.hpp
-    title: src/template.hpp
+    title: Graph Template
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -16,86 +13,65 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/rolling-hash.md
+    document_title: Rolling Hash
     links:
     - https://ei1333.github.io/library/string/rolling-hash.hpp
-  bundledCode: "#line 2 \"src/String/rolling-hash.hpp\"\n\n#line 2 \"src/template.hpp\"\
-    \n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll = long long;\n\
-    using pl = pair<ll, ll>;\n#define vl vector<ll>\n#define vvl vector<vector<ll>>\n\
-    #define vvvl vector<vector<vector<ll>>>\n#define vm vector<mint>\n#define vvm\
-    \ vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n#define vp\
-    \ vector<pl>\n#define vvp vector<vector<pl>>\n#define vs vector<string>\n#define\
-    \ vvs vector<vector<string>>\n\n#define _overload3(_1, _2, _3, name, ...) name\n\
-    #define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(int i = int(a); i\
-    \ < int(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
-    #define all(x) std::begin(x), std::end(x)\n#define make_unique(v) v.erase(unique(all(v)),\
-    \ v.end());\n#define sum(...) accumulate(all(__VA_ARGS__), 0LL)\n#define inf (0x1fffffffffffffff)\n\
-    \ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for(auto&\
-    \ x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\n\
-    ostream& operator<<(ostream& os, const vector<T>& v) {\n    for(int i = 0; i <\
-    \ (int)v.size(); i++) {\n        if(i != (int)v.size() - 1)\n            os <<\
-    \ v[i] << \" \";\n        else\n            os << v[i];\n    }\n    return os;\n\
-    }\n\ntemplate <typename T, typename... Args>\nauto make_v(T x, int arg, Args...\
-    \ args) {\n    if constexpr(sizeof...(args) == 0)\n        return vector<T>(arg,\
-    \ x);\n    else\n        return vector(arg, make_v<T>(x, args...));\n}\n\ntemplate\
-    \ <class T>\nauto min(const T& a) {\n    return *min_element(all(a));\n}\n\ntemplate\
-    \ <class T>\nauto max(const T& a) {\n    return *max_element(all(a));\n}\n\ntemplate\
-    \ <class T>\nbool chmin(T& a, const T& b) {\n    return a > b ? a = b, true :\
-    \ false;\n}\n\ntemplate <class T>\nbool chmax(T& a, const T& b) {\n    return\
-    \ a < b ? a = b, true : false;\n}\n\nstruct IoSetup {\n    IoSetup() {\n     \
-    \   cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout << fixed\
-    \ << setprecision(10);\n        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\
-    #line 2 \"src/Math/modint.hpp\"\n\n// \u51FA\u5178: https://nyaannyaan.github.io/library/modint/modint.hpp\n\
-    \ntemplate <uint32_t mod>\nstruct LazyMontgomeryModInt {\n    using mint = LazyMontgomeryModInt;\n\
-    \    using i32 = int32_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\
-    \n    static constexpr u32 get_r() {\n        u32 ret = mod;\n        for (i32\
-    \ i = 0; i < 4; ++i) ret *= 2 - mod * ret;\n        return ret;\n    }\n\n   \
-    \ static constexpr u32 r = get_r();\n    static constexpr u32 n2 = -u64(mod) %\
-    \ mod;\n    static_assert(mod < (1 << 30), \"invalid, mod >= 2 ^ 30\");\n    static_assert((mod\
-    \ & 1) == 1, \"invalid, mod % 2 == 0\");\n    static_assert(r * mod == 1, \"this\
-    \ code has bugs.\");\n\n    u32 a;\n\n    constexpr LazyMontgomeryModInt() : a(0)\
-    \ {}\n    constexpr LazyMontgomeryModInt(const int64_t &b)\n            : a(reduce(u64(b\
-    \ % mod + mod) * n2)){};\n\n    static constexpr u32 reduce(const u64 &b) {\n\
-    \        return (b + u64(u32(b) * u32(-r)) * mod) >> 32;\n    }\n\n    constexpr\
-    \ mint &operator+=(const mint &b) {\n        if (i32(a += b.a - 2 * mod) < 0)\
-    \ a += 2 * mod;\n        return *this;\n    }\n\n    constexpr mint &operator-=(const\
-    \ mint &b) {\n        if (i32(a -= b.a) < 0) a += 2 * mod;\n        return *this;\n\
-    \    }\n\n    constexpr mint &operator*=(const mint &b) {\n        a = reduce(u64(a)\
-    \ * b.a);\n        return *this;\n    }\n\n    constexpr mint &operator/=(const\
-    \ mint &b) {\n        *this *= b.inverse();\n        return *this;\n    }\n\n\
-    \    constexpr mint operator+(const mint &b) const { return mint(*this) += b;\
-    \ }\n    constexpr mint operator-(const mint &b) const { return mint(*this) -=\
-    \ b; }\n    constexpr mint operator*(const mint &b) const { return mint(*this)\
-    \ *= b; }\n    constexpr mint operator/(const mint &b) const { return mint(*this)\
-    \ /= b; }\n    constexpr bool operator==(const mint &b) const {\n        return\
-    \ (a >= mod ? a - mod : a) == (b.a >= mod ? b.a - mod : b.a);\n    }\n    constexpr\
-    \ bool operator!=(const mint &b) const {\n        return (a >= mod ? a - mod :\
-    \ a) != (b.a >= mod ? b.a - mod : b.a);\n    }\n    constexpr mint operator-()\
-    \ const { return mint() - mint(*this); }\n    constexpr mint operator+() const\
-    \ { return mint(*this); }\n\n    constexpr mint pow(u64 n) const {\n        mint\
-    \ ret(1), mul(*this);\n        while (n > 0) {\n            if (n & 1) ret *=\
-    \ mul;\n            mul *= mul;\n            n >>= 1;\n        }\n        return\
-    \ ret;\n    }\n\n    constexpr mint inverse() const {\n        int x = get(),\
-    \ y = mod, u = 1, v = 0, t = 0, tmp = 0;\n        while (y > 0) {\n          \
-    \  t = x / y;\n            x -= t * y, u -= t * v;\n            tmp = x, x = y,\
-    \ y = tmp;\n            tmp = u, u = v, v = tmp;\n        }\n        return mint{u};\n\
-    \    }\n\n    friend ostream &operator<<(ostream &os, const mint &b) {\n     \
-    \   return os << b.get();\n    }\n\n    friend istream &operator>>(istream &is,\
-    \ mint &b) {\n        int64_t t;\n        is >> t;\n        b = LazyMontgomeryModInt<mod>(t);\n\
-    \        return (is);\n    }\n\n    constexpr u32 get() const {\n        u32 ret\
-    \ = reduce(a);\n        return ret >= mod ? ret - mod : ret;\n    }\n\n    static\
-    \ constexpr u32 get_mod() { return mod; }\n};\n#line 5 \"src/String/rolling-hash.hpp\"\
-    \n\nconst uint32_t rhmod1 = 1'000'000'007ll, rhmod2 = 1'000'000'009ll;\nusing\
-    \ rhmint1 = LazyMontgomeryModInt<rhmod1>;\nusing rhmint2 = LazyMontgomeryModInt<rhmod2>;\n\
-    \nstruct Hash{\n    rhmint1 hash1;\n    rhmint2 hash2;\n    int length;\n    Hash(rhmint1\
-    \ h1, rhmint2 h2, int length): hash1(h1), hash2(h2), length(length) {}\n    constexpr\
-    \ bool operator==(const Hash &b){\n        return hash1 == b.hash1 && hash2 ==\
-    \ b.hash2;\n    }\n    constexpr bool operator!=(const Hash &b){\n        return\
-    \ hash1 != b.hash1 || hash2 != b.hash2;\n    }\n};\n\nstruct RollingHash {\n \
-    \   static rhmint1 base1;\n    static rhmint2 base2;\n    vector<rhmint1> hash1,\
-    \ pow1;\n    vector<rhmint2> hash2, pow2;\n    string s;\n    int n;\n    RollingHash(string\
-    \ _s) {\n        s = _s;\n        if(base1 == 0) generate_base();\n        build();\n\
-    \    };\n    void build(){\n        n = (int)s.size();\n        hash1.resize(n\
-    \ + 1);\n        hash2.resize(n + 1);\n        pow1.resize(n + 1);\n        pow2.resize(n\
+  bundledCode: "#line 2 \"src/String/rolling-hash.hpp\"\n\n/**\n * @brief Rolling\
+    \ Hash\n * @docs docs/rolling-hash.md\n */\n\n#line 2 \"src/Math/modint.hpp\"\n\
+    \n/**\n * @brief Graph Template\n * @docs docs/graph-template.md\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
+    \ */\n\ntemplate <uint32_t mod>\nstruct LazyMontgomeryModInt {\n    using mint\
+    \ = LazyMontgomeryModInt;\n    using i32 = int32_t;\n    using u32 = uint32_t;\n\
+    \    using u64 = uint64_t;\n\n    static constexpr u32 get_r() {\n        u32\
+    \ ret = mod;\n        for (i32 i = 0; i < 4; ++i) ret *= 2 - mod * ret;\n    \
+    \    return ret;\n    }\n\n    static constexpr u32 r = get_r();\n    static constexpr\
+    \ u32 n2 = -u64(mod) % mod;\n    static_assert(mod < (1 << 30), \"invalid, mod\
+    \ >= 2 ^ 30\");\n    static_assert((mod & 1) == 1, \"invalid, mod % 2 == 0\");\n\
+    \    static_assert(r * mod == 1, \"this code has bugs.\");\n\n    u32 a;\n\n \
+    \   constexpr LazyMontgomeryModInt() : a(0) {}\n    constexpr LazyMontgomeryModInt(const\
+    \ int64_t &b)\n            : a(reduce(u64(b % mod + mod) * n2)){};\n\n    static\
+    \ constexpr u32 reduce(const u64 &b) {\n        return (b + u64(u32(b) * u32(-r))\
+    \ * mod) >> 32;\n    }\n\n    constexpr mint &operator+=(const mint &b) {\n  \
+    \      if (i32(a += b.a - 2 * mod) < 0) a += 2 * mod;\n        return *this;\n\
+    \    }\n\n    constexpr mint &operator-=(const mint &b) {\n        if (i32(a -=\
+    \ b.a) < 0) a += 2 * mod;\n        return *this;\n    }\n\n    constexpr mint\
+    \ &operator*=(const mint &b) {\n        a = reduce(u64(a) * b.a);\n        return\
+    \ *this;\n    }\n\n    constexpr mint &operator/=(const mint &b) {\n        *this\
+    \ *= b.inverse();\n        return *this;\n    }\n\n    constexpr mint operator+(const\
+    \ mint &b) const { return mint(*this) += b; }\n    constexpr mint operator-(const\
+    \ mint &b) const { return mint(*this) -= b; }\n    constexpr mint operator*(const\
+    \ mint &b) const { return mint(*this) *= b; }\n    constexpr mint operator/(const\
+    \ mint &b) const { return mint(*this) /= b; }\n    constexpr bool operator==(const\
+    \ mint &b) const {\n        return (a >= mod ? a - mod : a) == (b.a >= mod ? b.a\
+    \ - mod : b.a);\n    }\n    constexpr bool operator!=(const mint &b) const {\n\
+    \        return (a >= mod ? a - mod : a) != (b.a >= mod ? b.a - mod : b.a);\n\
+    \    }\n    constexpr mint operator-() const { return mint() - mint(*this); }\n\
+    \    constexpr mint operator+() const { return mint(*this); }\n\n    constexpr\
+    \ mint pow(u64 n) const {\n        mint ret(1), mul(*this);\n        while (n\
+    \ > 0) {\n            if (n & 1) ret *= mul;\n            mul *= mul;\n      \
+    \      n >>= 1;\n        }\n        return ret;\n    }\n\n    constexpr mint inverse()\
+    \ const {\n        int x = get(), y = mod, u = 1, v = 0, t = 0, tmp = 0;\n   \
+    \     while (y > 0) {\n            t = x / y;\n            x -= t * y, u -= t\
+    \ * v;\n            tmp = x, x = y, y = tmp;\n            tmp = u, u = v, v =\
+    \ tmp;\n        }\n        return mint{u};\n    }\n\n    friend ostream &operator<<(ostream\
+    \ &os, const mint &b) {\n        return os << b.get();\n    }\n\n    friend istream\
+    \ &operator>>(istream &is, mint &b) {\n        int64_t t;\n        is >> t;\n\
+    \        b = LazyMontgomeryModInt<mod>(t);\n        return (is);\n    }\n\n  \
+    \  constexpr u32 get() const {\n        u32 ret = reduce(a);\n        return ret\
+    \ >= mod ? ret - mod : ret;\n    }\n\n    static constexpr u32 get_mod() { return\
+    \ mod; }\n};\n#line 9 \"src/String/rolling-hash.hpp\"\n\nconst uint32_t rhmod1\
+    \ = 1'000'000'007ll, rhmod2 = 1'000'000'009ll;\nusing rhmint1 = LazyMontgomeryModInt<rhmod1>;\n\
+    using rhmint2 = LazyMontgomeryModInt<rhmod2>;\n\nstruct Hash{\n    rhmint1 hash1;\n\
+    \    rhmint2 hash2;\n    int length;\n    Hash(rhmint1 h1, rhmint2 h2, int length):\
+    \ hash1(h1), hash2(h2), length(length) {}\n    constexpr bool operator==(const\
+    \ Hash &b){\n        return hash1 == b.hash1 && hash2 == b.hash2;\n    }\n   \
+    \ constexpr bool operator!=(const Hash &b){\n        return hash1 != b.hash1 ||\
+    \ hash2 != b.hash2;\n    }\n};\n\nstruct RollingHash {\n    static rhmint1 base1;\n\
+    \    static rhmint2 base2;\n    vector<rhmint1> hash1, pow1;\n    vector<rhmint2>\
+    \ hash2, pow2;\n    string s;\n    int n;\n    RollingHash(string _s) {\n    \
+    \    s = _s;\n        if(base1 == 0) generate_base();\n        build();\n    };\n\
+    \    void build(){\n        n = (int)s.size();\n        hash1.resize(n + 1);\n\
+    \        hash2.resize(n + 1);\n        pow1.resize(n + 1);\n        pow2.resize(n\
     \ + 1);\n        hash1[0] = rhmint1(s[0]);\n        hash2[0] = rhmint2(s[0]);\n\
     \        pow1[0] = 1;\n        pow2[0] = 1;\n        for(int i = 0; i < n; ++i)\
     \ {\n            hash1[i + 1] = hash1[i] * base1 + rhmint1(s[i]);\n          \
@@ -113,19 +89,20 @@ data:
     \ + h1b;\n        rhmint2 h2 = h2a * pow2[b.length] + h2b;\n        return Hash(h1,\
     \ h2, a.length + b.length);\n    }\n};\n\nrhmint1 RollingHash::base1 = 0;\nrhmint2\
     \ RollingHash::base2 = 0;\n"
-  code: "#pragma once\n\n#include \"../template.hpp\"\n#include \"../Math/modint.hpp\"\
-    \n\nconst uint32_t rhmod1 = 1'000'000'007ll, rhmod2 = 1'000'000'009ll;\nusing\
-    \ rhmint1 = LazyMontgomeryModInt<rhmod1>;\nusing rhmint2 = LazyMontgomeryModInt<rhmod2>;\n\
-    \nstruct Hash{\n    rhmint1 hash1;\n    rhmint2 hash2;\n    int length;\n    Hash(rhmint1\
-    \ h1, rhmint2 h2, int length): hash1(h1), hash2(h2), length(length) {}\n    constexpr\
-    \ bool operator==(const Hash &b){\n        return hash1 == b.hash1 && hash2 ==\
-    \ b.hash2;\n    }\n    constexpr bool operator!=(const Hash &b){\n        return\
-    \ hash1 != b.hash1 || hash2 != b.hash2;\n    }\n};\n\nstruct RollingHash {\n \
-    \   static rhmint1 base1;\n    static rhmint2 base2;\n    vector<rhmint1> hash1,\
-    \ pow1;\n    vector<rhmint2> hash2, pow2;\n    string s;\n    int n;\n    RollingHash(string\
-    \ _s) {\n        s = _s;\n        if(base1 == 0) generate_base();\n        build();\n\
-    \    };\n    void build(){\n        n = (int)s.size();\n        hash1.resize(n\
-    \ + 1);\n        hash2.resize(n + 1);\n        pow1.resize(n + 1);\n        pow2.resize(n\
+  code: "#pragma once\n\n/**\n * @brief Rolling Hash\n * @docs docs/rolling-hash.md\n\
+    \ */\n\n#include \"../Math/modint.hpp\"\n\nconst uint32_t rhmod1 = 1'000'000'007ll,\
+    \ rhmod2 = 1'000'000'009ll;\nusing rhmint1 = LazyMontgomeryModInt<rhmod1>;\nusing\
+    \ rhmint2 = LazyMontgomeryModInt<rhmod2>;\n\nstruct Hash{\n    rhmint1 hash1;\n\
+    \    rhmint2 hash2;\n    int length;\n    Hash(rhmint1 h1, rhmint2 h2, int length):\
+    \ hash1(h1), hash2(h2), length(length) {}\n    constexpr bool operator==(const\
+    \ Hash &b){\n        return hash1 == b.hash1 && hash2 == b.hash2;\n    }\n   \
+    \ constexpr bool operator!=(const Hash &b){\n        return hash1 != b.hash1 ||\
+    \ hash2 != b.hash2;\n    }\n};\n\nstruct RollingHash {\n    static rhmint1 base1;\n\
+    \    static rhmint2 base2;\n    vector<rhmint1> hash1, pow1;\n    vector<rhmint2>\
+    \ hash2, pow2;\n    string s;\n    int n;\n    RollingHash(string _s) {\n    \
+    \    s = _s;\n        if(base1 == 0) generate_base();\n        build();\n    };\n\
+    \    void build(){\n        n = (int)s.size();\n        hash1.resize(n + 1);\n\
+    \        hash2.resize(n + 1);\n        pow1.resize(n + 1);\n        pow2.resize(n\
     \ + 1);\n        hash1[0] = rhmint1(s[0]);\n        hash2[0] = rhmint2(s[0]);\n\
     \        pow1[0] = 1;\n        pow2[0] = 1;\n        for(int i = 0; i < n; ++i)\
     \ {\n            hash1[i + 1] = hash1[i] * base1 + rhmint1(s[i]);\n          \
@@ -142,14 +119,13 @@ data:
     \     rhmint2 h2a = a.hash2, h2b = b.hash2;\n        rhmint1 h1 = h1a * pow1[b.length]\
     \ + h1b;\n        rhmint2 h2 = h2a * pow2[b.length] + h2b;\n        return Hash(h1,\
     \ h2, a.length + b.length);\n    }\n};\n\nrhmint1 RollingHash::base1 = 0;\nrhmint2\
-    \ RollingHash::base2 = 0;\n"
+    \ RollingHash::base2 = 0;"
   dependsOn:
-  - src/template.hpp
   - src/Math/modint.hpp
   isVerificationFile: false
   path: src/String/rolling-hash.hpp
   requiredBy: []
-  timestamp: '2023-11-02 03:59:01+09:00'
+  timestamp: '2023-11-02 05:27:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-alds-1-14-b.test.cpp
@@ -158,5 +134,5 @@ layout: document
 redirect_from:
 - /library/src/String/rolling-hash.hpp
 - /library/src/String/rolling-hash.hpp.html
-title: src/String/rolling-hash.hpp
+title: Rolling Hash
 ---

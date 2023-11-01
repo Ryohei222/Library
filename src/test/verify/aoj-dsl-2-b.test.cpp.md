@@ -6,7 +6,7 @@ data:
     title: src/DataStructure/fenwick-tree.hpp
   - icon: ':heavy_check_mark:'
     path: src/template.hpp
-    title: src/template.hpp
+    title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -19,7 +19,8 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B
   bundledCode: "#line 1 \"src/test/verify/aoj-dsl-2-b.test.cpp\"\n#define PROBLEM\
     \ \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B\"\n#line 2 \"src/template.hpp\"\
-    \n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll = long long;\n\
+    \n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n * @docs docs/template.md\n\
+    \ */\n\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll = long long;\n\
     using pl = pair<ll, ll>;\n#define vl vector<ll>\n#define vvl vector<vector<ll>>\n\
     #define vvvl vector<vector<vector<ll>>>\n#define vm vector<mint>\n#define vvm\
     \ vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n#define vp\
@@ -71,7 +72,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-dsl-2-b.test.cpp
   requiredBy: []
-  timestamp: '2023-11-02 05:14:37+09:00'
+  timestamp: '2023-11-02 05:27:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-dsl-2-b.test.cpp

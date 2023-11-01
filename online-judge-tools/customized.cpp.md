@@ -7,8 +7,11 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
+    _deprecated_at_docs: docs/oj-template.md
+    document_title: oj-template(old)
     links: []
-  bundledCode: "#line 1 \"online-judge-tools/customized.cpp\"\n<%!\n    import onlinejudge_template.generator.cplusplus\
+  bundledCode: "#line 1 \"online-judge-tools/customized.cpp\"\n/**\n * @brief oj-template(old)\n\
+    \ * @docs docs/oj-template.md\n */\n\n<%!\n    import onlinejudge_template.generator.cplusplus\
     \ as cplusplus\n    import onlinejudge_template.generator.about as about\n%>\\\
     \n<%\n    data['config']['indent'] = '\\t'\n    data['config']['scanner'] = 'cin'\n\
     \    data['config']['printer'] = 'cout'\n%>\\\n\n#include <bits/stdc++.h>\nusing\
@@ -26,8 +29,9 @@ data:
     \ (${about.url})\n\n${cplusplus.declare_constants(data)}\n\nint main(){\n    cin.tie(nullptr);\n\
     \    ios::sync_with_stdio(false);\n    ${cplusplus.declare_constants(data)}\n\
     \    ${cplusplus.read_input(data)}\n}\n"
-  code: "<%!\n    import onlinejudge_template.generator.cplusplus as cplusplus\n \
-    \   import onlinejudge_template.generator.about as about\n%>\\\n<%\n    data['config']['indent']\
+  code: "/**\n * @brief oj-template(old)\n * @docs docs/oj-template.md\n */\n\n<%!\n\
+    \    import onlinejudge_template.generator.cplusplus as cplusplus\n    import\
+    \ onlinejudge_template.generator.about as about\n%>\\\n<%\n    data['config']['indent']\
     \ = '\\t'\n    data['config']['scanner'] = 'cin'\n    data['config']['printer']\
     \ = 'cout'\n%>\\\n\n#include <bits/stdc++.h>\nusing namespace std;\n\n/*\n#include\
     \ <atcoder/all>\nusing namespace atcoder;\n*/\n\n#define _overload3(_1, _2, _3,\
@@ -47,7 +51,7 @@ data:
   isVerificationFile: false
   path: online-judge-tools/customized.cpp
   requiredBy: []
-  timestamp: '2022-09-02 20:16:13+09:00'
+  timestamp: '2023-11-02 05:27:15+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: online-judge-tools/customized.cpp
@@ -55,5 +59,5 @@ layout: document
 redirect_from:
 - /library/online-judge-tools/customized.cpp
 - /library/online-judge-tools/customized.cpp.html
-title: online-judge-tools/customized.cpp
+title: oj-template(old)
 ---

@@ -3,10 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
-    title: src/Graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/template.hpp
-    title: src/template.hpp
+    title: Graph Template
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -16,71 +13,49 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/lca-doubling.md
+    document_title: "LCA(\u30C0\u30D6\u30EA\u30F3\u30B0)"
     links: []
-  bundledCode: "#line 2 \"src/Graph/lca.hpp\"\n\n#line 2 \"src/template.hpp\"\n\n\
-    #include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll = long long;\nusing\
-    \ pl = pair<ll, ll>;\n#define vl vector<ll>\n#define vvl vector<vector<ll>>\n\
-    #define vvvl vector<vector<vector<ll>>>\n#define vm vector<mint>\n#define vvm\
-    \ vector<vector<mint>>\n#define vvvm vector<vector<vector<mint>>>\n#define vp\
-    \ vector<pl>\n#define vvp vector<vector<pl>>\n#define vs vector<string>\n#define\
-    \ vvs vector<vector<string>>\n\n#define _overload3(_1, _2, _3, name, ...) name\n\
-    #define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(int i = int(a); i\
-    \ < int(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
-    #define all(x) std::begin(x), std::end(x)\n#define make_unique(v) v.erase(unique(all(v)),\
-    \ v.end());\n#define sum(...) accumulate(all(__VA_ARGS__), 0LL)\n#define inf (0x1fffffffffffffff)\n\
-    \ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for(auto&\
-    \ x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\n\
-    ostream& operator<<(ostream& os, const vector<T>& v) {\n    for(int i = 0; i <\
-    \ (int)v.size(); i++) {\n        if(i != (int)v.size() - 1)\n            os <<\
-    \ v[i] << \" \";\n        else\n            os << v[i];\n    }\n    return os;\n\
-    }\n\ntemplate <typename T, typename... Args>\nauto make_v(T x, int arg, Args...\
-    \ args) {\n    if constexpr(sizeof...(args) == 0)\n        return vector<T>(arg,\
-    \ x);\n    else\n        return vector(arg, make_v<T>(x, args...));\n}\n\ntemplate\
-    \ <class T>\nauto min(const T& a) {\n    return *min_element(all(a));\n}\n\ntemplate\
-    \ <class T>\nauto max(const T& a) {\n    return *max_element(all(a));\n}\n\ntemplate\
-    \ <class T>\nbool chmin(T& a, const T& b) {\n    return a > b ? a = b, true :\
-    \ false;\n}\n\ntemplate <class T>\nbool chmax(T& a, const T& b) {\n    return\
-    \ a < b ? a = b, true : false;\n}\n\nstruct IoSetup {\n    IoSetup() {\n     \
-    \   cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout << fixed\
-    \ << setprecision(10);\n        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n\
-    #line 2 \"src/Graph/graph-template.hpp\"\n\n/*\n** @ei1333 \u3055\u3093\u306E\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8(https://github.com/ei1333/library/blob/master/graph/graph-template.hpp)\
-    \ \u3088\u308A\n*/\ntemplate <typename T = int>\nstruct Edge {\n    int from,\
-    \ to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n    Edge(int from,\
-    \ int to, T cost = 1, int idx = -1)\n      : from(from)\n      , to(to)\n    \
-    \  , cost(cost)\n      , idx(idx) {\n    }\n\n    operator int() const { return\
-    \ to; }\n};\n\ntemplate <typename T = int>\nstruct Graph {\n    vector<vector<Edge<T>>>\
-    \ g;\n    int es;\n\n    Graph() = default;\n\n    explicit Graph(int n)\n   \
-    \   : g(n)\n      , es(0) {\n    }\n\n    size_t size() const {\n        return\
-    \ g.size();\n    }\n\n    void resize(int n) {\n        g.resize(n);\n    }\n\n\
-    \    void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es++);\n    }\n\n    void add_edge(int from, int to, T cost = 1) {\n\
-    \        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
-    \ from, cost, es++);\n    }\n\n    void read(int M, int padding = -1, bool weighted\
-    \ = false, bool directed = false) {\n        for(int i = 0; i < M; i++) {\n  \
-    \          int a, b;\n            cin >> a >> b;\n            a += padding;\n\
-    \            b += padding;\n            T c = T(1);\n            if(weighted)\n\
-    \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
-    \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n\n    void debug(){\n        rep(i, g.size()){\n            cerr << i <<\
-    \ \": \";\n            for(auto &e : g[i]){\n                cerr << e.to << \"\
-    , \";\n            }\n            cerr << endl;\n        }\n    }\n\n    inline\
-    \ vector<Edge<T>>& operator[](const int& k) {\n        return g[k];\n    }\n\n\
-    \    inline const vector<Edge<T>>& operator[](const int& k) const {\n        return\
-    \ g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n\
-    #line 5 \"src/Graph/lca.hpp\"\ntemplate<typename T = int>\nstruct LCA{  \n   \
-    \ // N: \u9802\u70B9\u6570, K: \u30C0\u30D6\u30EA\u30F3\u30B0\u3067 2^0, 2^1,\
-    \ 2^2 , ... \u500B\u5148\u306E\u9802\u70B9\u3092\u6301\u3064\u304C\u30012 \u306E\
-    \u4F55\u4E57\u5148\u306E\u9802\u70B9\u307E\u3067\u6301\u3064\u304B\u3092\u8868\
-    \u3059\n    int N, K;\n    vector<int> dist;\n    vector<vector<int>> doubling;\n\
-    \    LCA(Graph<T> G, int root){\n        N = (int)G.size();\n        K = 1;\n\
-    \        while((1LL<<K) <= N) K++;\n        dist.assign(N, -1);\n        doubling.assign(N,\
-    \ vector<int>(K, -1));\n        // \u6839\u304B\u3089 BFS \u3057\u3066\u5404\u9802\
-    \u70B9\u306E\u89AA\u3092\u6C42\u3081\u308B\n        queue<int> que;\n        que.push(root);\n\
-    \        dist[root] = 0;\n        doubling[root][0] = root;\n        while(!que.empty()){\n\
-    \            int t = que.front(); que.pop();\n            for(auto e : G[t]){\n\
-    \                if(dist[e.to] == -1){\n                    dist[e.to] = dist[t]\
-    \ + 1;\n                    doubling[e.to][0] = t;\n                    que.push(e.to);\n\
+  bundledCode: "#line 2 \"src/Graph/lca.hpp\"\n\n/**\n * @brief LCA(\u30C0\u30D6\u30EA\
+    \u30F3\u30B0)\n * @docs docs/lca-doubling.md\n */\n\n#line 2 \"src/Graph/graph-template.hpp\"\
+    \n\n/**\n * @brief Graph Template\n * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
+    \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <typename T = int>\nstruct Edge\
+    \ {\n    int from, to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n\
+    \    Edge(int from, int to, T cost = 1, int idx = -1)\n      : from(from)\n  \
+    \    , to(to)\n      , cost(cost)\n      , idx(idx) {\n    }\n\n    operator int()\
+    \ const { return to; }\n};\n\ntemplate <typename T = int>\nstruct Graph {\n  \
+    \  vector<vector<Edge<T>>> g;\n    int es;\n\n    Graph() = default;\n\n    explicit\
+    \ Graph(int n)\n      : g(n)\n      , es(0) {\n    }\n\n    size_t size() const\
+    \ {\n        return g.size();\n    }\n\n    void resize(int n) {\n        g.resize(n);\n\
+    \    }\n\n    void add_directed_edge(int from, int to, T cost = 1) {\n       \
+    \ g[from].emplace_back(from, to, cost, es++);\n    }\n\n    void add_edge(int\
+    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es);\n\
+    \        g[to].emplace_back(to, from, cost, es++);\n    }\n\n    void read(int\
+    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n     \
+    \   for(int i = 0; i < M; i++) {\n            int a, b;\n            cin >> a\
+    \ >> b;\n            a += padding;\n            b += padding;\n            T c\
+    \ = T(1);\n            if(weighted)\n                cin >> c;\n            if(directed)\n\
+    \                add_directed_edge(a, b, c);\n            else\n             \
+    \   add_edge(a, b, c);\n        }\n    }\n\n    void debug(){\n        rep(i,\
+    \ g.size()){\n            cerr << i << \": \";\n            for(auto &e : g[i]){\n\
+    \                cerr << e.to << \", \";\n            }\n            cerr << endl;\n\
+    \        }\n    }\n\n    inline vector<Edge<T>>& operator[](const int& k) {\n\
+    \        return g[k];\n    }\n\n    inline const vector<Edge<T>>& operator[](const\
+    \ int& k) const {\n        return g[k];\n    }\n};\n\ntemplate <typename T = int>\n\
+    using Edges = vector<Edge<T>>;\n#line 9 \"src/Graph/lca.hpp\"\ntemplate<typename\
+    \ T = int>\nstruct LCA{  \n    // N: \u9802\u70B9\u6570, K: \u30C0\u30D6\u30EA\
+    \u30F3\u30B0\u3067 2^0, 2^1, 2^2 , ... \u500B\u5148\u306E\u9802\u70B9\u3092\u6301\
+    \u3064\u304C\u30012 \u306E\u4F55\u4E57\u5148\u306E\u9802\u70B9\u307E\u3067\u6301\
+    \u3064\u304B\u3092\u8868\u3059\n    int N, K;\n    vector<int> dist;\n    vector<vector<int>>\
+    \ doubling;\n    LCA(Graph<T> G, int root){\n        N = (int)G.size();\n    \
+    \    K = 1;\n        while((1LL<<K) <= N) K++;\n        dist.assign(N, -1);\n\
+    \        doubling.assign(N, vector<int>(K, -1));\n        // \u6839\u304B\u3089\
+    \ BFS \u3057\u3066\u5404\u9802\u70B9\u306E\u89AA\u3092\u6C42\u3081\u308B\n   \
+    \     queue<int> que;\n        que.push(root);\n        dist[root] = 0;\n    \
+    \    doubling[root][0] = root;\n        while(!que.empty()){\n            int\
+    \ t = que.front(); que.pop();\n            for(auto e : G[t]){\n             \
+    \   if(dist[e.to] == -1){\n                    dist[e.to] = dist[t] + 1;\n   \
+    \                 doubling[e.to][0] = t;\n                    que.push(e.to);\n\
     \                }\n            }\n        }\n        for(int k = 1; k < K; k++){\n\
     \            for(int i = 0; i < N; i++){\n                doubling[i][k] = doubling[doubling[i][k\
     \ - 1]][k - 1];\n            }\n        }\n    }\n    int query(int u, int v){\n\
@@ -90,20 +65,21 @@ data:
     \            if(doubling[u][k] != doubling[v][k]){\n                u = doubling[u][k];\n\
     \                v = doubling[v][k];\n            }\n        }\n        return\
     \ doubling[u][0];\n    }\n};\n"
-  code: "#pragma once\n\n#include \"../template.hpp\"\n#include \"graph-template.hpp\"\
-    \ntemplate<typename T = int>\nstruct LCA{  \n    // N: \u9802\u70B9\u6570, K:\
-    \ \u30C0\u30D6\u30EA\u30F3\u30B0\u3067 2^0, 2^1, 2^2 , ... \u500B\u5148\u306E\u9802\
-    \u70B9\u3092\u6301\u3064\u304C\u30012 \u306E\u4F55\u4E57\u5148\u306E\u9802\u70B9\
-    \u307E\u3067\u6301\u3064\u304B\u3092\u8868\u3059\n    int N, K;\n    vector<int>\
-    \ dist;\n    vector<vector<int>> doubling;\n    LCA(Graph<T> G, int root){\n \
-    \       N = (int)G.size();\n        K = 1;\n        while((1LL<<K) <= N) K++;\n\
-    \        dist.assign(N, -1);\n        doubling.assign(N, vector<int>(K, -1));\n\
-    \        // \u6839\u304B\u3089 BFS \u3057\u3066\u5404\u9802\u70B9\u306E\u89AA\u3092\
-    \u6C42\u3081\u308B\n        queue<int> que;\n        que.push(root);\n       \
-    \ dist[root] = 0;\n        doubling[root][0] = root;\n        while(!que.empty()){\n\
-    \            int t = que.front(); que.pop();\n            for(auto e : G[t]){\n\
-    \                if(dist[e.to] == -1){\n                    dist[e.to] = dist[t]\
-    \ + 1;\n                    doubling[e.to][0] = t;\n                    que.push(e.to);\n\
+  code: "#pragma once\n\n/**\n * @brief LCA(\u30C0\u30D6\u30EA\u30F3\u30B0)\n * @docs\
+    \ docs/lca-doubling.md\n */\n\n#include \"graph-template.hpp\"\ntemplate<typename\
+    \ T = int>\nstruct LCA{  \n    // N: \u9802\u70B9\u6570, K: \u30C0\u30D6\u30EA\
+    \u30F3\u30B0\u3067 2^0, 2^1, 2^2 , ... \u500B\u5148\u306E\u9802\u70B9\u3092\u6301\
+    \u3064\u304C\u30012 \u306E\u4F55\u4E57\u5148\u306E\u9802\u70B9\u307E\u3067\u6301\
+    \u3064\u304B\u3092\u8868\u3059\n    int N, K;\n    vector<int> dist;\n    vector<vector<int>>\
+    \ doubling;\n    LCA(Graph<T> G, int root){\n        N = (int)G.size();\n    \
+    \    K = 1;\n        while((1LL<<K) <= N) K++;\n        dist.assign(N, -1);\n\
+    \        doubling.assign(N, vector<int>(K, -1));\n        // \u6839\u304B\u3089\
+    \ BFS \u3057\u3066\u5404\u9802\u70B9\u306E\u89AA\u3092\u6C42\u3081\u308B\n   \
+    \     queue<int> que;\n        que.push(root);\n        dist[root] = 0;\n    \
+    \    doubling[root][0] = root;\n        while(!que.empty()){\n            int\
+    \ t = que.front(); que.pop();\n            for(auto e : G[t]){\n             \
+    \   if(dist[e.to] == -1){\n                    dist[e.to] = dist[t] + 1;\n   \
+    \                 doubling[e.to][0] = t;\n                    que.push(e.to);\n\
     \                }\n            }\n        }\n        for(int k = 1; k < K; k++){\n\
     \            for(int i = 0; i < N; i++){\n                doubling[i][k] = doubling[doubling[i][k\
     \ - 1]][k - 1];\n            }\n        }\n    }\n    int query(int u, int v){\n\
@@ -114,12 +90,11 @@ data:
     \                v = doubling[v][k];\n            }\n        }\n        return\
     \ doubling[u][0];\n    }\n};"
   dependsOn:
-  - src/template.hpp
   - src/Graph/graph-template.hpp
   isVerificationFile: false
   path: src/Graph/lca.hpp
   requiredBy: []
-  timestamp: '2023-11-01 18:23:09+09:00'
+  timestamp: '2023-11-02 05:27:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/yosupo-lca.test.cpp
@@ -128,5 +103,5 @@ layout: document
 redirect_from:
 - /library/src/Graph/lca.hpp
 - /library/src/Graph/lca.hpp.html
-title: src/Graph/lca.hpp
+title: "LCA(\u30C0\u30D6\u30EA\u30F3\u30B0)"
 ---

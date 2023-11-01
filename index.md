@@ -5,7 +5,7 @@ data:
     pages:
     - icon: ':warning:'
       path: online-judge-tools/customized.cpp
-      title: online-judge-tools/customized.cpp
+      title: oj-template(old)
   - name: src/DataStructure
     pages:
     - icon: ':heavy_check_mark:'
@@ -26,13 +26,13 @@ data:
       title: Dijkstra
     - icon: ':heavy_check_mark:'
       path: src/Graph/graph-template.hpp
-      title: src/Graph/graph-template.hpp
+      title: Graph Template
     - icon: ':heavy_check_mark:'
       path: src/Graph/kruskal.hpp
       title: Kruskal
     - icon: ':heavy_check_mark:'
       path: src/Graph/lca.hpp
-      title: src/Graph/lca.hpp
+      title: "LCA(\u30C0\u30D6\u30EA\u30F3\u30B0)"
     - icon: ':heavy_check_mark:'
       path: src/Graph/prim.hpp
       title: Prim
@@ -43,12 +43,12 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/Math/modint.hpp
-      title: src/Math/modint.hpp
+      title: Graph Template
   - name: src/String
     pages:
     - icon: ':heavy_check_mark:'
       path: src/String/rolling-hash.hpp
-      title: src/String/rolling-hash.hpp
+      title: Rolling Hash
   - name: src/Tree
     pages:
     - icon: ':warning:'
@@ -58,7 +58,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/template.hpp
-      title: src/template.hpp
+      title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   verificationCategories:
   - name: src/test/verify
     pages:
