@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief Fenwick tree
+ * @docs docs/fenwick-tree.md
+ */
+
 template<typename T = long long int>
 struct FenwickTree{
     int n;
