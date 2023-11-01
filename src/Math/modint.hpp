@@ -1,8 +1,7 @@
 #pragma once
 
 /**
- * @brief Graph Template
- * @docs docs/graph-template.md
+ * @brief Modint
  * @cite https://nyaannyaan.github.io/library/modint/modint.hpp
  */
 
