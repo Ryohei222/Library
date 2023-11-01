@@ -1,3 +1,8 @@
+/**
+ * @brief oj-template(old)
+ * @docs docs/oj-template.md
+ */
+
 <%!
     import onlinejudge_template.generator.cplusplus as cplusplus
     import onlinejudge_template.generator.about as about

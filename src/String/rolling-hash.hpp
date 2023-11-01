@@ -1,6 +1,10 @@
 #pragma once
 
-#include "../template.hpp"
+/**
+ * @brief Rolling Hash
+ * @docs docs/rolling-hash.md
+ */
+
 #include "../Math/modint.hpp"
 
 const uint32_t rhmod1 = 1'000'000'007ll, rhmod2 = 1'000'000'009ll;

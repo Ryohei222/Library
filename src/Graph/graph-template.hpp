@@ -1,8 +1,11 @@
 #pragma once
 
-/*
-** @ei1333 さんのテンプレート(https://github.com/ei1333/library/blob/master/graph/graph-template.hpp) より
-*/
+/**
+ * @brief Graph Template
+ * @docs docs/graph-template.md
+ * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp (改変あり)
+ */
+
 template <typename T = int>
 struct Edge {
     int from, to;

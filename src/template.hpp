@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @brief テンプレート
+ * @docs docs/template.md
+ */
+
 #include <bits/stdc++.h>
 
 using namespace std;

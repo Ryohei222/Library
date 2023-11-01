@@ -1,6 +1,10 @@
 #pragma once
 
-// 出典: https://nyaannyaan.github.io/library/modint/modint.hpp
+/**
+ * @brief Graph Template
+ * @docs docs/graph-template.md
+ * @cite https://nyaannyaan.github.io/library/modint/modint.hpp
+ */
 
 template <uint32_t mod>
 struct LazyMontgomeryModInt {

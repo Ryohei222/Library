@@ -1,6 +1,10 @@
 #pragma once
 
-#include "../template.hpp"
+/**
+ * @brief LCA(ダブリング)
+ * @docs docs/lca-doubling.md
+ */
+
 #include "graph-template.hpp"
 template<typename T = int>
 struct LCA{  
