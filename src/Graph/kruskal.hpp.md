@@ -39,31 +39,33 @@ data:
     \            b += padding;\n            T c = T(1);\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n\n    inline vector<Edge<T>>& operator[](const int& k) {\n        return\
-    \ g[k];\n    }\n\n    inline const vector<Edge<T>>& operator[](const int& k) const\
-    \ {\n        return g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges\
-    \ = vector<Edge<T>>;\n#line 2 \"src/DataStructure/union-find.hpp\"\n/**\n * @brief\
-    \ Union-Find\n * @docs docs/union-find.md\n */\n\nstruct UnionFind {\n    vector<int>\
-    \ par;\n    UnionFind(int n) {\n        par.assign(n, -1);\n    };\n    int root(int\
-    \ x) {\n        if(par[x] < 0)\n            return x;\n        else\n        \
-    \    return par[x] = root(par[x]);\n    };\n    int size(int x) {\n        x =\
-    \ root(x);\n        return -1 * par[x];\n    };\n    bool unite(int x, int y)\
-    \ {\n        x = root(x);\n        y = root(y);\n        if(x == y)\n        \
-    \    return false;\n        if(size(x) < size(y))\n            swap(x, y);\n \
-    \       par[x] += par[y];\n        par[y] = x;\n        return true;\n    }\n\
-    \    bool same(int x, int y) {\n        return root(x) == root(y);\n    };\n};\n\
-    #line 10 \"src/Graph/kruskal.hpp\"\n\ntemplate <typename T>\npair<T, Edges<T>>\
-    \ kruskal(Graph<T> &G){\n    // \u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5\u3067 G \u306E\
-    \u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\u308B\n    // \u8FD4\u308A\u5024\
-    \u306F (cost, vector<Edge>)\n    int N = G.size();\n    UnionFind uf(N);\n   \
-    \ Edges<T> edges;\n    for(int i = 0; i < N; i++){\n        for(auto &edge: G[i]){\n\
-    \            edges.emplace_back(edge);\n        }\n    }\n    auto comp = [](const\
-    \ Edge<T> &a, const Edge<T> &b){\n        return a.cost < b.cost;\n    };\n  \
-    \  sort(edges.begin(), edges.end(), comp);\n    T cost = (T)0;\n    Edges<T> mst;\n\
-    \    for(auto &edge: edges){\n        if(uf.unite(edge.from, edge.to)){\n    \
-    \        cost += edge.cost;\n            mst.emplace_back(edge);\n        }\n\
-    \    }\n    if(uf.size(0) == N) return pair<T, Edges<T>>(cost, mst);\n    else\
-    \ return pair<T, Edges<T>>((T)-1, mst);\n}\n"
+    \  }\n\n    void debug(){\n        rep(i, g.size()){\n            cerr << i <<\
+    \ \": \";\n            for(auto &e : g[i]){\n                cerr << e.to << \"\
+    , \";\n            }\n            cerr << endl;\n        }\n    }\n\n    inline\
+    \ vector<Edge<T>>& operator[](const int& k) {\n        return g[k];\n    }\n\n\
+    \    inline const vector<Edge<T>>& operator[](const int& k) const {\n        return\
+    \ g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n\
+    #line 2 \"src/DataStructure/union-find.hpp\"\n/**\n * @brief Union-Find\n * @docs\
+    \ docs/union-find.md\n */\n\nstruct UnionFind {\n    vector<int> par;\n    UnionFind(int\
+    \ n) {\n        par.assign(n, -1);\n    };\n    int root(int x) {\n        if(par[x]\
+    \ < 0)\n            return x;\n        else\n            return par[x] = root(par[x]);\n\
+    \    };\n    int size(int x) {\n        x = root(x);\n        return -1 * par[x];\n\
+    \    };\n    bool unite(int x, int y) {\n        x = root(x);\n        y = root(y);\n\
+    \        if(x == y)\n            return false;\n        if(size(x) < size(y))\n\
+    \            swap(x, y);\n        par[x] += par[y];\n        par[y] = x;\n   \
+    \     return true;\n    }\n    bool same(int x, int y) {\n        return root(x)\
+    \ == root(y);\n    };\n};\n#line 10 \"src/Graph/kruskal.hpp\"\n\ntemplate <typename\
+    \ T>\npair<T, Edges<T>> kruskal(Graph<T> &G){\n    // \u30AF\u30E9\u30B9\u30AB\
+    \u30EB\u6CD5\u3067 G \u306E\u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\u308B\
+    \n    // \u8FD4\u308A\u5024\u306F (cost, vector<Edge>)\n    int N = G.size();\n\
+    \    UnionFind uf(N);\n    Edges<T> edges;\n    for(int i = 0; i < N; i++){\n\
+    \        for(auto &edge: G[i]){\n            edges.emplace_back(edge);\n     \
+    \   }\n    }\n    auto comp = [](const Edge<T> &a, const Edge<T> &b){\n      \
+    \  return a.cost < b.cost;\n    };\n    sort(edges.begin(), edges.end(), comp);\n\
+    \    T cost = (T)0;\n    Edges<T> mst;\n    for(auto &edge: edges){\n        if(uf.unite(edge.from,\
+    \ edge.to)){\n            cost += edge.cost;\n            mst.emplace_back(edge);\n\
+    \        }\n    }\n    if(uf.size(0) == N) return pair<T, Edges<T>>(cost, mst);\n\
+    \    else return pair<T, Edges<T>>((T)-1, mst);\n}\n"
   code: "#pragma once\n\n/**\n * @brief Kruskal\n * @docs docs/kruskal.md\n */\n\n\
     #include \"graph-template.hpp\"\n#include \"../DataStructure/union-find.hpp\"\n\
     \ntemplate <typename T>\npair<T, Edges<T>> kruskal(Graph<T> &G){\n    // \u30AF\
@@ -84,7 +86,7 @@ data:
   isVerificationFile: false
   path: src/Graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2023-10-30 06:14:36+09:00'
+  timestamp: '2023-11-01 18:23:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-2-a.test.cpp

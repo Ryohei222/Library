@@ -36,19 +36,22 @@ data:
     \            b += padding;\n            T c = T(1);\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n\n    inline vector<Edge<T>>& operator[](const int& k) {\n        return\
-    \ g[k];\n    }\n\n    inline const vector<Edge<T>>& operator[](const int& k) const\
-    \ {\n        return g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges\
-    \ = vector<Edge<T>>;\n#line 9 \"src/Graph/prim.hpp\"\n\ntemplate <typename T>\n\
-    bool operator> (const Edge<T> &a, const Edge<T> &b){\n    return a.cost > b.cost;\n\
-    }\n\ntemplate <typename T>\npair<T, Edges<T>> prim(Graph<T> &G){\n    // \u30D7\
-    \u30EA\u30E0\u6CD5\u3067 G \u306E\u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\
-    \u308B\n    // \u8FD4\u308A\u5024\u306F (cost, vector<Edge>)\n    // \u4E00\u65B9\
-    \u306E\u7AEF\u70B9\u304C\u73FE\u5728\u306E\u9802\u70B9\u96C6\u5408\u306B\u542B\
-    \u307E\u308C\u3001\u304B\u3064\u3082\u3046\u4E00\u65B9\u306E\u7AEF\u70B9\u304C\
-    \u9802\u70B9\u96C6\u5408\u306B\u542B\u307E\u308C\u306A\u3044\u8FBA\u306E\u3046\
-    \u3061\u3001\u30B3\u30B9\u30C8\u6700\u5C0F\u306E\u8FBA\u3092\u63A1\u7528\u3059\
-    \u308B\u3053\u3068\u3092\u7E70\u308A\u8FD4\u3059\n    int N = G.size();\n    priority_queue<Edge<T>,\
+    \  }\n\n    void debug(){\n        rep(i, g.size()){\n            cerr << i <<\
+    \ \": \";\n            for(auto &e : g[i]){\n                cerr << e.to << \"\
+    , \";\n            }\n            cerr << endl;\n        }\n    }\n\n    inline\
+    \ vector<Edge<T>>& operator[](const int& k) {\n        return g[k];\n    }\n\n\
+    \    inline const vector<Edge<T>>& operator[](const int& k) const {\n        return\
+    \ g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n\
+    #line 9 \"src/Graph/prim.hpp\"\n\ntemplate <typename T>\nbool operator> (const\
+    \ Edge<T> &a, const Edge<T> &b){\n    return a.cost > b.cost;\n}\n\ntemplate <typename\
+    \ T>\npair<T, Edges<T>> prim(Graph<T> &G){\n    // \u30D7\u30EA\u30E0\u6CD5\u3067\
+    \ G \u306E\u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\u308B\n    // \u8FD4\
+    \u308A\u5024\u306F (cost, vector<Edge>)\n    // \u4E00\u65B9\u306E\u7AEF\u70B9\
+    \u304C\u73FE\u5728\u306E\u9802\u70B9\u96C6\u5408\u306B\u542B\u307E\u308C\u3001\
+    \u304B\u3064\u3082\u3046\u4E00\u65B9\u306E\u7AEF\u70B9\u304C\u9802\u70B9\u96C6\
+    \u5408\u306B\u542B\u307E\u308C\u306A\u3044\u8FBA\u306E\u3046\u3061\u3001\u30B3\
+    \u30B9\u30C8\u6700\u5C0F\u306E\u8FBA\u3092\u63A1\u7528\u3059\u308B\u3053\u3068\
+    \u3092\u7E70\u308A\u8FD4\u3059\n    int N = G.size();\n    priority_queue<Edge<T>,\
     \ Edges<T>, greater<Edge<T>>> pq;\n    for(int i = 0; i < (int)G[0].size(); i++){\n\
     \        pq.emplace(G[0][i]);\n    }\n    vector<bool> vis(N);\n    vis[0] = true;\n\
     \    T cost = (T)0;\n    Edges<T> mst;\n    while(!pq.empty()){\n        Edge<T>\
@@ -83,7 +86,7 @@ data:
   isVerificationFile: false
   path: src/Graph/prim.hpp
   requiredBy: []
-  timestamp: '2023-10-30 06:14:36+09:00'
+  timestamp: '2023-11-01 18:23:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-2-a2.test.cpp

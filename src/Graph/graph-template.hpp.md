@@ -9,6 +9,9 @@ data:
     path: src/Graph/kruskal.hpp
     title: Kruskal
   - icon: ':heavy_check_mark:'
+    path: src/Graph/lca.hpp
+    title: src/Graph/lca.hpp
+  - icon: ':heavy_check_mark:'
     path: src/Graph/prim.hpp
     title: Prim
   - icon: ':heavy_check_mark:'
@@ -27,6 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/yosupo-lca.test.cpp
+    title: src/test/verify/yosupo-lca.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -52,10 +58,12 @@ data:
     \            b += padding;\n            T c = T(1);\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n\n    inline vector<Edge<T>>& operator[](const int& k) {\n        return\
-    \ g[k];\n    }\n\n    inline const vector<Edge<T>>& operator[](const int& k) const\
-    \ {\n        return g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges\
-    \ = vector<Edge<T>>;\n"
+    \  }\n\n    void debug(){\n        rep(i, g.size()){\n            cerr << i <<\
+    \ \": \";\n            for(auto &e : g[i]){\n                cerr << e.to << \"\
+    , \";\n            }\n            cerr << endl;\n        }\n    }\n\n    inline\
+    \ vector<Edge<T>>& operator[](const int& k) {\n        return g[k];\n    }\n\n\
+    \    inline const vector<Edge<T>>& operator[](const int& k) const {\n        return\
+    \ g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n"
   code: "#pragma once\n\n/*\n** @ei1333 \u3055\u3093\u306E\u30C6\u30F3\u30D7\u30EC\
     \u30FC\u30C8(https://github.com/ei1333/library/blob/master/graph/graph-template.hpp)\
     \ \u3088\u308A\n*/\ntemplate <typename T = int>\nstruct Edge {\n    int from,\
@@ -75,24 +83,28 @@ data:
     \            b += padding;\n            T c = T(1);\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n\n    inline vector<Edge<T>>& operator[](const int& k) {\n        return\
-    \ g[k];\n    }\n\n    inline const vector<Edge<T>>& operator[](const int& k) const\
-    \ {\n        return g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges\
-    \ = vector<Edge<T>>;"
+    \  }\n\n    void debug(){\n        rep(i, g.size()){\n            cerr << i <<\
+    \ \": \";\n            for(auto &e : g[i]){\n                cerr << e.to << \"\
+    , \";\n            }\n            cerr << endl;\n        }\n    }\n\n    inline\
+    \ vector<Edge<T>>& operator[](const int& k) {\n        return g[k];\n    }\n\n\
+    \    inline const vector<Edge<T>>& operator[](const int& k) const {\n        return\
+    \ g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;"
   dependsOn: []
   isVerificationFile: false
   path: src/Graph/graph-template.hpp
   requiredBy:
   - src/Graph/kruskal.hpp
+  - src/Graph/lca.hpp
   - src/Graph/dijkstra.hpp
   - src/Graph/prim.hpp
   - src/Graph/scc.hpp
-  timestamp: '2023-03-24 12:44:20+09:00'
+  timestamp: '2023-11-01 18:23:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-1-a.test.cpp
   - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-2-a.test.cpp
+  - src/test/verify/yosupo-lca.test.cpp
   - src/test/verify/aoj-grl-2-a2.test.cpp
 documentation_of: src/Graph/graph-template.hpp
 layout: document

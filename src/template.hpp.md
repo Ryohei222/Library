@@ -1,11 +1,23 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: src/Graph/lca.hpp
+    title: src/Graph/lca.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/String/rolling-hash.hpp
+    title: src/String/rolling-hash.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-alds-1-14-b.test.cpp
+    title: src/test/verify/aoj-alds-1-14-b.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-dsl-1-a.test.cpp
     title: src/test/verify/aoj-dsl-1-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-dsl-2-b.test.cpp
+    title: src/test/verify/aoj-dsl-2-b.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
@@ -21,6 +33,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-6-a.test.cpp
     title: src/test/verify/aoj-grl-6-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/yosupo-lca.test.cpp
+    title: src/test/verify/yosupo-lca.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -79,14 +94,19 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/template.hpp
-  requiredBy: []
+  requiredBy:
+  - src/Graph/lca.hpp
+  - src/String/rolling-hash.hpp
   timestamp: '2023-07-03 19:51:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - src/test/verify/aoj-alds-1-14-b.test.cpp
+  - src/test/verify/aoj-dsl-2-b.test.cpp
   - src/test/verify/aoj-grl-1-a.test.cpp
   - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-2-a.test.cpp
   - src/test/verify/aoj-dsl-1-a.test.cpp
+  - src/test/verify/yosupo-lca.test.cpp
   - src/test/verify/aoj-grl-2-a2.test.cpp
   - src/test/verify/aoj-grl-6-a.test.cpp
 documentation_of: src/template.hpp

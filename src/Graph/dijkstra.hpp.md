@@ -36,13 +36,16 @@ data:
     \            b += padding;\n            T c = T(1);\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n\n    inline vector<Edge<T>>& operator[](const int& k) {\n        return\
-    \ g[k];\n    }\n\n    inline const vector<Edge<T>>& operator[](const int& k) const\
-    \ {\n        return g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges\
-    \ = vector<Edge<T>>;\n#line 9 \"src/Graph/dijkstra.hpp\"\n\ntemplate <typename\
-    \ T>\nvector<T> dijkstra(Graph<T> &G, int s) {\n    const auto INF = numeric_limits<T>::max();\n\
-    \    using P = pair<T, int>;\n    int n = G.size();\n    vector<T> dist(n, INF);\n\
-    \    dist[s] = 0;\n    priority_queue<P, vector<P>, greater<P>> que;\n    que.emplace(0,\
+    \  }\n\n    void debug(){\n        rep(i, g.size()){\n            cerr << i <<\
+    \ \": \";\n            for(auto &e : g[i]){\n                cerr << e.to << \"\
+    , \";\n            }\n            cerr << endl;\n        }\n    }\n\n    inline\
+    \ vector<Edge<T>>& operator[](const int& k) {\n        return g[k];\n    }\n\n\
+    \    inline const vector<Edge<T>>& operator[](const int& k) const {\n        return\
+    \ g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n\
+    #line 9 \"src/Graph/dijkstra.hpp\"\n\ntemplate <typename T>\nvector<T> dijkstra(Graph<T>\
+    \ &G, int s) {\n    const auto INF = numeric_limits<T>::max();\n    using P =\
+    \ pair<T, int>;\n    int n = G.size();\n    vector<T> dist(n, INF);\n    dist[s]\
+    \ = 0;\n    priority_queue<P, vector<P>, greater<P>> que;\n    que.emplace(0,\
     \ s);\n    while(!que.empty()) {\n        P t = que.top();\n        que.pop();\n\
     \        T cost = t.first;\n        int u = t.second;\n        if(cost > dist[u])\
     \ continue;\n        for(auto e : G[u]) {\n            T v = e.to;\n         \
@@ -65,7 +68,7 @@ data:
   isVerificationFile: false
   path: src/Graph/dijkstra.hpp
   requiredBy: []
-  timestamp: '2023-03-24 12:44:20+09:00'
+  timestamp: '2023-11-01 18:23:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-1-a.test.cpp
