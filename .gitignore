@@ -1,5 +1,5 @@
 *.exe
 *.out
 .vscode/*
-test/verify/a.cpp
-test/verify/main.cpp
+src/test/verify/a.cpp
+src/test/verify/main.cpp
