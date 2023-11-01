@@ -1,8 +1,9 @@
 {
 "src/test/verify/aoj-dsl-1-a.test.cpp": "2023-10-30 05:53:38 +0900",
-"src/test/verify/aoj-grl-1-a.test.cpp": "2023-07-03 20:02:18 +0900",
-"src/test/verify/aoj-grl-2-a.test.cpp": "2023-10-30 06:14:36 +0900",
-"src/test/verify/aoj-grl-2-a2.test.cpp": "2023-10-30 06:14:36 +0900",
-"src/test/verify/aoj-grl-3-c.test.cpp": "2023-07-03 19:51:48 +0900",
-"src/test/verify/aoj-grl-6-a.test.cpp": "2023-07-03 19:51:48 +0900"
+"src/test/verify/aoj-grl-1-a.test.cpp": "2023-11-01 18:23:09 +0900",
+"src/test/verify/aoj-grl-2-a.test.cpp": "2023-11-01 18:23:09 +0900",
+"src/test/verify/aoj-grl-2-a2.test.cpp": "2023-11-01 18:23:09 +0900",
+"src/test/verify/aoj-grl-3-c.test.cpp": "2023-11-01 18:23:09 +0900",
+"src/test/verify/aoj-grl-6-a.test.cpp": "2023-07-03 19:51:48 +0900",
+"src/test/verify/yosupo-lca.test.cpp": "2023-11-01 18:23:09 +0900"
 }
