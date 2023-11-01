@@ -66,6 +66,16 @@ struct Graph {
         }
     }
 
+    void debug(){
+        rep(i, g.size()){
+            cerr << i << ": ";
+            for(auto &e : g[i]){
+                cerr << e.to << ", ";
+            }
+            cerr << endl;
+        }
+    }
+
     inline vector<Edge<T>>& operator[](const int& k) {
         return g[k];
     }
