@@ -43,7 +43,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/Math/modint.hpp
-      title: Graph Template
+      title: Modint
   - name: src/String
     pages:
     - icon: ':heavy_check_mark:'
