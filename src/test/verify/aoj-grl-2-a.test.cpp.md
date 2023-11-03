@@ -81,13 +81,13 @@ data:
     \n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n */\n\nstruct UnionFind\
     \ {\n    vector<int> par;\n    UnionFind(int n) {\n        par.assign(n, -1);\n\
     \    };\n    int root(int x) {\n        if(par[x] < 0)\n            return x;\n\
-    \        else\n            return par[x] = root(par[x]);\n    };\n    int size(int\
-    \ x) {\n        x = root(x);\n        return -1 * par[x];\n    };\n    bool unite(int\
+    \        else\n            return par[x] = root(par[x]);\n    }\n    int size(int\
+    \ x) {\n        x = root(x);\n        return -1 * par[x];\n    }\n    bool unite(int\
     \ x, int y) {\n        x = root(x);\n        y = root(y);\n        if(x == y)\n\
     \            return false;\n        if(size(x) < size(y))\n            swap(x,\
     \ y);\n        par[x] += par[y];\n        par[y] = x;\n        return true;\n\
     \    }\n    bool same(int x, int y) {\n        return root(x) == root(y);\n  \
-    \  };\n};\n#line 10 \"src/Graph/kruskal.hpp\"\n\ntemplate <typename T>\npair<T,\
+    \  }\n};\n#line 10 \"src/Graph/kruskal.hpp\"\n\ntemplate <typename T>\npair<T,\
     \ Edges<T>> kruskal(Graph<T> &G){\n    // \u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5\
     \u3067 G \u306E\u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\u308B\n    //\
     \ \u8FD4\u308A\u5024\u306F (cost, vector<Edge>)\n    int N = G.size();\n    UnionFind\
@@ -115,7 +115,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-2-a.test.cpp
   requiredBy: []
-  timestamp: '2023-11-02 05:27:15+09:00'
+  timestamp: '2023-11-03 15:30:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-2-a.test.cpp

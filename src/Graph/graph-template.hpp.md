@@ -97,19 +97,19 @@ data:
   isVerificationFile: false
   path: src/Graph/graph-template.hpp
   requiredBy:
-  - src/Graph/kruskal.hpp
-  - src/Graph/lca.hpp
   - src/Graph/dijkstra.hpp
+  - src/Graph/lca.hpp
   - src/Graph/prim.hpp
   - src/Graph/scc.hpp
+  - src/Graph/kruskal.hpp
   timestamp: '2023-11-02 05:27:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - src/test/verify/aoj-grl-1-a.test.cpp
-  - src/test/verify/aoj-grl-3-c.test.cpp
-  - src/test/verify/aoj-grl-2-a.test.cpp
   - src/test/verify/yosupo-lca.test.cpp
+  - src/test/verify/aoj-grl-2-a.test.cpp
+  - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-2-a2.test.cpp
+  - src/test/verify/aoj-grl-1-a.test.cpp
 documentation_of: src/Graph/graph-template.hpp
 layout: document
 redirect_from:

@@ -69,7 +69,7 @@ data:
     \ hash2 != b.hash2;\n    }\n};\n\nstruct RollingHash {\n    static rhmint1 base1;\n\
     \    static rhmint2 base2;\n    vector<rhmint1> hash1, pow1;\n    vector<rhmint2>\
     \ hash2, pow2;\n    string s;\n    int n;\n    RollingHash(string _s) {\n    \
-    \    s = _s;\n        if(base1 == 0) generate_base();\n        build();\n    };\n\
+    \    s = _s;\n        if(base1 == 0) generate_base();\n        build();\n    }\n\
     \    void build(){\n        n = (int)s.size();\n        hash1.resize(n + 1);\n\
     \        hash2.resize(n + 1);\n        pow1.resize(n + 1);\n        pow2.resize(n\
     \ + 1);\n        hash1[0] = rhmint1(s[0]);\n        hash2[0] = rhmint2(s[0]);\n\
@@ -100,7 +100,7 @@ data:
     \ hash2 != b.hash2;\n    }\n};\n\nstruct RollingHash {\n    static rhmint1 base1;\n\
     \    static rhmint2 base2;\n    vector<rhmint1> hash1, pow1;\n    vector<rhmint2>\
     \ hash2, pow2;\n    string s;\n    int n;\n    RollingHash(string _s) {\n    \
-    \    s = _s;\n        if(base1 == 0) generate_base();\n        build();\n    };\n\
+    \    s = _s;\n        if(base1 == 0) generate_base();\n        build();\n    }\n\
     \    void build(){\n        n = (int)s.size();\n        hash1.resize(n + 1);\n\
     \        hash2.resize(n + 1);\n        pow1.resize(n + 1);\n        pow2.resize(n\
     \ + 1);\n        hash1[0] = rhmint1(s[0]);\n        hash2[0] = rhmint2(s[0]);\n\
@@ -125,7 +125,7 @@ data:
   isVerificationFile: false
   path: src/String/rolling-hash.hpp
   requiredBy: []
-  timestamp: '2023-11-02 07:47:46+09:00'
+  timestamp: '2023-11-03 15:30:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-alds-1-14-b.test.cpp

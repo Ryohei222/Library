@@ -10,7 +10,10 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/fenwick-tree.hpp
-      title: Fenwick tree
+      title: Fenwick Tree
+    - icon: ':heavy_check_mark:'
+      path: src/DataStructure/segment-tree.hpp
+      title: Segment Tree
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/union-find.hpp
       title: Union-Find
@@ -69,8 +72,11 @@ data:
       path: src/test/verify/aoj-dsl-1-a.test.cpp
       title: src/test/verify/aoj-dsl-1-a.test.cpp
     - icon: ':heavy_check_mark:'
-      path: src/test/verify/aoj-dsl-2-b.test.cpp
-      title: src/test/verify/aoj-dsl-2-b.test.cpp
+      path: src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
+      title: src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
+      title: src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-1-a.test.cpp
       title: src/test/verify/aoj-grl-1-a.test.cpp
