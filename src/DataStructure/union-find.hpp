@@ -15,11 +15,11 @@ struct UnionFind {
             return x;
         else
             return par[x] = root(par[x]);
-    };
+    }
     int size(int x) {
         x = root(x);
         return -1 * par[x];
-    };
+    }
     bool unite(int x, int y) {
         x = root(x);
         y = root(y);
@@ -33,5 +33,5 @@ struct UnionFind {
     }
     bool same(int x, int y) {
         return root(x) == root(y);
-    };
+    }
 };
