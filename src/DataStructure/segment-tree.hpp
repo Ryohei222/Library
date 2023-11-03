@@ -16,9 +16,11 @@ struct SegmentTree{
         while(sz < n) sz <<= 1;
         seg.assign(2 * sz, id);
     }
-    SegmentTree(const vector<T> &v, const F f, const T id) : id(id), f(f){
+    SegmentTree(const vector<T> &v, const F f, const T id) : id(id), f(f) {
         n = (int)v.size();
-        SegmentTree(n, f, id);
+        sz = 1;
+        while (sz < n) sz *= 2;
+        seg.assign(2 * sz, id);
         build(v);
     }
     void build(const vector<T> &v){
