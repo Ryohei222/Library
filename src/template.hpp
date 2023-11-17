@@ -5,42 +5,52 @@
  * @docs docs/template.md
  */
 
+// #pragma GCC target("avx2")
+// #pragma GCC optimize("O3")
+// #pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 
 using namespace std;
 
 using ll = long long;
+using vl = vector<ll>;
+using vvl = vector<vl>;
+using vvvl = vector<vvl>;
 using pl = pair<ll, ll>;
-#define vl vector<ll>
-#define vvl vector<vector<ll>>
-#define vvvl vector<vector<vector<ll>>>
-#define vm vector<mint>
-#define vvm vector<vector<mint>>
-#define vvvm vector<vector<vector<mint>>>
-#define vp vector<pl>
-#define vvp vector<vector<pl>>
-#define vs vector<string>
-#define vvs vector<vector<string>>
+using vp = vector<pl>;
+using vvp = vector<vp>;
+using vs = vector<string>;
+using vvs = vector<vs>;
+using vb = vector<bool>;
+using vvb = vector<vb>;
+using vvvb = vector<vvb>;
+using vd = vector<double>;
+using vvd = vector<vd>;
+using vvvd = vector<vvd>;
 
 #define _overload3(_1, _2, _3, name, ...) name
 #define _rep(i, n) repi(i, 0, n)
-#define repi(i, a, b) for(int i = int(a); i < int(b); ++i)
+#define repi(i, a, b) for(ll i = ll(a); i < ll(b); ++i)
 #define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)
 #define all(x) std::begin(x), std::end(x)
 #define make_unique(v) v.erase(unique(all(v)), v.end());
 #define sum(...) accumulate(all(__VA_ARGS__), 0LL)
-#define inf (0x1fffffffffffffff)
 
-template <class T>
-istream& operator>>(istream& is, vector<T>& v) {
-    for(auto& x : v) {
+constexpr ll inf = 0x1fffffffffffffffLL;
+
+template <class T1, class T2> void input(vector<T1> &v1, vector<T2> &v2){ rep(i, v1.size()) cin >> v1[i] >> v2[i]; }
+template <class T1, class T2, class T3> void input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3) { rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i]; }
+template <class T1, class T2, class T3, class T4> void input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3, vector<T4> &v4) { rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i] >> v4[i]; }
+
+template <class T> istream &operator>>(istream &is, vector<T> &v) {
+    for(auto &x : v) {
         is >> x;
     }
     return is;
 }
 
 template <class T>
-ostream& operator<<(ostream& os, const vector<T>& v) {
+ostream &operator<<(ostream &os, const vector<T> &v) {
     for(int i = 0; i < (int)v.size(); i++) {
         if(i != (int)v.size() - 1)
             os << v[i] << " ";
@@ -50,33 +60,33 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
     return os;
 }
 
+template <class T, class U>
+istream &operator>>(istream &is, pair<T, U> &p) {
+    is >> p.first >> p.second;
+    return is;
+}
+
+template <class T, class U>
+ostream &operator<<(ostream &os, pair<T, U> &p) {
+    os << p.first << " " << p.second;
+    return os;
+}
+
 template <typename T, typename... Args>
-auto make_v(T x, int arg, Args... args) {
+auto vec(T x, int arg, Args... args) {
     if constexpr(sizeof...(args) == 0)
         return vector<T>(arg, x);
     else
-        return vector(arg, make_v<T>(x, args...));
+        return vector(arg, vec<T>(x, args...));
 }
 
-template <class T>
-auto min(const T& a) {
-    return *min_element(all(a));
-}
+template <class T> auto min(const T &a) { return *min_element(all(a)); }
+template <class T> auto max(const T &a) { return *max_element(all(a)); }
+template <class T> bool chmin(T &a, const T &b) { return a > b ? a = b, true : false; }
+template <class T> bool chmax(T &a, const T &b) { return a < b ? a = b, true : false; }
 
-template <class T>
-auto max(const T& a) {
-    return *max_element(all(a));
-}
-
-template <class T>
-bool chmin(T& a, const T& b) {
-    return a > b ? a = b, true : false;
-}
-
-template <class T>
-bool chmax(T& a, const T& b) {
-    return a < b ? a = b, true : false;
-}
+constexpr ll bit(ll x){ return 1LL << x; }
+constexpr bool stand(ll x, int i) { return x & bit(i); }
 
 struct IoSetup {
     IoSetup() {

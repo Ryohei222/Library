@@ -106,3 +106,10 @@ struct LazyMontgomeryModInt {
 
     static constexpr u32 get_mod() { return mod; }
 };
+
+// constexpr long long mod = 1000000007;
+constexpr long long mod = 998244353;
+using mint = LazyMontgomeryModInt<mod>;
+using vm = vector<mint>;
+using vvm = vector<vm>;
+using vvvm = vector<vvm>;
