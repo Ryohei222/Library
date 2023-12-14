@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: src/Graph/diameter.hpp
+    title: Tree-Diameter
+  - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
   - icon: ':heavy_check_mark:'
@@ -30,6 +33,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-grl-5-a.test.cpp
+    title: src/test/verify/aoj-grl-5-a.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-lca.test.cpp
     title: src/test/verify/yosupo-lca.test.cpp
@@ -97,19 +103,21 @@ data:
   isVerificationFile: false
   path: src/Graph/graph-template.hpp
   requiredBy:
-  - src/Graph/dijkstra.hpp
-  - src/Graph/lca.hpp
+  - src/Graph/diameter.hpp
   - src/Graph/prim.hpp
+  - src/Graph/lca.hpp
   - src/Graph/scc.hpp
+  - src/Graph/dijkstra.hpp
   - src/Graph/kruskal.hpp
   timestamp: '2023-11-02 05:27:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - src/test/verify/yosupo-lca.test.cpp
-  - src/test/verify/aoj-grl-2-a.test.cpp
-  - src/test/verify/aoj-grl-3-c.test.cpp
-  - src/test/verify/aoj-grl-2-a2.test.cpp
   - src/test/verify/aoj-grl-1-a.test.cpp
+  - src/test/verify/aoj-grl-3-c.test.cpp
+  - src/test/verify/aoj-grl-2-a.test.cpp
+  - src/test/verify/yosupo-lca.test.cpp
+  - src/test/verify/aoj-grl-2-a2.test.cpp
+  - src/test/verify/aoj-grl-5-a.test.cpp
 documentation_of: src/Graph/graph-template.hpp
 layout: document
 redirect_from:

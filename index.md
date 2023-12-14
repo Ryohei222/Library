@@ -25,6 +25,9 @@ data:
   - name: src/Graph
     pages:
     - icon: ':heavy_check_mark:'
+      path: src/Graph/diameter.hpp
+      title: Tree-Diameter
+    - icon: ':heavy_check_mark:'
       path: src/Graph/dijkstra.hpp
       title: Dijkstra
     - icon: ':heavy_check_mark:'
@@ -89,6 +92,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-3-c.test.cpp
       title: src/test/verify/aoj-grl-3-c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: src/test/verify/aoj-grl-5-a.test.cpp
+      title: src/test/verify/aoj-grl-5-a.test.cpp
     - icon: ':heavy_check_mark:'
       path: src/test/verify/aoj-grl-6-a.test.cpp
       title: src/test/verify/aoj-grl-6-a.test.cpp
