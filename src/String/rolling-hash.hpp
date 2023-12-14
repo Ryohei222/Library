@@ -35,7 +35,7 @@ struct RollingHash {
         s = _s;
         if(base1 == 0) generate_base();
         build();
-    };
+    }
     void build(){
         n = (int)s.size();
         hash1.resize(n + 1);
