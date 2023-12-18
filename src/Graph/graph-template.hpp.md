@@ -9,6 +9,9 @@ data:
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
   - icon: ':heavy_check_mark:'
+    path: src/Graph/hld.hpp
+    title: Heavy-Light Decomposition
+  - icon: ':heavy_check_mark:'
     path: src/Graph/kruskal.hpp
     title: Kruskal
   - icon: ':heavy_check_mark:'
@@ -39,6 +42,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-lca.test.cpp
     title: src/test/verify/yosupo-lca.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
+    title: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -106,6 +112,7 @@ data:
   - src/Graph/diameter.hpp
   - src/Graph/prim.hpp
   - src/Graph/lca.hpp
+  - src/Graph/hld.hpp
   - src/Graph/scc.hpp
   - src/Graph/dijkstra.hpp
   - src/Graph/kruskal.hpp
@@ -113,6 +120,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-1-a.test.cpp
+  - src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-2-a.test.cpp
   - src/test/verify/yosupo-lca.test.cpp

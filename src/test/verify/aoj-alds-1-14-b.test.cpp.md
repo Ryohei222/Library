@@ -56,12 +56,13 @@ data:
     \ auto max(const T &a) { return *max_element(all(a)); }\ntemplate <class T> bool\
     \ chmin(T &a, const T &b) { return a > b ? a = b, true : false; }\ntemplate <class\
     \ T> bool chmax(T &a, const T &b) { return a < b ? a = b, true : false; }\n\n\
-    constexpr ll bit(ll x){ return 1LL << x; }\nconstexpr bool stand(ll x, int i)\
-    \ { return x & bit(i); }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
-    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
-    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n#line 2 \"src/String/rolling-hash.hpp\"\
-    \n\n/**\n * @brief Rolling Hash\n * @docs docs/rolling-hash.md\n */\n\n#line 2\
-    \ \"src/Math/modint.hpp\"\n\n/**\n * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
+    constexpr ll bit(ll x){ return 1LL << x; }\nconstexpr ll msk(ll x){ return (1LL\
+    \ << x) - 1;}\nconstexpr bool stand(ll x, int i) { return x & bit(i); }\n\nstruct\
+    \ IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    \    }\n} iosetup;\n#line 2 \"src/String/rolling-hash.hpp\"\n\n/**\n * @brief\
+    \ Rolling Hash\n * @docs docs/rolling-hash.md\n */\n\n#line 2 \"src/Math/modint.hpp\"\
+    \n\n/**\n * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
     \ */\n\ntemplate <uint32_t mod>\nstruct LazyMontgomeryModInt {\n    using mint\
     \ = LazyMontgomeryModInt;\n    using i32 = int32_t;\n    using u32 = uint32_t;\n\
     \    using u64 = uint64_t;\n\n    static constexpr u32 get_r() {\n        u32\
@@ -150,7 +151,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-alds-1-14-b.test.cpp
   requiredBy: []
-  timestamp: '2023-11-17 16:20:24+09:00'
+  timestamp: '2023-12-18 22:27:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-alds-1-14-b.test.cpp

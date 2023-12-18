@@ -34,6 +34,9 @@ data:
       path: src/Graph/graph-template.hpp
       title: Graph Template
     - icon: ':heavy_check_mark:'
+      path: src/Graph/hld.hpp
+      title: Heavy-Light Decomposition
+    - icon: ':heavy_check_mark:'
       path: src/Graph/kruskal.hpp
       title: Kruskal
     - icon: ':heavy_check_mark:'
@@ -101,6 +104,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/test/verify/yosupo-lca.test.cpp
       title: src/test/verify/yosupo-lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
+      title: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
 layout: toppage
 ---
 [![kobaryo222](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fkobaryo222)](https://atcoder.jp/users/kobaryo222)

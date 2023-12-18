@@ -53,11 +53,12 @@ data:
     \ auto max(const T &a) { return *max_element(all(a)); }\ntemplate <class T> bool\
     \ chmin(T &a, const T &b) { return a > b ? a = b, true : false; }\ntemplate <class\
     \ T> bool chmax(T &a, const T &b) { return a < b ? a = b, true : false; }\n\n\
-    constexpr ll bit(ll x){ return 1LL << x; }\nconstexpr bool stand(ll x, int i)\
-    \ { return x & bit(i); }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
-    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
-    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n#line 2 \"src/DataStructure/fenwick-tree.hpp\"\
-    \n\n/**\n * @brief Fenwick Tree\n * @docs docs/fenwick-tree.md\n */\n\ntemplate<typename\
+    constexpr ll bit(ll x){ return 1LL << x; }\nconstexpr ll msk(ll x){ return (1LL\
+    \ << x) - 1;}\nconstexpr bool stand(ll x, int i) { return x & bit(i); }\n\nstruct\
+    \ IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    \    }\n} iosetup;\n#line 2 \"src/DataStructure/fenwick-tree.hpp\"\n\n/**\n *\
+    \ @brief Fenwick Tree\n * @docs docs/fenwick-tree.md\n */\n\ntemplate<typename\
     \ T = long long int>\nstruct FenwickTree{\n    int n;\n    vector<T> bit;\n  \
     \  FenwickTree(int n) : n(n) {\n        bit.assign(n + 1, T(0));\n    }\n    FenwickTree(const\
     \ vector<T> &a){\n        n = (int)a.size();\n        bit.assign(n + 1, T(0));\n\
@@ -86,7 +87,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
   requiredBy: []
-  timestamp: '2023-11-17 16:20:24+09:00'
+  timestamp: '2023-12-18 22:27:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp

@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
     title: src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
+    title: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -47,6 +50,7 @@ data:
   timestamp: '2023-11-03 15:30:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   - src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
 documentation_of: src/DataStructure/fenwick-tree.hpp
 layout: document

@@ -57,12 +57,12 @@ data:
     \ }\ntemplate <class T> bool chmin(T &a, const T &b) { return a > b ? a = b, true\
     \ : false; }\ntemplate <class T> bool chmax(T &a, const T &b) { return a < b ?\
     \ a = b, true : false; }\n\nconstexpr ll bit(ll x){ return 1LL << x; }\nconstexpr\
-    \ bool stand(ll x, int i) { return x & bit(i); }\n\nstruct IoSetup {\n    IoSetup()\
-    \ {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n       \
-    \ cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 2 \"src/Graph/dijkstra.hpp\"\n\n/**\n * @brief Dijkstra\n\
-    \ * @docs docs/dijkstra.md\n */\n\n#line 2 \"src/Graph/graph-template.hpp\"\n\n\
-    /**\n * @brief Graph Template\n * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
+    \ ll msk(ll x){ return (1LL << x) - 1;}\nconstexpr bool stand(ll x, int i) { return\
+    \ x & bit(i); }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
+    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
+    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n#line 2 \"src/Graph/dijkstra.hpp\"\
+    \n\n/**\n * @brief Dijkstra\n * @docs docs/dijkstra.md\n */\n\n#line 2 \"src/Graph/graph-template.hpp\"\
+    \n\n/**\n * @brief Graph Template\n * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
     \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <typename T = int>\nstruct Edge\
     \ {\n    int from, to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n\
     \    Edge(int from, int to, T cost = 1, int idx = -1)\n      : from(from)\n  \
@@ -115,7 +115,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2023-11-17 16:20:24+09:00'
+  timestamp: '2023-12-18 22:27:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-1-a.test.cpp

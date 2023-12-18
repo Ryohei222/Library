@@ -36,6 +36,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-lca.test.cpp
     title: src/test/verify/yosupo-lca.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
+    title: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -78,10 +81,10 @@ data:
     \ }\ntemplate <class T> bool chmin(T &a, const T &b) { return a > b ? a = b, true\
     \ : false; }\ntemplate <class T> bool chmax(T &a, const T &b) { return a < b ?\
     \ a = b, true : false; }\n\nconstexpr ll bit(ll x){ return 1LL << x; }\nconstexpr\
-    \ bool stand(ll x, int i) { return x & bit(i); }\n\nstruct IoSetup {\n    IoSetup()\
-    \ {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n       \
-    \ cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n"
+    \ ll msk(ll x){ return (1LL << x) - 1;}\nconstexpr bool stand(ll x, int i) { return\
+    \ x & bit(i); }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
+    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
+    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n"
   code: "#pragma once\n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n * @docs\
     \ docs/template.md\n */\n\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\n\
@@ -116,19 +119,21 @@ data:
     \ auto max(const T &a) { return *max_element(all(a)); }\ntemplate <class T> bool\
     \ chmin(T &a, const T &b) { return a > b ? a = b, true : false; }\ntemplate <class\
     \ T> bool chmax(T &a, const T &b) { return a < b ? a = b, true : false; }\n\n\
-    constexpr ll bit(ll x){ return 1LL << x; }\nconstexpr bool stand(ll x, int i)\
-    \ { return x & bit(i); }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
-    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
-    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;"
+    constexpr ll bit(ll x){ return 1LL << x; }\nconstexpr ll msk(ll x){ return (1LL\
+    \ << x) - 1;}\nconstexpr bool stand(ll x, int i) { return x & bit(i); }\n\nstruct\
+    \ IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    \    }\n} iosetup;"
   dependsOn: []
   isVerificationFile: false
   path: src/template.hpp
   requiredBy: []
-  timestamp: '2023-11-17 16:20:24+09:00'
+  timestamp: '2023-12-18 22:27:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-1-a.test.cpp
   - src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
+  - src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   - src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
   - src/test/verify/aoj-dsl-1-a.test.cpp
   - src/test/verify/aoj-alds-1-14-b.test.cpp
