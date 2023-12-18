@@ -86,6 +86,7 @@ template <class T> bool chmin(T &a, const T &b) { return a > b ? a = b, true : f
 template <class T> bool chmax(T &a, const T &b) { return a < b ? a = b, true : false; }
 
 constexpr ll bit(ll x){ return 1LL << x; }
+constexpr ll msk(ll x){ return (1LL << x) - 1;}
 constexpr bool stand(ll x, int i) { return x & bit(i); }
 
 struct IoSetup {
