@@ -10,19 +10,19 @@ struct UnionFind {
     UnionFind(int n) {
         par.assign(n, -1);
     };
-    int root(int x) {
+    int find(int x) {
         if(par[x] < 0)
             return x;
         else
-            return par[x] = root(par[x]);
+            return par[x] = find(par[x]);
     }
     int size(int x) {
-        x = root(x);
+        x = find(x);
         return -1 * par[x];
     }
     bool unite(int x, int y) {
-        x = root(x);
-        y = root(y);
+        x = find(x);
+        y = find(y);
         if(x == y)
             return false;
         if(size(x) < size(y))
@@ -32,7 +32,7 @@ struct UnionFind {
         return true;
     }
     bool same(int x, int y) {
-        return root(x) == root(y);
+        return find(x) == find(y);
     }
     vector<int> leaders(){
         vector<int> res;

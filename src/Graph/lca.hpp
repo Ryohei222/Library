@@ -12,7 +12,7 @@ struct LCA{
     int N, K;
     vector<int> dist;
     vector<vector<int>> doubling;
-    LCA(Graph<T> G, int root){
+    LCA(Graph<T> G, int find){
         N = (int)G.size();
         K = 1;
         while((1LL<<K) <= N) K++;
@@ -20,9 +20,9 @@ struct LCA{
         doubling.assign(N, vector<int>(K, -1));
         // 根から BFS して各頂点の親を求める
         queue<int> que;
-        que.push(root);
-        dist[root] = 0;
-        doubling[root][0] = root;
+        que.push(find);
+        dist[find] = 0;
+        doubling[find][0] = find;
         while(!que.empty()){
             int t = que.front(); que.pop();
             for(auto e : G[t]){
