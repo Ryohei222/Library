@@ -39,9 +39,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
     title: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: src/test/verify/yuki-697.test.cpp
+    title: src/test/verify/yuki-697.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/template.md
     document_title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
@@ -129,7 +132,7 @@ data:
   path: src/template.hpp
   requiredBy: []
   timestamp: '2023-12-18 22:27:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - src/test/verify/aoj-grl-1-a.test.cpp
   - src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
@@ -137,6 +140,7 @@ data:
   - src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
   - src/test/verify/aoj-dsl-1-a.test.cpp
   - src/test/verify/aoj-alds-1-14-b.test.cpp
+  - src/test/verify/yuki-697.test.cpp
   - src/test/verify/aoj-grl-6-a.test.cpp
   - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/aoj-grl-2-a.test.cpp

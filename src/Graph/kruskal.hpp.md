@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
   - icon: ':heavy_check_mark:'
@@ -55,18 +55,21 @@ data:
     \            return false;\n        if(size(x) < size(y))\n            swap(x,\
     \ y);\n        par[x] += par[y];\n        par[y] = x;\n        return true;\n\
     \    }\n    bool same(int x, int y) {\n        return root(x) == root(y);\n  \
-    \  }\n};\n#line 10 \"src/Graph/kruskal.hpp\"\n\ntemplate <typename T>\npair<T,\
-    \ Edges<T>> kruskal(Graph<T> &G){\n    // \u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5\
-    \u3067 G \u306E\u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\u308B\n    //\
-    \ \u8FD4\u308A\u5024\u306F (cost, vector<Edge>)\n    int N = G.size();\n    UnionFind\
-    \ uf(N);\n    Edges<T> edges;\n    for(int i = 0; i < N; i++){\n        for(auto\
-    \ &edge: G[i]){\n            edges.emplace_back(edge);\n        }\n    }\n   \
-    \ auto comp = [](const Edge<T> &a, const Edge<T> &b){\n        return a.cost <\
-    \ b.cost;\n    };\n    sort(edges.begin(), edges.end(), comp);\n    T cost = (T)0;\n\
-    \    Edges<T> mst;\n    for(auto &edge: edges){\n        if(uf.unite(edge.from,\
-    \ edge.to)){\n            cost += edge.cost;\n            mst.emplace_back(edge);\n\
-    \        }\n    }\n    if(uf.size(0) == N) return pair<T, Edges<T>>(cost, mst);\n\
-    \    else return pair<T, Edges<T>>((T)-1, mst);\n}\n"
+    \  }\n    vector<int> leaders(){\n        vector<int> res;\n        for(int i\
+    \ = 0; i < (int)par.size(); i++){\n            if(par[i] < 0)\n              \
+    \  res.push_back(i);\n        }\n        return res;\n    }\n};\n#line 10 \"src/Graph/kruskal.hpp\"\
+    \n\ntemplate <typename T>\npair<T, Edges<T>> kruskal(Graph<T> &G){\n    // \u30AF\
+    \u30E9\u30B9\u30AB\u30EB\u6CD5\u3067 G \u306E\u6700\u5C0F\u5168\u57DF\u6728\u3092\
+    \u6C42\u3081\u308B\n    // \u8FD4\u308A\u5024\u306F (cost, vector<Edge>)\n   \
+    \ int N = G.size();\n    UnionFind uf(N);\n    Edges<T> edges;\n    for(int i\
+    \ = 0; i < N; i++){\n        for(auto &edge: G[i]){\n            edges.emplace_back(edge);\n\
+    \        }\n    }\n    auto comp = [](const Edge<T> &a, const Edge<T> &b){\n \
+    \       return a.cost < b.cost;\n    };\n    sort(edges.begin(), edges.end(),\
+    \ comp);\n    T cost = (T)0;\n    Edges<T> mst;\n    for(auto &edge: edges){\n\
+    \        if(uf.unite(edge.from, edge.to)){\n            cost += edge.cost;\n \
+    \           mst.emplace_back(edge);\n        }\n    }\n    if(uf.size(0) == N)\
+    \ return pair<T, Edges<T>>(cost, mst);\n    else return pair<T, Edges<T>>((T)-1,\
+    \ mst);\n}\n"
   code: "#pragma once\n\n/**\n * @brief Kruskal\n * @docs docs/kruskal.md\n */\n\n\
     #include \"graph-template.hpp\"\n#include \"../DataStructure/union-find.hpp\"\n\
     \ntemplate <typename T>\npair<T, Edges<T>> kruskal(Graph<T> &G){\n    // \u30AF\
@@ -87,7 +90,7 @@ data:
   isVerificationFile: false
   path: src/Graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2023-11-03 15:30:40+09:00'
+  timestamp: '2023-12-24 14:27:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-2-a.test.cpp

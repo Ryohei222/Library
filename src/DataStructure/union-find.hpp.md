@@ -12,9 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-2-a.test.cpp
     title: src/test/verify/aoj-grl-2-a.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: src/test/verify/yuki-697.test.cpp
+    title: src/test/verify/yuki-697.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/union-find.md
     document_title: Union-Find
@@ -28,7 +31,10 @@ data:
     \        x = root(x);\n        y = root(y);\n        if(x == y)\n            return\
     \ false;\n        if(size(x) < size(y))\n            swap(x, y);\n        par[x]\
     \ += par[y];\n        par[y] = x;\n        return true;\n    }\n    bool same(int\
-    \ x, int y) {\n        return root(x) == root(y);\n    }\n};\n"
+    \ x, int y) {\n        return root(x) == root(y);\n    }\n    vector<int> leaders(){\n\
+    \        vector<int> res;\n        for(int i = 0; i < (int)par.size(); i++){\n\
+    \            if(par[i] < 0)\n                res.push_back(i);\n        }\n  \
+    \      return res;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n\
     \ */\n\nstruct UnionFind {\n    vector<int> par;\n    UnionFind(int n) {\n   \
     \     par.assign(n, -1);\n    };\n    int root(int x) {\n        if(par[x] < 0)\n\
@@ -38,16 +44,19 @@ data:
     \        if(x == y)\n            return false;\n        if(size(x) < size(y))\n\
     \            swap(x, y);\n        par[x] += par[y];\n        par[y] = x;\n   \
     \     return true;\n    }\n    bool same(int x, int y) {\n        return root(x)\
-    \ == root(y);\n    }\n};"
+    \ == root(y);\n    }\n    vector<int> leaders(){\n        vector<int> res;\n \
+    \       for(int i = 0; i < (int)par.size(); i++){\n            if(par[i] < 0)\n\
+    \                res.push_back(i);\n        }\n        return res;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: src/DataStructure/union-find.hpp
   requiredBy:
   - src/Graph/kruskal.hpp
-  timestamp: '2023-11-03 15:30:40+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-12-24 14:27:24+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - src/test/verify/aoj-dsl-1-a.test.cpp
+  - src/test/verify/yuki-697.test.cpp
   - src/test/verify/aoj-grl-2-a.test.cpp
 documentation_of: src/DataStructure/union-find.hpp
 layout: document

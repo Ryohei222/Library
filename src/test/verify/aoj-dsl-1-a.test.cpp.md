@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -66,7 +66,10 @@ data:
     \        x = root(x);\n        y = root(y);\n        if(x == y)\n            return\
     \ false;\n        if(size(x) < size(y))\n            swap(x, y);\n        par[x]\
     \ += par[y];\n        par[y] = x;\n        return true;\n    }\n    bool same(int\
-    \ x, int y) {\n        return root(x) == root(y);\n    }\n};\n#line 4 \"src/test/verify/aoj-dsl-1-a.test.cpp\"\
+    \ x, int y) {\n        return root(x) == root(y);\n    }\n    vector<int> leaders(){\n\
+    \        vector<int> res;\n        for(int i = 0; i < (int)par.size(); i++){\n\
+    \            if(par[i] < 0)\n                res.push_back(i);\n        }\n  \
+    \      return res;\n    }\n};\n#line 4 \"src/test/verify/aoj-dsl-1-a.test.cpp\"\
     \n\nint main() {\n    int n, q;\n    cin >> n >> q;\n    UnionFind uf(n);\n  \
     \  for(int i = 0; i < q; ++i) {\n        int com, x, y;\n        cin >> com >>\
     \ x >> y;\n        if(com == 0)\n            uf.unite(x, y);\n        else\n \
@@ -83,7 +86,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-dsl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2023-12-18 22:27:44+09:00'
+  timestamp: '2023-12-24 14:27:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-dsl-1-a.test.cpp
