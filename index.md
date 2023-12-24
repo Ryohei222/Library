@@ -14,7 +14,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/segment-tree.hpp
       title: Segment Tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/DataStructure/union-find.hpp
       title: Union-Find
   - name: src/Flow
@@ -65,12 +65,12 @@ data:
       title: src/Tree/euler-tour.hpp
   - name: src/Util
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/Util/grid2d.hpp
       title: Grid(2D)
   - name: src
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/template.hpp
       title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   verificationCategories:
@@ -112,7 +112,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
       title: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/test/verify/yuki-697.test.cpp
       title: src/test/verify/yuki-697.test.cpp
 layout: toppage

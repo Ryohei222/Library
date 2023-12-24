@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Util/grid2d.hpp
     title: Grid(2D)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/697
@@ -81,13 +81,13 @@ data:
     \        }\n        return res;\n    }\n};\n#line 2 \"src/DataStructure/union-find.hpp\"\
     \n\n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n */\n\nstruct UnionFind\
     \ {\n    vector<int> par;\n    UnionFind(int n) {\n        par.assign(n, -1);\n\
-    \    };\n    int root(int x) {\n        if(par[x] < 0)\n            return x;\n\
-    \        else\n            return par[x] = root(par[x]);\n    }\n    int size(int\
-    \ x) {\n        x = root(x);\n        return -1 * par[x];\n    }\n    bool unite(int\
-    \ x, int y) {\n        x = root(x);\n        y = root(y);\n        if(x == y)\n\
+    \    };\n    int find(int x) {\n        if(par[x] < 0)\n            return x;\n\
+    \        else\n            return par[x] = find(par[x]);\n    }\n    int size(int\
+    \ x) {\n        x = find(x);\n        return -1 * par[x];\n    }\n    bool unite(int\
+    \ x, int y) {\n        x = find(x);\n        y = find(y);\n        if(x == y)\n\
     \            return false;\n        if(size(x) < size(y))\n            swap(x,\
     \ y);\n        par[x] += par[y];\n        par[y] = x;\n        return true;\n\
-    \    }\n    bool same(int x, int y) {\n        return root(x) == root(y);\n  \
+    \    }\n    bool same(int x, int y) {\n        return find(x) == find(y);\n  \
     \  }\n    vector<int> leaders(){\n        vector<int> res;\n        for(int i\
     \ = 0; i < (int)par.size(); i++){\n            if(par[i] < 0)\n              \
     \  res.push_back(i);\n        }\n        return res;\n    }\n};\n#line 5 \"src/test/verify/yuki-697.test.cpp\"\
@@ -116,8 +116,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/yuki-697.test.cpp
   requiredBy: []
-  timestamp: '2023-12-24 14:27:24+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-12-24 14:35:26+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yuki-697.test.cpp
 layout: document

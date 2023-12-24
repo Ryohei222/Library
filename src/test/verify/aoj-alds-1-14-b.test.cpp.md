@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/String/rolling-hash.hpp
     title: Rolling Hash
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
