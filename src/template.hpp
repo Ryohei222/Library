@@ -38,6 +38,18 @@ using vvvd = vector<vvd>;
 
 constexpr ll inf = 0x1fffffffffffffffLL;
 
+template <class T, class U>
+istream &operator>>(istream &is, pair<T, U> &p) {
+    is >> p.first >> p.second;
+    return is;
+}
+
+template <class T, class U>
+ostream &operator<<(ostream &os, pair<T, U> &p) {
+    os << p.first << " " << p.second;
+    return os;
+}
+
 template <class T1, class T2> void input(vector<T1> &v1, vector<T2> &v2){ rep(i, v1.size()) cin >> v1[i] >> v2[i]; }
 template <class T1, class T2, class T3> void input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3) { rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i]; }
 template <class T1, class T2, class T3, class T4> void input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3, vector<T4> &v4) { rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i] >> v4[i]; }
@@ -57,18 +69,6 @@ ostream &operator<<(ostream &os, const vector<T> &v) {
         else
             os << v[i];
     }
-    return os;
-}
-
-template <class T, class U>
-istream &operator>>(istream &is, pair<T, U> &p) {
-    is >> p.first >> p.second;
-    return is;
-}
-
-template <class T, class U>
-ostream &operator<<(ostream &os, pair<T, U> &p) {
-    os << p.first << " " << p.second;
     return os;
 }
 
