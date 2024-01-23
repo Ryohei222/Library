@@ -11,7 +11,7 @@ template <typename T>
 struct SCC {
     Graph<T> G, rG;
     SCC(Graph<T> G)
-      : G{G} {}
+        : G{G} {}
     Graph<T> dag;
     vector<bool> used;
     // group[i] := i 番目の頂点が属する強連結成分の番号

@@ -50,11 +50,21 @@ ostream &operator<<(ostream &os, pair<T, U> &p) {
     return os;
 }
 
-template <class T1, class T2> void input(vector<T1> &v1, vector<T2> &v2){ rep(i, v1.size()) cin >> v1[i] >> v2[i]; }
-template <class T1, class T2, class T3> void input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3) { rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i]; }
-template <class T1, class T2, class T3, class T4> void input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3, vector<T4> &v4) { rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i] >> v4[i]; }
+template <class T1, class T2>
+void input(vector<T1> &v1, vector<T2> &v2) {
+    rep(i, v1.size()) cin >> v1[i] >> v2[i];
+}
+template <class T1, class T2, class T3>
+void input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3) {
+    rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i];
+}
+template <class T1, class T2, class T3, class T4>
+void input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3, vector<T4> &v4) {
+    rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i] >> v4[i];
+}
 
-template <class T> istream &operator>>(istream &is, vector<T> &v) {
+template <class T>
+istream &operator>>(istream &is, vector<T> &v) {
     for(auto &x : v) {
         is >> x;
     }
@@ -80,14 +90,32 @@ auto vec(T x, int arg, Args... args) {
         return vector(arg, vec<T>(x, args...));
 }
 
-template <class T> auto min(const T &a) { return *min_element(all(a)); }
-template <class T> auto max(const T &a) { return *max_element(all(a)); }
-template <class T> bool chmin(T &a, const T &b) { return a > b ? a = b, true : false; }
-template <class T> bool chmax(T &a, const T &b) { return a < b ? a = b, true : false; }
+template <class T>
+auto min(const T &a) {
+    return *min_element(all(a));
+}
+template <class T>
+auto max(const T &a) {
+    return *max_element(all(a));
+}
+template <class T>
+bool chmin(T &a, const T &b) {
+    return a > b ? a = b, true : false;
+}
+template <class T>
+bool chmax(T &a, const T &b) {
+    return a < b ? a = b, true : false;
+}
 
-constexpr ll bit(ll x){ return 1LL << x; }
-constexpr ll msk(ll x){ return (1LL << x) - 1;}
-constexpr bool stand(ll x, int i) { return x & bit(i); }
+constexpr ll bit(ll x) {
+    return 1LL << x;
+}
+constexpr ll msk(ll x) {
+    return (1LL << x) - 1;
+}
+constexpr bool stand(ll x, int i) {
+    return x & bit(i);
+}
 
 struct IoSetup {
     IoSetup() {

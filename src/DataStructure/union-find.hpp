@@ -34,9 +34,9 @@ struct UnionFind {
     bool same(int x, int y) {
         return find(x) == find(y);
     }
-    vector<int> leaders(){
+    vector<int> leaders() {
         vector<int> res;
-        for(int i = 0; i < (int)par.size(); i++){
+        for(int i = 0; i < (int)par.size(); i++) {
             if(par[i] < 0)
                 res.push_back(i);
         }

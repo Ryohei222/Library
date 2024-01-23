@@ -8,15 +8,14 @@
 #include "graph-template.hpp"
 
 template <typename T = int>
-tuple<T, int, int> diameter(Graph<T> &G){
-    auto dfs = [&](auto &self, int v, int p) -> pair<T, int>
-    {
+tuple<T, int, int> diameter(Graph<T> &G) {
+    auto dfs = [&](auto &self, int v, int p) -> pair<T, int> {
         pair<T, int> ret(0, v);
-        for(auto &e : G[v]){
+        for(auto &e : G[v]) {
             if(e.to == p) continue;
             auto result = self(self, e.to, v);
             result.first += e.cost;
-            if(ret.first < result.first){
+            if(ret.first < result.first) {
                 ret = result;
             }
         }

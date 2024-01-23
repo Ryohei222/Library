@@ -14,7 +14,8 @@ struct LazyMontgomeryModInt {
 
     static constexpr u32 get_r() {
         u32 ret = mod;
-        for (i32 i = 0; i < 4; ++i) ret *= 2 - mod * ret;
+        for(i32 i = 0; i < 4; ++i)
+            ret *= 2 - mod * ret;
         return ret;
     }
 
@@ -26,21 +27,22 @@ struct LazyMontgomeryModInt {
 
     u32 a;
 
-    constexpr LazyMontgomeryModInt() : a(0) {}
+    constexpr LazyMontgomeryModInt()
+        : a(0) {}
     constexpr LazyMontgomeryModInt(const int64_t &b)
-            : a(reduce(u64(b % mod + mod) * n2)){};
+        : a(reduce(u64(b % mod + mod) * n2)){};
 
     static constexpr u32 reduce(const u64 &b) {
         return (b + u64(u32(b) * u32(-r)) * mod) >> 32;
     }
 
     constexpr mint &operator+=(const mint &b) {
-        if (i32(a += b.a - 2 * mod) < 0) a += 2 * mod;
+        if(i32(a += b.a - 2 * mod) < 0) a += 2 * mod;
         return *this;
     }
 
     constexpr mint &operator-=(const mint &b) {
-        if (i32(a -= b.a) < 0) a += 2 * mod;
+        if(i32(a -= b.a) < 0) a += 2 * mod;
         return *this;
     }
 
@@ -69,8 +71,8 @@ struct LazyMontgomeryModInt {
 
     constexpr mint pow(u64 n) const {
         mint ret(1), mul(*this);
-        while (n > 0) {
-            if (n & 1) ret *= mul;
+        while(n > 0) {
+            if(n & 1) ret *= mul;
             mul *= mul;
             n >>= 1;
         }
@@ -79,7 +81,7 @@ struct LazyMontgomeryModInt {
 
     constexpr mint inverse() const {
         int x = get(), y = mod, u = 1, v = 0, t = 0, tmp = 0;
-        while (y > 0) {
+        while(y > 0) {
             t = x / y;
             x -= t * y, u -= t * v;
             tmp = x, x = y, y = tmp;

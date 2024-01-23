@@ -15,10 +15,10 @@ struct Edge {
     Edge() = default;
 
     Edge(int from, int to, T cost = 1, int idx = -1)
-      : from(from)
-      , to(to)
-      , cost(cost)
-      , idx(idx) {
+        : from(from)
+        , to(to)
+        , cost(cost)
+        , idx(idx) {
     }
 
     operator int() const { return to; }
@@ -32,8 +32,8 @@ struct Graph {
     Graph() = default;
 
     explicit Graph(int n)
-      : g(n)
-      , es(0) {
+        : g(n)
+        , es(0) {
     }
 
     size_t size() const {
@@ -69,10 +69,10 @@ struct Graph {
         }
     }
 
-    void debug(){
-        rep(i, g.size()){
+    void debug() {
+        rep(i, g.size()) {
             cerr << i << ": ";
-            for(auto &e : g[i]){
+            for(auto& e : g[i]) {
                 cerr << e.to << ", ";
             }
             cerr << endl;

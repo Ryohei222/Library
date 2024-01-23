@@ -2,7 +2,6 @@ BasedOnStyle: 'Google'
 AccessModifierOffset: -2
 AlignEscapedNewlinesLeft: true
 AlignConsecutiveAssignments: false
-AlignEscapedNewlinesLeft: true
 AlignTrailingComments: true
 AllowShortBlocksOnASingleLine: true
 AllowShortFunctionsOnASingleLine: 'Inline'
@@ -18,8 +17,8 @@ BreakBeforeBraces: 'Attach'
 BreakConstructorInitializersBeforeComma: true
 ColumnLimit: 0
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
-ConstructorInitializerIndentWidth: 2
-ContinuationIndentWidth: 2
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
 Cpp11BracedListStyle: true
 DerivePointerBinding: true
 IndentCaseLabels: true

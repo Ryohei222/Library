@@ -16,7 +16,7 @@ struct FordFulkerson {
     vector<bool> vis;
 
     FordFulkerson(int N)
-      : N(N), G(N), vis(N) {}
+        : N(N), G(N), vis(N) {}
 
     void add_edge(int from, int to, T cap) {
         G[from].emplace_back((Edge){to, (int)G[to].size(), cap}); // e.from = G[e.to][e.rev_idx].to;
