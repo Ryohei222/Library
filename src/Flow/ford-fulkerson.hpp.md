@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/aoj-grl-6-a.test.cpp
     title: src/test/verify/aoj-grl-6-a.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/ford-fulkerson.md
     document_title: Ford-Fulkerson
@@ -17,9 +17,9 @@ data:
     \ * @docs docs/ford-fulkerson.md\n */\n\ntemplate <typename T>\nstruct FordFulkerson\
     \ {\n    struct Edge {\n        int to, rev_idx;\n        T cap;\n    };\n   \
     \ int N;\n    vector<vector<Edge>> G;\n    vector<bool> vis;\n\n    FordFulkerson(int\
-    \ N)\n      : N(N), G(N), vis(N) {}\n\n    void add_edge(int from, int to, T cap)\
-    \ {\n        G[from].emplace_back((Edge){to, (int)G[to].size(), cap}); // e.from\
-    \ = G[e.to][e.rev_idx].to;\n        G[to].emplace_back((Edge){from, (int)G[from].size()\
+    \ N)\n        : N(N), G(N), vis(N) {}\n\n    void add_edge(int from, int to, T\
+    \ cap) {\n        G[from].emplace_back((Edge){to, (int)G[to].size(), cap}); //\
+    \ e.from = G[e.to][e.rev_idx].to;\n        G[to].emplace_back((Edge){from, (int)G[from].size()\
     \ - 1, T(0)});\n    }\n\n    // v -> t \u306E\u6D41\u91CF f \u4EE5\u4E0B\u306E\
     \u5897\u52A0\u9053\u3092\u63A2\u3059\n    T dfs(int v, int t, T f) {\n       \
     \ if(v == t) return f;\n        vis[v] = true;\n        for(auto &e : G[v]) {\n\
@@ -38,8 +38,8 @@ data:
   code: "#pragma once\n\n/**\n * @brief Ford-Fulkerson\n * @docs docs/ford-fulkerson.md\n\
     \ */\n\ntemplate <typename T>\nstruct FordFulkerson {\n    struct Edge {\n   \
     \     int to, rev_idx;\n        T cap;\n    };\n    int N;\n    vector<vector<Edge>>\
-    \ G;\n    vector<bool> vis;\n\n    FordFulkerson(int N)\n      : N(N), G(N), vis(N)\
-    \ {}\n\n    void add_edge(int from, int to, T cap) {\n        G[from].emplace_back((Edge){to,\
+    \ G;\n    vector<bool> vis;\n\n    FordFulkerson(int N)\n        : N(N), G(N),\
+    \ vis(N) {}\n\n    void add_edge(int from, int to, T cap) {\n        G[from].emplace_back((Edge){to,\
     \ (int)G[to].size(), cap}); // e.from = G[e.to][e.rev_idx].to;\n        G[to].emplace_back((Edge){from,\
     \ (int)G[from].size() - 1, T(0)});\n    }\n\n    // v -> t \u306E\u6D41\u91CF\
     \ f \u4EE5\u4E0B\u306E\u5897\u52A0\u9053\u3092\u63A2\u3059\n    T dfs(int v, int\
@@ -60,8 +60,8 @@ data:
   isVerificationFile: false
   path: src/Flow/ford-fulkerson.hpp
   requiredBy: []
-  timestamp: '2023-07-03 19:51:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-01-23 19:55:54+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - src/test/verify/aoj-grl-6-a.test.cpp
 documentation_of: src/Flow/ford-fulkerson.hpp

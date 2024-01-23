@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/Graph/kruskal.hpp
     title: Kruskal
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/aoj-dsl-1-a.test.cpp
     title: src/test/verify/aoj-dsl-1-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/aoj-grl-2-a.test.cpp
     title: src/test/verify/aoj-grl-2-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/yuki-697.test.cpp
     title: src/test/verify/yuki-697.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/union-find.md
     document_title: Union-Find
@@ -31,10 +31,10 @@ data:
     \        x = find(x);\n        y = find(y);\n        if(x == y)\n            return\
     \ false;\n        if(size(x) < size(y))\n            swap(x, y);\n        par[x]\
     \ += par[y];\n        par[y] = x;\n        return true;\n    }\n    bool same(int\
-    \ x, int y) {\n        return find(x) == find(y);\n    }\n    vector<int> leaders(){\n\
-    \        vector<int> res;\n        for(int i = 0; i < (int)par.size(); i++){\n\
-    \            if(par[i] < 0)\n                res.push_back(i);\n        }\n  \
-    \      return res;\n    }\n};\n"
+    \ x, int y) {\n        return find(x) == find(y);\n    }\n    vector<int> leaders()\
+    \ {\n        vector<int> res;\n        for(int i = 0; i < (int)par.size(); i++)\
+    \ {\n            if(par[i] < 0)\n                res.push_back(i);\n        }\n\
+    \        return res;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n\
     \ */\n\nstruct UnionFind {\n    vector<int> par;\n    UnionFind(int n) {\n   \
     \     par.assign(n, -1);\n    };\n    int find(int x) {\n        if(par[x] < 0)\n\
@@ -44,16 +44,16 @@ data:
     \        if(x == y)\n            return false;\n        if(size(x) < size(y))\n\
     \            swap(x, y);\n        par[x] += par[y];\n        par[y] = x;\n   \
     \     return true;\n    }\n    bool same(int x, int y) {\n        return find(x)\
-    \ == find(y);\n    }\n    vector<int> leaders(){\n        vector<int> res;\n \
-    \       for(int i = 0; i < (int)par.size(); i++){\n            if(par[i] < 0)\n\
+    \ == find(y);\n    }\n    vector<int> leaders() {\n        vector<int> res;\n\
+    \        for(int i = 0; i < (int)par.size(); i++) {\n            if(par[i] < 0)\n\
     \                res.push_back(i);\n        }\n        return res;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: src/DataStructure/union-find.hpp
   requiredBy:
   - src/Graph/kruskal.hpp
-  timestamp: '2023-12-24 14:35:26+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-01-23 19:55:54+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - src/test/verify/aoj-dsl-1-a.test.cpp
   - src/test/verify/yuki-697.test.cpp
