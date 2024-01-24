@@ -1,6 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B"
-#include "../../DataStructure/fenwick-tree.hpp"
 #include "../../template.hpp"
+
+#include "../../DataStructure/fenwick-tree.hpp"
 
 int main() {
     ll n, q;

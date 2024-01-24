@@ -1,7 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/lca"
 
-#include "../../Graph/lca.hpp"
 #include "../../template.hpp"
+
+#include "../../Graph/lca.hpp"
 
 int main() {
     ll N, Q;

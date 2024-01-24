@@ -1,6 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_6_A"
-#include "../../Flow/ford-fulkerson.hpp"
 #include "../../template.hpp"
+
+#include "../../Flow/ford-fulkerson.hpp"
 
 int main() {
     int V, E;

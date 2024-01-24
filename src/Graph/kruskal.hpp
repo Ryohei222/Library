@@ -5,8 +5,9 @@
  * @docs docs/kruskal.md
  */
 
-#include "../DataStructure/union-find.hpp"
 #include "graph-template.hpp"
+
+#include "../DataStructure/union-find.hpp"
 
 template <typename T>
 pair<T, Edges<T>> kruskal(Graph<T> &G) {

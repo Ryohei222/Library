@@ -1,6 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A"
-#include "../../DataStructure/union-find.hpp"
 #include "../../template.hpp"
+
+#include "../../DataStructure/union-find.hpp"
 
 int main() {
     int n, q;

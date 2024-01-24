@@ -1,7 +1,8 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
 
-#include "../../Graph/prim.hpp"
 #include "../../template.hpp"
+
+#include "../../Graph/prim.hpp"
 
 int main() {
     ll V, E;

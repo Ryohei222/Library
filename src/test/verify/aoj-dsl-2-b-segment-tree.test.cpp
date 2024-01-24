@@ -1,6 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B"
-#include "../../DataStructure/segment-tree.hpp"
 #include "../../template.hpp"
+
+#include "../../DataStructure/segment-tree.hpp"
 
 int main() {
     ll n, q;

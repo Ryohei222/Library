@@ -1,7 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#include "../../template.hpp"
+
 #include "../../DataStructure/fenwick-tree.hpp"
 #include "../../Graph/hld.hpp"
-#include "../../template.hpp"
 
 int main() {
     ll N, Q;

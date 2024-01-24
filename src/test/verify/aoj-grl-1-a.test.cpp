@@ -1,7 +1,8 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A"
 
-#include "../../Graph/dijkstra.hpp"
 #include "../../template.hpp"
+
+#include "../../Graph/dijkstra.hpp"
 
 int main() {
     ll v, e, r;

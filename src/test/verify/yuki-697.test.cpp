@@ -1,7 +1,8 @@
 #define PROBLEM "https://yukicoder.me/problems/no/697"
+#include "../../template.hpp"
+
 #include "../../DataStructure/union-find.hpp"
 #include "../../Util/grid2d.hpp"
-#include "../../template.hpp"
 
 int main() {
     ll H, W;

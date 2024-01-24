@@ -1,6 +1,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A"
-#include "../../Graph/diameter.hpp"
 #include "../../template.hpp"
+
+#include "../../Graph/diameter.hpp"
 
 int main() {
     int n;
