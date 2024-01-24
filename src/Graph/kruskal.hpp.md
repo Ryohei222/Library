@@ -1,39 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-2-a.test.cpp
     title: src/test/verify/aoj-grl-2-a.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/kruskal.md
     document_title: Kruskal
     links: []
   bundledCode: "#line 2 \"src/Graph/kruskal.hpp\"\n\n/**\n * @brief Kruskal\n * @docs\
-    \ docs/kruskal.md\n */\n\n#line 2 \"src/DataStructure/union-find.hpp\"\n\n/**\n\
-    \ * @brief Union-Find\n * @docs docs/union-find.md\n */\n\nstruct UnionFind {\n\
-    \    vector<int> par;\n    UnionFind(int n) {\n        par.assign(n, -1);\n  \
-    \  };\n    int find(int x) {\n        if(par[x] < 0)\n            return x;\n\
-    \        else\n            return par[x] = find(par[x]);\n    }\n    int size(int\
-    \ x) {\n        x = find(x);\n        return -1 * par[x];\n    }\n    bool unite(int\
-    \ x, int y) {\n        x = find(x);\n        y = find(y);\n        if(x == y)\n\
-    \            return false;\n        if(size(x) < size(y))\n            swap(x,\
-    \ y);\n        par[x] += par[y];\n        par[y] = x;\n        return true;\n\
-    \    }\n    bool same(int x, int y) {\n        return find(x) == find(y);\n  \
-    \  }\n    vector<int> leaders() {\n        vector<int> res;\n        for(int i\
-    \ = 0; i < (int)par.size(); i++) {\n            if(par[i] < 0)\n             \
-    \   res.push_back(i);\n        }\n        return res;\n    }\n};\n#line 2 \"src/Graph/graph-template.hpp\"\
-    \n\n/**\n * @brief Graph Template\n * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
+    \ docs/kruskal.md\n */\n\n#line 2 \"src/Graph/graph-template.hpp\"\n\n/**\n *\
+    \ @brief Graph Template\n * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
     \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <typename T = int>\nstruct Edge\
     \ {\n    int from, to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n\
     \    Edge(int from, int to, T cost = 1, int idx = -1)\n        : from(from)\n\
@@ -58,7 +46,20 @@ data:
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n#line\
-    \ 10 \"src/Graph/kruskal.hpp\"\n\ntemplate <typename T>\npair<T, Edges<T>> kruskal(Graph<T>\
+    \ 9 \"src/Graph/kruskal.hpp\"\n\n#line 2 \"src/DataStructure/union-find.hpp\"\n\
+    \n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n */\n\nstruct UnionFind\
+    \ {\n    vector<int> par;\n    UnionFind(int n) {\n        par.assign(n, -1);\n\
+    \    };\n    int find(int x) {\n        if(par[x] < 0)\n            return x;\n\
+    \        else\n            return par[x] = find(par[x]);\n    }\n    int size(int\
+    \ x) {\n        x = find(x);\n        return -1 * par[x];\n    }\n    bool unite(int\
+    \ x, int y) {\n        x = find(x);\n        y = find(y);\n        if(x == y)\n\
+    \            return false;\n        if(size(x) < size(y))\n            swap(x,\
+    \ y);\n        par[x] += par[y];\n        par[y] = x;\n        return true;\n\
+    \    }\n    bool same(int x, int y) {\n        return find(x) == find(y);\n  \
+    \  }\n    vector<int> leaders() {\n        vector<int> res;\n        for(int i\
+    \ = 0; i < (int)par.size(); i++) {\n            if(par[i] < 0)\n             \
+    \   res.push_back(i);\n        }\n        return res;\n    }\n};\n#line 11 \"\
+    src/Graph/kruskal.hpp\"\n\ntemplate <typename T>\npair<T, Edges<T>> kruskal(Graph<T>\
     \ &G) {\n    // \u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5\u3067 G \u306E\u6700\u5C0F\
     \u5168\u57DF\u6728\u3092\u6C42\u3081\u308B\n    // \u8FD4\u308A\u5024\u306F (cost,\
     \ vector<Edge>)\n    int N = G.size();\n    UnionFind uf(N);\n    Edges<T> edges;\n\
@@ -71,8 +72,8 @@ data:
     \ == N)\n        return pair<T, Edges<T>>(cost, mst);\n    else\n        return\
     \ pair<T, Edges<T>>((T)-1, mst);\n}\n"
   code: "#pragma once\n\n/**\n * @brief Kruskal\n * @docs docs/kruskal.md\n */\n\n\
-    #include \"../DataStructure/union-find.hpp\"\n#include \"graph-template.hpp\"\n\
-    \ntemplate <typename T>\npair<T, Edges<T>> kruskal(Graph<T> &G) {\n    // \u30AF\
+    #include \"graph-template.hpp\"\n\n#include \"../DataStructure/union-find.hpp\"\
+    \n\ntemplate <typename T>\npair<T, Edges<T>> kruskal(Graph<T> &G) {\n    // \u30AF\
     \u30E9\u30B9\u30AB\u30EB\u6CD5\u3067 G \u306E\u6700\u5C0F\u5168\u57DF\u6728\u3092\
     \u6C42\u3081\u308B\n    // \u8FD4\u308A\u5024\u306F (cost, vector<Edge>)\n   \
     \ int N = G.size();\n    UnionFind uf(N);\n    Edges<T> edges;\n    for(int i\
@@ -85,13 +86,13 @@ data:
     \        return pair<T, Edges<T>>(cost, mst);\n    else\n        return pair<T,\
     \ Edges<T>>((T)-1, mst);\n}"
   dependsOn:
-  - src/DataStructure/union-find.hpp
   - src/Graph/graph-template.hpp
+  - src/DataStructure/union-find.hpp
   isVerificationFile: false
   path: src/Graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2024-01-23 19:55:54+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-01-24 12:19:49+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-2-a.test.cpp
 documentation_of: src/Graph/kruskal.hpp

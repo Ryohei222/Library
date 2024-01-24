@@ -1,29 +1,69 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Math/modint.hpp
     title: Modint
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/String/rolling-hash.hpp
     title: Rolling Hash
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B
     links:
     - https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B
   bundledCode: "#line 1 \"src/test/verify/aoj-alds-1-14-b.test.cpp\"\n#define PROBLEM\
-    \ \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B\"\n#line 2 \"src/String/rolling-hash.hpp\"\
-    \n\n/**\n * @brief Rolling Hash\n * @docs docs/rolling-hash.md\n */\n\n#line 2\
-    \ \"src/Math/modint.hpp\"\n\n/**\n * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
+    \ \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B\"\n#line 2 \"src/template.hpp\"\
+    \n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n * @docs docs/template.md\n\
+    \ */\n\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
+    \ GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\nusing namespace\
+    \ std;\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing vvl = vector<vl>;\n\
+    using vvvl = vector<vvl>;\nusing pl = pair<ll, ll>;\nusing vp = vector<pl>;\n\
+    using vvp = vector<vp>;\nusing vs = vector<string>;\nusing vvs = vector<vs>;\n\
+    using vb = vector<bool>;\nusing vvb = vector<vb>;\nusing vvvb = vector<vvb>;\n\
+    using vd = vector<double>;\nusing vvd = vector<vd>;\nusing vvvd = vector<vvd>;\n\
+    \n#define _overload3(_1, _2, _3, name, ...) name\n#define _rep(i, n) repi(i, 0,\
+    \ n)\n#define repi(i, a, b) for(ll i = ll(a); i < ll(b); ++i)\n#define rep(...)\
+    \ _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n#define all(x) std::begin(x),\
+    \ std::end(x)\n#define make_unique(v) v.erase(unique(all(v)), v.end());\n#define\
+    \ sum(...) accumulate(all(__VA_ARGS__), 0LL)\n\nconstexpr ll inf = 0x1fffffffffffffffLL;\n\
+    \ntemplate <class T, class U>\nistream &operator>>(istream &is, pair<T, U> &p)\
+    \ {\n    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate <class T, class\
+    \ U>\nostream &operator<<(ostream &os, pair<T, U> &p) {\n    os << p.first <<\
+    \ \" \" << p.second;\n    return os;\n}\n\ntemplate <class T1, class T2>\nvoid\
+    \ input(vector<T1> &v1, vector<T2> &v2) {\n    rep(i, v1.size()) cin >> v1[i]\
+    \ >> v2[i];\n}\ntemplate <class T1, class T2, class T3>\nvoid input(vector<T1>\
+    \ &v1, vector<T2> &v2, vector<T3> &v3) {\n    rep(i, v1.size()) cin >> v1[i] >>\
+    \ v2[i] >> v3[i];\n}\ntemplate <class T1, class T2, class T3, class T4>\nvoid\
+    \ input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3, vector<T4> &v4) {\n  \
+    \  rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i] >> v4[i];\n}\n\ntemplate <class\
+    \ T>\nistream &operator>>(istream &is, vector<T> &v) {\n    for(auto &x : v) {\n\
+    \        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\nostream &operator<<(ostream\
+    \ &os, const vector<T> &v) {\n    for(int i = 0; i < (int)v.size(); i++) {\n \
+    \       if(i != (int)v.size() - 1)\n            os << v[i] << \" \";\n       \
+    \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
+    \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
+    \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
+    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nauto min(const T &a) {\n    return\
+    \ *min_element(all(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return\
+    \ *max_element(all(a));\n}\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n\
+    \    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
+    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
+    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
+    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
+    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    \    }\n} iosetup;\n#line 3 \"src/test/verify/aoj-alds-1-14-b.test.cpp\"\n\n#line\
+    \ 2 \"src/String/rolling-hash.hpp\"\n\n/**\n * @brief Rolling Hash\n * @docs docs/rolling-hash.md\n\
+    \ */\n\n#line 2 \"src/Math/modint.hpp\"\n\n/**\n * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
     \ */\n\ntemplate <uint32_t mod>\nstruct LazyMontgomeryModInt {\n    using mint\
     \ = LazyMontgomeryModInt;\n    using i32 = int32_t;\n    using u32 = uint32_t;\n\
     \    using u64 = uint64_t;\n\n    static constexpr u32 get_r() {\n        u32\
@@ -94,66 +134,26 @@ data:
     \ h2a = a.hash2, h2b = b.hash2;\n        rhmint1 h1 = h1a * pow1[b.length] + h1b;\n\
     \        rhmint2 h2 = h2a * pow2[b.length] + h2b;\n        return Hash(h1, h2,\
     \ a.length + b.length);\n    }\n};\n\nrhmint1 RollingHash::base1 = 0;\nrhmint2\
-    \ RollingHash::base2 = 0;\n#line 2 \"src/template.hpp\"\n\n/**\n * @brief \u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8\n * @docs docs/template.md\n */\n\n// #pragma GCC\
-    \ target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
-    unroll-loops\")\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll\
-    \ = long long;\nusing vl = vector<ll>;\nusing vvl = vector<vl>;\nusing vvvl =\
-    \ vector<vvl>;\nusing pl = pair<ll, ll>;\nusing vp = vector<pl>;\nusing vvp =\
-    \ vector<vp>;\nusing vs = vector<string>;\nusing vvs = vector<vs>;\nusing vb =\
-    \ vector<bool>;\nusing vvb = vector<vb>;\nusing vvvb = vector<vvb>;\nusing vd\
-    \ = vector<double>;\nusing vvd = vector<vd>;\nusing vvvd = vector<vvd>;\n\n#define\
-    \ _overload3(_1, _2, _3, name, ...) name\n#define _rep(i, n) repi(i, 0, n)\n#define\
-    \ repi(i, a, b) for(ll i = ll(a); i < ll(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__,\
-    \ repi, _rep, )(__VA_ARGS__)\n#define all(x) std::begin(x), std::end(x)\n#define\
-    \ make_unique(v) v.erase(unique(all(v)), v.end());\n#define sum(...) accumulate(all(__VA_ARGS__),\
-    \ 0LL)\n\nconstexpr ll inf = 0x1fffffffffffffffLL;\n\ntemplate <class T, class\
-    \ U>\nistream &operator>>(istream &is, pair<T, U> &p) {\n    is >> p.first >>\
-    \ p.second;\n    return is;\n}\n\ntemplate <class T, class U>\nostream &operator<<(ostream\
-    \ &os, pair<T, U> &p) {\n    os << p.first << \" \" << p.second;\n    return os;\n\
-    }\n\ntemplate <class T1, class T2>\nvoid input(vector<T1> &v1, vector<T2> &v2)\
-    \ {\n    rep(i, v1.size()) cin >> v1[i] >> v2[i];\n}\ntemplate <class T1, class\
-    \ T2, class T3>\nvoid input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3) {\n\
-    \    rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i];\n}\ntemplate <class T1,\
-    \ class T2, class T3, class T4>\nvoid input(vector<T1> &v1, vector<T2> &v2, vector<T3>\
-    \ &v3, vector<T4> &v4) {\n    rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i]\
-    \ >> v4[i];\n}\n\ntemplate <class T>\nistream &operator>>(istream &is, vector<T>\
-    \ &v) {\n    for(auto &x : v) {\n        is >> x;\n    }\n    return is;\n}\n\n\
-    template <class T>\nostream &operator<<(ostream &os, const vector<T> &v) {\n \
-    \   for(int i = 0; i < (int)v.size(); i++) {\n        if(i != (int)v.size() -\
-    \ 1)\n            os << v[i] << \" \";\n        else\n            os << v[i];\n\
-    \    }\n    return os;\n}\n\ntemplate <typename T, typename... Args>\nauto vec(T\
-    \ x, int arg, Args... args) {\n    if constexpr(sizeof...(args) == 0)\n      \
-    \  return vector<T>(arg, x);\n    else\n        return vector(arg, vec<T>(x, args...));\n\
-    }\n\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(all(a));\n\
-    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(all(a));\n\
-    }\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a =\
-    \ b, true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n  \
-    \  return a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return\
-    \ 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
-    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 4 \"src/test/verify/aoj-alds-1-14-b.test.cpp\"\n\nint\
-    \ main() {\n    string T, P;\n    cin >> T >> P;\n    RollingHash rhT(T), rhP(P);\n\
-    \    Hash hashP = rhP.get(0, P.size());\n    rep(i, T.size() - P.size() + 1) {\n\
-    \        Hash hashT = rhT.get(i, i + P.size());\n        if(hashT == hashP) {\n\
-    \            cout << i << endl;\n        }\n    }\n}\n"
+    \ RollingHash::base2 = 0;\n#line 5 \"src/test/verify/aoj-alds-1-14-b.test.cpp\"\
+    \n\nint main() {\n    string T, P;\n    cin >> T >> P;\n    RollingHash rhT(T),\
+    \ rhP(P);\n    Hash hashP = rhP.get(0, P.size());\n    rep(i, T.size() - P.size()\
+    \ + 1) {\n        Hash hashT = rhT.get(i, i + P.size());\n        if(hashT ==\
+    \ hashP) {\n            cout << i << endl;\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B\"\n\
-    #include \"../../String/rolling-hash.hpp\"\n#include \"../../template.hpp\"\n\n\
-    int main() {\n    string T, P;\n    cin >> T >> P;\n    RollingHash rhT(T), rhP(P);\n\
-    \    Hash hashP = rhP.get(0, P.size());\n    rep(i, T.size() - P.size() + 1) {\n\
-    \        Hash hashT = rhT.get(i, i + P.size());\n        if(hashT == hashP) {\n\
-    \            cout << i << endl;\n        }\n    }\n}"
+    #include \"../../template.hpp\"\n\n#include \"../../String/rolling-hash.hpp\"\n\
+    \nint main() {\n    string T, P;\n    cin >> T >> P;\n    RollingHash rhT(T),\
+    \ rhP(P);\n    Hash hashP = rhP.get(0, P.size());\n    rep(i, T.size() - P.size()\
+    \ + 1) {\n        Hash hashT = rhT.get(i, i + P.size());\n        if(hashT ==\
+    \ hashP) {\n            cout << i << endl;\n        }\n    }\n}"
   dependsOn:
+  - src/template.hpp
   - src/String/rolling-hash.hpp
   - src/Math/modint.hpp
-  - src/template.hpp
   isVerificationFile: true
   path: src/test/verify/aoj-alds-1-14-b.test.cpp
   requiredBy: []
-  timestamp: '2024-01-23 19:55:54+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-01-24 12:19:49+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-alds-1-14-b.test.cpp
 layout: document

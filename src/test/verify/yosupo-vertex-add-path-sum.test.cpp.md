@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/fenwick-tree.hpp
     title: Fenwick Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/hld.hpp
     title: Heavy-Light Decomposition
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
@@ -25,10 +25,50 @@ data:
     - https://judge.yosupo.jp/problem/vertex_add_path_sum
   bundledCode: "#line 1 \"src/test/verify/yosupo-vertex-add-path-sum.test.cpp\"\n\
     #define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n#line\
-    \ 2 \"src/DataStructure/fenwick-tree.hpp\"\n\n/**\n * @brief Fenwick Tree\n *\
-    \ @docs docs/fenwick-tree.md\n */\n\ntemplate <typename T = long long int>\nstruct\
-    \ FenwickTree {\n    int n;\n    vector<T> bit;\n    FenwickTree(int n)\n    \
-    \    : n(n) {\n        bit.assign(n + 1, T(0));\n    }\n    FenwickTree(const\
+    \ 2 \"src/template.hpp\"\n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
+    \n * @docs docs/template.md\n */\n\n// #pragma GCC target(\"avx2\")\n// #pragma\
+    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\
+    \nusing namespace std;\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing\
+    \ vvl = vector<vl>;\nusing vvvl = vector<vvl>;\nusing pl = pair<ll, ll>;\nusing\
+    \ vp = vector<pl>;\nusing vvp = vector<vp>;\nusing vs = vector<string>;\nusing\
+    \ vvs = vector<vs>;\nusing vb = vector<bool>;\nusing vvb = vector<vb>;\nusing\
+    \ vvvb = vector<vvb>;\nusing vd = vector<double>;\nusing vvd = vector<vd>;\nusing\
+    \ vvvd = vector<vvd>;\n\n#define _overload3(_1, _2, _3, name, ...) name\n#define\
+    \ _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(ll i = ll(a); i < ll(b);\
+    \ ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
+    #define all(x) std::begin(x), std::end(x)\n#define make_unique(v) v.erase(unique(all(v)),\
+    \ v.end());\n#define sum(...) accumulate(all(__VA_ARGS__), 0LL)\n\nconstexpr ll\
+    \ inf = 0x1fffffffffffffffLL;\n\ntemplate <class T, class U>\nistream &operator>>(istream\
+    \ &is, pair<T, U> &p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\n\
+    template <class T, class U>\nostream &operator<<(ostream &os, pair<T, U> &p) {\n\
+    \    os << p.first << \" \" << p.second;\n    return os;\n}\n\ntemplate <class\
+    \ T1, class T2>\nvoid input(vector<T1> &v1, vector<T2> &v2) {\n    rep(i, v1.size())\
+    \ cin >> v1[i] >> v2[i];\n}\ntemplate <class T1, class T2, class T3>\nvoid input(vector<T1>\
+    \ &v1, vector<T2> &v2, vector<T3> &v3) {\n    rep(i, v1.size()) cin >> v1[i] >>\
+    \ v2[i] >> v3[i];\n}\ntemplate <class T1, class T2, class T3, class T4>\nvoid\
+    \ input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3, vector<T4> &v4) {\n  \
+    \  rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i] >> v4[i];\n}\n\ntemplate <class\
+    \ T>\nistream &operator>>(istream &is, vector<T> &v) {\n    for(auto &x : v) {\n\
+    \        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\nostream &operator<<(ostream\
+    \ &os, const vector<T> &v) {\n    for(int i = 0; i < (int)v.size(); i++) {\n \
+    \       if(i != (int)v.size() - 1)\n            os << v[i] << \" \";\n       \
+    \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
+    \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
+    \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
+    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nauto min(const T &a) {\n    return\
+    \ *min_element(all(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return\
+    \ *max_element(all(a));\n}\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n\
+    \    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
+    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
+    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
+    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
+    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    \    }\n} iosetup;\n#line 3 \"src/test/verify/yosupo-vertex-add-path-sum.test.cpp\"\
+    \n\n#line 2 \"src/DataStructure/fenwick-tree.hpp\"\n\n/**\n * @brief Fenwick Tree\n\
+    \ * @docs docs/fenwick-tree.md\n */\n\ntemplate <typename T = long long int>\n\
+    struct FenwickTree {\n    int n;\n    vector<T> bit;\n    FenwickTree(int n)\n\
+    \        : n(n) {\n        bit.assign(n + 1, T(0));\n    }\n    FenwickTree(const\
     \ vector<T> &a) {\n        n = (int)a.size();\n        bit.assign(n + 1, T(0));\n\
     \        for(int i = 0; i < n; ++i) {\n            apply(i, a[i]);\n        }\n\
     \    }\n    void apply(int idx, T x) {\n        ++idx;\n        while(idx <= n)\
@@ -101,47 +141,7 @@ data:
     \       }\n        if(idx != -1) dfs_hld(idx, v, t, g);\n        for(auto &e :\
     \ G[v]) {\n            if(e.to == p || e.to == idx) continue;\n            g++;\n\
     \            leader.emplace_back(e.to);\n            dfs_hld(e.to, v, t, g);\n\
-    \        }\n    }\n};\n#line 2 \"src/template.hpp\"\n\n/**\n * @brief \u30C6\u30F3\
-    \u30D7\u30EC\u30FC\u30C8\n * @docs docs/template.md\n */\n\n// #pragma GCC target(\"\
-    avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\"\
-    )\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll = long long;\n\
-    using vl = vector<ll>;\nusing vvl = vector<vl>;\nusing vvvl = vector<vvl>;\nusing\
-    \ pl = pair<ll, ll>;\nusing vp = vector<pl>;\nusing vvp = vector<vp>;\nusing vs\
-    \ = vector<string>;\nusing vvs = vector<vs>;\nusing vb = vector<bool>;\nusing\
-    \ vvb = vector<vb>;\nusing vvvb = vector<vvb>;\nusing vd = vector<double>;\nusing\
-    \ vvd = vector<vd>;\nusing vvvd = vector<vvd>;\n\n#define _overload3(_1, _2, _3,\
-    \ name, ...) name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(ll\
-    \ i = ll(a); i < ll(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep,\
-    \ )(__VA_ARGS__)\n#define all(x) std::begin(x), std::end(x)\n#define make_unique(v)\
-    \ v.erase(unique(all(v)), v.end());\n#define sum(...) accumulate(all(__VA_ARGS__),\
-    \ 0LL)\n\nconstexpr ll inf = 0x1fffffffffffffffLL;\n\ntemplate <class T, class\
-    \ U>\nistream &operator>>(istream &is, pair<T, U> &p) {\n    is >> p.first >>\
-    \ p.second;\n    return is;\n}\n\ntemplate <class T, class U>\nostream &operator<<(ostream\
-    \ &os, pair<T, U> &p) {\n    os << p.first << \" \" << p.second;\n    return os;\n\
-    }\n\ntemplate <class T1, class T2>\nvoid input(vector<T1> &v1, vector<T2> &v2)\
-    \ {\n    rep(i, v1.size()) cin >> v1[i] >> v2[i];\n}\ntemplate <class T1, class\
-    \ T2, class T3>\nvoid input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3) {\n\
-    \    rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i];\n}\ntemplate <class T1,\
-    \ class T2, class T3, class T4>\nvoid input(vector<T1> &v1, vector<T2> &v2, vector<T3>\
-    \ &v3, vector<T4> &v4) {\n    rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i]\
-    \ >> v4[i];\n}\n\ntemplate <class T>\nistream &operator>>(istream &is, vector<T>\
-    \ &v) {\n    for(auto &x : v) {\n        is >> x;\n    }\n    return is;\n}\n\n\
-    template <class T>\nostream &operator<<(ostream &os, const vector<T> &v) {\n \
-    \   for(int i = 0; i < (int)v.size(); i++) {\n        if(i != (int)v.size() -\
-    \ 1)\n            os << v[i] << \" \";\n        else\n            os << v[i];\n\
-    \    }\n    return os;\n}\n\ntemplate <typename T, typename... Args>\nauto vec(T\
-    \ x, int arg, Args... args) {\n    if constexpr(sizeof...(args) == 0)\n      \
-    \  return vector<T>(arg, x);\n    else\n        return vector(arg, vec<T>(x, args...));\n\
-    }\n\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(all(a));\n\
-    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(all(a));\n\
-    }\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a =\
-    \ b, true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n  \
-    \  return a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return\
-    \ 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
-    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 5 \"src/test/verify/yosupo-vertex-add-path-sum.test.cpp\"\
+    \        }\n    }\n};\n#line 6 \"src/test/verify/yosupo-vertex-add-path-sum.test.cpp\"\
     \n\nint main() {\n    ll N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >> a;\n\
     \    Graph<ll> G(N);\n    G.read(N - 1, 0);\n    auto hld = HeavyLightDecomposition(G);\n\
     \    hld.build();\n    FenwickTree seg(N);\n    rep(i, N) {\n        seg.set(hld.order[i],\
@@ -151,8 +151,8 @@ data:
     \ y);\n            for(auto [p, q] : paths) {\n                ans += seg.prod(p,\
     \ q);\n            }\n            cout << ans << endl;\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
-    #include \"../../DataStructure/fenwick-tree.hpp\"\n#include \"../../Graph/hld.hpp\"\
-    \n#include \"../../template.hpp\"\n\nint main() {\n    ll N, Q;\n    cin >> N\
+    #include \"../../template.hpp\"\n\n#include \"../../DataStructure/fenwick-tree.hpp\"\
+    \n#include \"../../Graph/hld.hpp\"\n\nint main() {\n    ll N, Q;\n    cin >> N\
     \ >> Q;\n    vl a(N);\n    cin >> a;\n    Graph<ll> G(N);\n    G.read(N - 1, 0);\n\
     \    auto hld = HeavyLightDecomposition(G);\n    hld.build();\n    FenwickTree\
     \ seg(N);\n    rep(i, N) {\n        seg.set(hld.order[i], a[i]);\n    }\n    while(Q--)\
@@ -162,15 +162,15 @@ data:
     \ [p, q] : paths) {\n                ans += seg.prod(p, q);\n            }\n \
     \           cout << ans << endl;\n        }\n    }\n}\n"
   dependsOn:
+  - src/template.hpp
   - src/DataStructure/fenwick-tree.hpp
   - src/Graph/hld.hpp
   - src/Graph/graph-template.hpp
-  - src/template.hpp
   isVerificationFile: true
   path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   requiredBy: []
-  timestamp: '2024-01-23 19:55:54+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-01-24 12:19:49+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
 layout: document

@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/scc.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C
@@ -22,6 +22,46 @@ data:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C
   bundledCode: "#line 1 \"src/test/verify/aoj-grl-3-c.test.cpp\"\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\n\n#line\
+    \ 2 \"src/template.hpp\"\n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
+    \n * @docs docs/template.md\n */\n\n// #pragma GCC target(\"avx2\")\n// #pragma\
+    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\
+    \nusing namespace std;\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing\
+    \ vvl = vector<vl>;\nusing vvvl = vector<vvl>;\nusing pl = pair<ll, ll>;\nusing\
+    \ vp = vector<pl>;\nusing vvp = vector<vp>;\nusing vs = vector<string>;\nusing\
+    \ vvs = vector<vs>;\nusing vb = vector<bool>;\nusing vvb = vector<vb>;\nusing\
+    \ vvvb = vector<vvb>;\nusing vd = vector<double>;\nusing vvd = vector<vd>;\nusing\
+    \ vvvd = vector<vvd>;\n\n#define _overload3(_1, _2, _3, name, ...) name\n#define\
+    \ _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(ll i = ll(a); i < ll(b);\
+    \ ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
+    #define all(x) std::begin(x), std::end(x)\n#define make_unique(v) v.erase(unique(all(v)),\
+    \ v.end());\n#define sum(...) accumulate(all(__VA_ARGS__), 0LL)\n\nconstexpr ll\
+    \ inf = 0x1fffffffffffffffLL;\n\ntemplate <class T, class U>\nistream &operator>>(istream\
+    \ &is, pair<T, U> &p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\n\
+    template <class T, class U>\nostream &operator<<(ostream &os, pair<T, U> &p) {\n\
+    \    os << p.first << \" \" << p.second;\n    return os;\n}\n\ntemplate <class\
+    \ T1, class T2>\nvoid input(vector<T1> &v1, vector<T2> &v2) {\n    rep(i, v1.size())\
+    \ cin >> v1[i] >> v2[i];\n}\ntemplate <class T1, class T2, class T3>\nvoid input(vector<T1>\
+    \ &v1, vector<T2> &v2, vector<T3> &v3) {\n    rep(i, v1.size()) cin >> v1[i] >>\
+    \ v2[i] >> v3[i];\n}\ntemplate <class T1, class T2, class T3, class T4>\nvoid\
+    \ input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3, vector<T4> &v4) {\n  \
+    \  rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i] >> v4[i];\n}\n\ntemplate <class\
+    \ T>\nistream &operator>>(istream &is, vector<T> &v) {\n    for(auto &x : v) {\n\
+    \        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\nostream &operator<<(ostream\
+    \ &os, const vector<T> &v) {\n    for(int i = 0; i < (int)v.size(); i++) {\n \
+    \       if(i != (int)v.size() - 1)\n            os << v[i] << \" \";\n       \
+    \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
+    \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
+    \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
+    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nauto min(const T &a) {\n    return\
+    \ *min_element(all(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return\
+    \ *max_element(all(a));\n}\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n\
+    \    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
+    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
+    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
+    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
+    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    \    }\n} iosetup;\n#line 4 \"src/test/verify/aoj-grl-3-c.test.cpp\"\n\n#line\
     \ 2 \"src/Graph/scc.hpp\"\n\n/**\n * @brief \u5F37\u9023\u7D50\u6210\u5206\u5206\
     \u89E3\n * @docs docs/scc.md\n */\n\n#line 2 \"src/Graph/graph-template.hpp\"\n\
     \n/**\n * @brief Graph Template\n * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
@@ -75,66 +115,26 @@ data:
     \ = true;\n        for(Edge<T> e : G[v])\n            dfs(e.to);\n        order.push_back(v);\n\
     \    }\n    void rdfs(int v, int cnt) {\n        if(group[v] != -1) return;\n\
     \        group[v] = cnt;\n        for(Edge<T> e : rG[v])\n            rdfs(e.to,\
-    \ cnt);\n    }\n};\n#line 2 \"src/template.hpp\"\n\n/**\n * @brief \u30C6\u30F3\
-    \u30D7\u30EC\u30FC\u30C8\n * @docs docs/template.md\n */\n\n// #pragma GCC target(\"\
-    avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\"\
-    )\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll = long long;\n\
-    using vl = vector<ll>;\nusing vvl = vector<vl>;\nusing vvvl = vector<vvl>;\nusing\
-    \ pl = pair<ll, ll>;\nusing vp = vector<pl>;\nusing vvp = vector<vp>;\nusing vs\
-    \ = vector<string>;\nusing vvs = vector<vs>;\nusing vb = vector<bool>;\nusing\
-    \ vvb = vector<vb>;\nusing vvvb = vector<vvb>;\nusing vd = vector<double>;\nusing\
-    \ vvd = vector<vd>;\nusing vvvd = vector<vvd>;\n\n#define _overload3(_1, _2, _3,\
-    \ name, ...) name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(ll\
-    \ i = ll(a); i < ll(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep,\
-    \ )(__VA_ARGS__)\n#define all(x) std::begin(x), std::end(x)\n#define make_unique(v)\
-    \ v.erase(unique(all(v)), v.end());\n#define sum(...) accumulate(all(__VA_ARGS__),\
-    \ 0LL)\n\nconstexpr ll inf = 0x1fffffffffffffffLL;\n\ntemplate <class T, class\
-    \ U>\nistream &operator>>(istream &is, pair<T, U> &p) {\n    is >> p.first >>\
-    \ p.second;\n    return is;\n}\n\ntemplate <class T, class U>\nostream &operator<<(ostream\
-    \ &os, pair<T, U> &p) {\n    os << p.first << \" \" << p.second;\n    return os;\n\
-    }\n\ntemplate <class T1, class T2>\nvoid input(vector<T1> &v1, vector<T2> &v2)\
-    \ {\n    rep(i, v1.size()) cin >> v1[i] >> v2[i];\n}\ntemplate <class T1, class\
-    \ T2, class T3>\nvoid input(vector<T1> &v1, vector<T2> &v2, vector<T3> &v3) {\n\
-    \    rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i];\n}\ntemplate <class T1,\
-    \ class T2, class T3, class T4>\nvoid input(vector<T1> &v1, vector<T2> &v2, vector<T3>\
-    \ &v3, vector<T4> &v4) {\n    rep(i, v1.size()) cin >> v1[i] >> v2[i] >> v3[i]\
-    \ >> v4[i];\n}\n\ntemplate <class T>\nistream &operator>>(istream &is, vector<T>\
-    \ &v) {\n    for(auto &x : v) {\n        is >> x;\n    }\n    return is;\n}\n\n\
-    template <class T>\nostream &operator<<(ostream &os, const vector<T> &v) {\n \
-    \   for(int i = 0; i < (int)v.size(); i++) {\n        if(i != (int)v.size() -\
-    \ 1)\n            os << v[i] << \" \";\n        else\n            os << v[i];\n\
-    \    }\n    return os;\n}\n\ntemplate <typename T, typename... Args>\nauto vec(T\
-    \ x, int arg, Args... args) {\n    if constexpr(sizeof...(args) == 0)\n      \
-    \  return vector<T>(arg, x);\n    else\n        return vector(arg, vec<T>(x, args...));\n\
-    }\n\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(all(a));\n\
-    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(all(a));\n\
-    }\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a =\
-    \ b, true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n  \
-    \  return a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return\
-    \ 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
-    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 5 \"src/test/verify/aoj-grl-3-c.test.cpp\"\n\nint main()\
+    \ cnt);\n    }\n};\n#line 6 \"src/test/verify/aoj-grl-3-c.test.cpp\"\n\nint main()\
     \ {\n    int V, E, Q;\n    cin >> V >> E;\n    Graph<int> G(V);\n    G.read(E,\
     \ 0, false, true);\n    SCC<int> scc(G);\n    cin >> Q;\n    scc.build();\n  \
     \  rep(i, Q) {\n        int u, v;\n        cin >> u >> v;\n        cout << (scc.group[u]\
     \ == scc.group[v]) << endl;\n    }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
-    \n\n#include \"../../Graph/scc.hpp\"\n#include \"../../template.hpp\"\n\nint main()\
-    \ {\n    int V, E, Q;\n    cin >> V >> E;\n    Graph<int> G(V);\n    G.read(E,\
+    \n\n#include \"../../template.hpp\"\n\n#include \"../../Graph/scc.hpp\"\n\nint\
+    \ main() {\n    int V, E, Q;\n    cin >> V >> E;\n    Graph<int> G(V);\n    G.read(E,\
     \ 0, false, true);\n    SCC<int> scc(G);\n    cin >> Q;\n    scc.build();\n  \
     \  rep(i, Q) {\n        int u, v;\n        cin >> u >> v;\n        cout << (scc.group[u]\
     \ == scc.group[v]) << endl;\n    }\n}"
   dependsOn:
+  - src/template.hpp
   - src/Graph/scc.hpp
   - src/Graph/graph-template.hpp
-  - src/template.hpp
   isVerificationFile: true
   path: src/test/verify/aoj-grl-3-c.test.cpp
   requiredBy: []
-  timestamp: '2024-01-23 19:55:54+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-01-24 12:19:49+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-3-c.test.cpp
 layout: document
