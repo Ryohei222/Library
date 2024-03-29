@@ -5,7 +5,7 @@ data:
     pages:
     - icon: ':warning:'
       path: online-judge-tools/customized.cpp
-      title: oj-template(old)
+      title: online-judge-tools/customized.cpp
   - name: src/DataStructure
     pages:
     - icon: ':heavy_check_mark:'

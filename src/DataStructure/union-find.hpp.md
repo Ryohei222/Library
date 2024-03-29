@@ -55,9 +55,9 @@ data:
   timestamp: '2024-01-23 19:55:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - src/test/verify/aoj-dsl-1-a.test.cpp
   - src/test/verify/yuki-697.test.cpp
   - src/test/verify/aoj-grl-2-a.test.cpp
+  - src/test/verify/aoj-dsl-1-a.test.cpp
 documentation_of: src/DataStructure/union-find.hpp
 layout: document
 redirect_from:
