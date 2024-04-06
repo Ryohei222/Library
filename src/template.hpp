@@ -34,9 +34,8 @@ using vvvd = vector<vvd>;
 #define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)
 #define all(x) std::begin(x), std::end(x)
 #define make_unique(v) v.erase(unique(all(v)), v.end());
-#define sum(...) accumulate(all(__VA_ARGS__), 0LL)
 
-constexpr ll inf = 0x1fffffffffffffffLL;
+constexpr ll inf = 0x1fffffffffffffffLL; // 2.3 * 10^18
 
 template <class T, class U>
 istream &operator>>(istream &is, pair<T, U> &p) {
@@ -90,14 +89,6 @@ auto vec(T x, int arg, Args... args) {
         return vector(arg, vec<T>(x, args...));
 }
 
-template <class T>
-auto min(const T &a) {
-    return *min_element(all(a));
-}
-template <class T>
-auto max(const T &a) {
-    return *max_element(all(a));
-}
 template <class T>
 bool chmin(T &a, const T &b) {
     return a > b ? a = b, true : false;
