@@ -56,9 +56,10 @@ data:
     \ &is, mint &b) {\n        int64_t t;\n        is >> t;\n        b = LazyMontgomeryModInt<mod>(t);\n\
     \        return (is);\n    }\n\n    constexpr u32 get() const {\n        u32 ret\
     \ = reduce(a);\n        return ret >= mod ? ret - mod : ret;\n    }\n\n    static\
-    \ constexpr u32 get_mod() { return mod; }\n};\n\n// constexpr long long mod =\
-    \ 1000000007;\nconstexpr long long mod = 998244353;\nusing mint = LazyMontgomeryModInt<mod>;\n\
-    using vm = vector<mint>;\nusing vvm = vector<vm>;\nusing vvvm = vector<vvm>;\n"
+    \ constexpr u32 get_mod() { return mod; }\n};\n\nconstexpr long long mod998 =\
+    \ 998244353;\nconstexpr long long mod107 = 1000000007;\nusing mint998 = LazyMontgomeryModInt<mod998>;\n\
+    using mint107 = LazyMontgomeryModInt<mod107>;\n\n#define vm vector<mint>\n#define\
+    \ vvm vector<vm>\n#define vvvm vector<vvm>\n"
   code: "#pragma once\n\n/**\n * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
     \ */\n\ntemplate <uint32_t mod>\nstruct LazyMontgomeryModInt {\n    using mint\
     \ = LazyMontgomeryModInt;\n    using i32 = int32_t;\n    using u32 = uint32_t;\n\
@@ -99,15 +100,16 @@ data:
     \        b = LazyMontgomeryModInt<mod>(t);\n        return (is);\n    }\n\n  \
     \  constexpr u32 get() const {\n        u32 ret = reduce(a);\n        return ret\
     \ >= mod ? ret - mod : ret;\n    }\n\n    static constexpr u32 get_mod() { return\
-    \ mod; }\n};\n\n// constexpr long long mod = 1000000007;\nconstexpr long long\
-    \ mod = 998244353;\nusing mint = LazyMontgomeryModInt<mod>;\nusing vm = vector<mint>;\n\
-    using vvm = vector<vm>;\nusing vvvm = vector<vvm>;"
+    \ mod; }\n};\n\nconstexpr long long mod998 = 998244353;\nconstexpr long long mod107\
+    \ = 1000000007;\nusing mint998 = LazyMontgomeryModInt<mod998>;\nusing mint107\
+    \ = LazyMontgomeryModInt<mod107>;\n\n#define vm vector<mint>\n#define vvm vector<vm>\n\
+    #define vvvm vector<vvm>"
   dependsOn: []
   isVerificationFile: false
   path: src/Math/modint.hpp
   requiredBy:
   - src/String/rolling-hash.hpp
-  timestamp: '2024-01-23 19:55:54+09:00'
+  timestamp: '2024-04-06 12:47:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-alds-1-14-b.test.cpp

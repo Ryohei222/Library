@@ -59,27 +59,28 @@ data:
     \        b = LazyMontgomeryModInt<mod>(t);\n        return (is);\n    }\n\n  \
     \  constexpr u32 get() const {\n        u32 ret = reduce(a);\n        return ret\
     \ >= mod ? ret - mod : ret;\n    }\n\n    static constexpr u32 get_mod() { return\
-    \ mod; }\n};\n\n// constexpr long long mod = 1000000007;\nconstexpr long long\
-    \ mod = 998244353;\nusing mint = LazyMontgomeryModInt<mod>;\nusing vm = vector<mint>;\n\
-    using vvm = vector<vm>;\nusing vvvm = vector<vvm>;\n#line 9 \"src/String/rolling-hash.hpp\"\
-    \n\nconst uint32_t rhmod1 = 1'000'000'007ll, rhmod2 = 1'000'000'009ll;\nusing\
-    \ rhmint1 = LazyMontgomeryModInt<rhmod1>;\nusing rhmint2 = LazyMontgomeryModInt<rhmod2>;\n\
-    \nstruct Hash {\n    rhmint1 hash1;\n    rhmint2 hash2;\n    int length;\n   \
-    \ Hash(rhmint1 h1, rhmint2 h2, int length)\n        : hash1(h1), hash2(h2), length(length)\
-    \ {}\n    constexpr bool operator==(const Hash &b) {\n        return hash1 ==\
-    \ b.hash1 && hash2 == b.hash2;\n    }\n    constexpr bool operator!=(const Hash\
-    \ &b) {\n        return hash1 != b.hash1 || hash2 != b.hash2;\n    }\n};\n\nstruct\
-    \ RollingHash {\n    static rhmint1 base1;\n    static rhmint2 base2;\n    vector<rhmint1>\
-    \ hash1, pow1;\n    vector<rhmint2> hash2, pow2;\n    string s;\n    int n;\n\
-    \    RollingHash(string _s) {\n        s = _s;\n        if(base1 == 0) generate_base();\n\
-    \        build();\n    }\n    void build() {\n        n = (int)s.size();\n   \
-    \     hash1.resize(n + 1);\n        hash2.resize(n + 1);\n        pow1.resize(n\
-    \ + 1);\n        pow2.resize(n + 1);\n        hash1[0] = rhmint1(s[0]);\n    \
-    \    hash2[0] = rhmint2(s[0]);\n        pow1[0] = 1;\n        pow2[0] = 1;\n \
-    \       for(int i = 0; i < n; ++i) {\n            hash1[i + 1] = hash1[i] * base1\
-    \ + rhmint1(s[i]);\n            hash2[i + 1] = hash2[i] * base2 + rhmint2(s[i]);\n\
-    \            pow1[i + 1] = pow1[i] * base1;\n            pow2[i + 1] = pow2[i]\
-    \ * base2;\n        }\n    }\n    // \u53C2\u8003: https://ei1333.github.io/library/string/rolling-hash.hpp\n\
+    \ mod; }\n};\n\nconstexpr long long mod998 = 998244353;\nconstexpr long long mod107\
+    \ = 1000000007;\nusing mint998 = LazyMontgomeryModInt<mod998>;\nusing mint107\
+    \ = LazyMontgomeryModInt<mod107>;\n\n#define vm vector<mint>\n#define vvm vector<vm>\n\
+    #define vvvm vector<vvm>\n#line 9 \"src/String/rolling-hash.hpp\"\n\nconst uint32_t\
+    \ rhmod1 = 1'000'000'007ll, rhmod2 = 1'000'000'009ll;\nusing rhmint1 = LazyMontgomeryModInt<rhmod1>;\n\
+    using rhmint2 = LazyMontgomeryModInt<rhmod2>;\n\nstruct Hash {\n    rhmint1 hash1;\n\
+    \    rhmint2 hash2;\n    int length;\n    Hash(rhmint1 h1, rhmint2 h2, int length)\n\
+    \        : hash1(h1), hash2(h2), length(length) {}\n    constexpr bool operator==(const\
+    \ Hash &b) {\n        return hash1 == b.hash1 && hash2 == b.hash2;\n    }\n  \
+    \  constexpr bool operator!=(const Hash &b) {\n        return hash1 != b.hash1\
+    \ || hash2 != b.hash2;\n    }\n};\n\nstruct RollingHash {\n    static rhmint1\
+    \ base1;\n    static rhmint2 base2;\n    vector<rhmint1> hash1, pow1;\n    vector<rhmint2>\
+    \ hash2, pow2;\n    string s;\n    int n;\n    RollingHash(string _s) {\n    \
+    \    s = _s;\n        if(base1 == 0) generate_base();\n        build();\n    }\n\
+    \    void build() {\n        n = (int)s.size();\n        hash1.resize(n + 1);\n\
+    \        hash2.resize(n + 1);\n        pow1.resize(n + 1);\n        pow2.resize(n\
+    \ + 1);\n        hash1[0] = rhmint1(s[0]);\n        hash2[0] = rhmint2(s[0]);\n\
+    \        pow1[0] = 1;\n        pow2[0] = 1;\n        for(int i = 0; i < n; ++i)\
+    \ {\n            hash1[i + 1] = hash1[i] * base1 + rhmint1(s[i]);\n          \
+    \  hash2[i + 1] = hash2[i] * base2 + rhmint2(s[i]);\n            pow1[i + 1] =\
+    \ pow1[i] * base1;\n            pow2[i + 1] = pow2[i] * base2;\n        }\n  \
+    \  }\n    // \u53C2\u8003: https://ei1333.github.io/library/string/rolling-hash.hpp\n\
     \    static void generate_base() {\n        mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());\n\
     \        uniform_int_distribution<uint64_t> rand1(1, rhmod1 - 1);\n        uniform_int_distribution<uint64_t>\
     \ rand2(1, rhmod2 - 1);\n        base1 = rhmint1(rand1(mt));\n        base2 =\
@@ -127,7 +128,7 @@ data:
   isVerificationFile: false
   path: src/String/rolling-hash.hpp
   requiredBy: []
-  timestamp: '2024-01-23 19:55:54+09:00'
+  timestamp: '2024-04-06 12:47:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-alds-1-14-b.test.cpp
