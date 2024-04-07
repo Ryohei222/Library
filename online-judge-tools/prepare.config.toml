@@ -2,4 +2,5 @@ contest_directory = "~/kyopro/{service_name}/{contest_id}/{problem_id}"
 problem_directory = "."
 
 [templates]
-"main.cpp" = "~/.config/online-judge-tools/template/customized.cpp"
+"main.cpp" = "/home/mikunyan/kyopro/Library/online-judge-tools/customized.cpp"
+"main.py" = "/home/mikunyan/kyopro/Library/online-judge-tools/main.py"
