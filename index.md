@@ -6,6 +6,9 @@ data:
     - icon: ':warning:'
       path: online-judge-tools/customized.cpp
       title: online-judge-tools/customized.cpp
+    - icon: ':warning:'
+      path: online-judge-tools/main.py
+      title: online-judge-tools/main.py
   - name: src/DataStructure
     pages:
     - icon: ':heavy_check_mark:'
