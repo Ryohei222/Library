@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
   _extendedRequiredBy: []

@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
-    path: src/DataStructure/union-find.hpp
-    title: Union-Find
+  - icon: ':x:'
+    path: src/DataStructure/cumulative-sum.hpp
+    title: "\u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B"
   - icon: ':question:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A
+    PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A
-  bundledCode: "#line 1 \"src/test/verify/aoj-dsl-1-a.test.cpp\"\n#define PROBLEM\
-    \ \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A\"\n#line 2 \"src/template.hpp\"\
+    - https://judge.yosupo.jp/problem/static_range_sum
+  bundledCode: "#line 1 \"src/test/verify/yosupo-static-range-sum.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n#line 2 \"src/template.hpp\"\
     \n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n * @docs docs/template.md\n\
     \ */\n\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
     \ GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\nusing namespace\
@@ -50,43 +50,45 @@ data:
     \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
     \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 3 \"src/test/verify/aoj-dsl-1-a.test.cpp\"\n\n#line\
-    \ 2 \"src/DataStructure/union-find.hpp\"\n\n/**\n * @brief Union-Find\n * @docs\
-    \ docs/union-find.md\n */\n\nstruct UnionFind {\n    vector<int> par;\n    UnionFind(int\
-    \ n) {\n        par.assign(n, -1);\n    };\n    int find(int x) {\n        if(par[x]\
-    \ < 0)\n            return x;\n        else\n            return par[x] = find(par[x]);\n\
-    \    }\n    int size(int x) {\n        x = find(x);\n        return -1 * par[x];\n\
-    \    }\n    bool unite(int x, int y) {\n        x = find(x);\n        y = find(y);\n\
-    \        if(x == y)\n            return false;\n        if(size(x) < size(y))\n\
-    \            swap(x, y);\n        par[x] += par[y];\n        par[y] = x;\n   \
-    \     return true;\n    }\n    bool same(int x, int y) {\n        return find(x)\
-    \ == find(y);\n    }\n    vector<int> leaders() {\n        vector<int> res;\n\
-    \        for(int i = 0; i < (int)par.size(); i++) {\n            if(par[i] < 0)\n\
-    \                res.push_back(i);\n        }\n        return res;\n    }\n};\n\
-    #line 5 \"src/test/verify/aoj-dsl-1-a.test.cpp\"\n\nint main() {\n    int n, q;\n\
-    \    cin >> n >> q;\n    UnionFind uf(n);\n    for(int i = 0; i < q; ++i) {\n\
-    \        int com, x, y;\n        cin >> com >> x >> y;\n        if(com == 0)\n\
-    \            uf.unite(x, y);\n        else\n            cout << uf.same(x, y)\
-    \ << endl;\n    }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A\"\n#include\
-    \ \"../../template.hpp\"\n\n#include \"../../DataStructure/union-find.hpp\"\n\n\
-    int main() {\n    int n, q;\n    cin >> n >> q;\n    UnionFind uf(n);\n    for(int\
-    \ i = 0; i < q; ++i) {\n        int com, x, y;\n        cin >> com >> x >> y;\n\
-    \        if(com == 0)\n            uf.unite(x, y);\n        else\n           \
-    \ cout << uf.same(x, y) << endl;\n    }\n}"
+    \    }\n} iosetup;\n#line 1 \"src/DataStructure/cumulative-sum.hpp\"\ntemplate\
+    \ <typename T = long long int>\nstruct CumulativeSum {\n  private:\n    bool built\
+    \ = false;\n\n  public:\n    int n;\n    vector<T> wa;\n    CumulativeSum(int\
+    \ n)\n        : n(n), wa(n + 1, T(0)) {}\n    CumulativeSum(const vector<T> &a)\n\
+    \        : n((int)a.size()), wa(n + 1, T(0)) {\n        for(int i = 0; i < n;\
+    \ i++)\n            add(i, a[i]);\n        build();\n    }\n    /**\n     * @brief\
+    \ \u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B\n     *\n     */\n    void\
+    \ build() {\n        assert(!built);\n        for(int i = 0; i < n; i++) {\n \
+    \           wa[i + 1] = wa[i] + wa[i + 1];\n        }\n        built = true;\n\
+    \    }\n    /**\n     * @brief wa[idx + 1] += x\n     *\n     * @param idx \u52A0\
+    \u7B97\u3059\u308B\u4F4D\u7F6E (0-indexed)\n     * @param x \u52A0\u7B97\u3059\
+    \u308B\u5024\n     */\n    void add(int idx, T x) {\n        assert(!built);\n\
+    \        wa[idx + 1] += x;\n    }\n    /**\n     * @brief [l, r) \u306E\u548C\
+    , wa[r] - wa[l]\n     *\n     * @param l \u5DE6\u7AEF\u306E\u4F4D\u7F6E (0-indexed,\
+    \ \u9589\u533A\u9593)\n     * @param r \u53F3\u7AEF\u306E\u4F4D\u7F6E (0-indexed,\
+    \ \u958B\u533A\u9593)\n     * @return T \u533A\u9593\u306E\u7DCF\u548C\n     */\n\
+    \    T sum(int l, int r) {\n        assert(built);\n        return wa[r] - wa[l];\n\
+    \    }\n};\n#line 5 \"src/test/verify/yosupo-static-range-sum.test.cpp\"\n\nint\
+    \ main() {\n    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >> a;\n \
+    \   CumulativeSum cs(a);\n    while(Q--) {\n        int l, r;\n        cin >>\
+    \ l >> r;\n        cout << cs.sum(l, r) << endl;\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n\
+    #include \"../../template.hpp\"\n#include \"../../DataStructure/cumulative-sum.hpp\"\
+    \n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >>\
+    \ a;\n    CumulativeSum cs(a);\n    while(Q--) {\n        int l, r;\n        cin\
+    \ >> l >> r;\n        cout << cs.sum(l, r) << endl;\n    }\n}"
   dependsOn:
   - src/template.hpp
-  - src/DataStructure/union-find.hpp
+  - src/DataStructure/cumulative-sum.hpp
   isVerificationFile: true
-  path: src/test/verify/aoj-dsl-1-a.test.cpp
+  path: src/test/verify/yosupo-static-range-sum.test.cpp
   requiredBy: []
   timestamp: '2024-05-02 19:48:16+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: src/test/verify/aoj-dsl-1-a.test.cpp
+documentation_of: src/test/verify/yosupo-static-range-sum.test.cpp
 layout: document
 redirect_from:
-- /verify/src/test/verify/aoj-dsl-1-a.test.cpp
-- /verify/src/test/verify/aoj-dsl-1-a.test.cpp.html
-title: src/test/verify/aoj-dsl-1-a.test.cpp
+- /verify/src/test/verify/yosupo-static-range-sum.test.cpp
+- /verify/src/test/verify/yosupo-static-range-sum.test.cpp.html
+title: src/test/verify/yosupo-static-range-sum.test.cpp
 ---

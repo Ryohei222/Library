@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/yosupo-lca.test.cpp
     title: src/test/verify/yosupo-lca.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/lca-doubling.md
     document_title: "LCA(\u30C0\u30D6\u30EA\u30F3\u30B0)"
@@ -97,7 +97,7 @@ data:
   path: src/Graph/lca.hpp
   requiredBy: []
   timestamp: '2024-01-23 19:55:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - src/test/verify/yosupo-lca.test.cpp
 documentation_of: src/Graph/lca.hpp

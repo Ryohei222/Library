@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-2-a.test.cpp
     title: src/test/verify/aoj-grl-2-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/yuki-697.test.cpp
     title: src/test/verify/yuki-697.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/union-find.md
     document_title: Union-Find
@@ -53,10 +53,10 @@ data:
   requiredBy:
   - src/Graph/kruskal.hpp
   timestamp: '2024-01-23 19:55:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - src/test/verify/yuki-697.test.cpp
   - src/test/verify/aoj-dsl-1-a.test.cpp
+  - src/test/verify/yuki-697.test.cpp
   - src/test/verify/aoj-grl-2-a.test.cpp
 documentation_of: src/DataStructure/union-find.hpp
 layout: document

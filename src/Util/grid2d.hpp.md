@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/test/verify/yuki-697.test.cpp
     title: src/test/verify/yuki-697.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/grid2d.md
     document_title: Grid(2D)
@@ -56,7 +56,7 @@ data:
   path: src/Util/grid2d.hpp
   requiredBy: []
   timestamp: '2024-01-23 19:55:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - src/test/verify/yuki-697.test.cpp
 documentation_of: src/Util/grid2d.hpp
