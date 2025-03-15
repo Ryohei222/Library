@@ -51,8 +51,8 @@ data:
   timestamp: '2024-01-23 19:55:54+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
   - src/test/verify/yosupo-vertex-add-path-sum.test.cpp
+  - src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
 documentation_of: src/DataStructure/fenwick-tree.hpp
 layout: document
 redirect_from:
