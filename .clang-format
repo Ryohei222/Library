@@ -24,6 +24,14 @@ DerivePointerBinding: true
 IndentCaseLabels: true
 IndentWidth: 4
 IndentWrappedFunctionNames: false
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '".*template.hpp"$'
+    Priority: 1
+  - Regex: '".*"'
+    Priority: 2
+  - Regex: '<.*>'
+    Priority: 3
 KeepEmptyLinesAtTheStartOfBlocks: true
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: 'None'
@@ -35,14 +43,6 @@ SpacesBeforeTrailingComments: 1
 SpacesInAngles: false
 SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
-Standard: 'Latest'
+Standard: 'Cpp11'
 TabWidth: 4
 UseTab: 'Never'
-IncludeBlocks: Regroup
-IncludeCategories:
-  - Regex: '".*template.hpp"$'
-    Priority: 1
-  - Regex: '".*"'
-    Priority: 2
-  - Regex: '<.*>'
-    Priority: 3
