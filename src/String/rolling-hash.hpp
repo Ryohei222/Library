@@ -2,7 +2,6 @@
 
 /**
  * @brief Rolling Hash
- * @docs docs/rolling-hash.md
  */
 
 #include "../Math/modint.hpp"

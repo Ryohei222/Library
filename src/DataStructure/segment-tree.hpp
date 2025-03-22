@@ -2,7 +2,6 @@
 
 /**
  * @brief Segment Tree
- * @docs docs/segment-tree.md
  */
 
 template <typename T, typename F>

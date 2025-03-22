@@ -2,7 +2,6 @@
 
 /**
  * @brief Tree-Diameter
- * @docs docs/diameter.md
  */
 
 #include "graph-template.hpp"

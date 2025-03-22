@@ -2,7 +2,6 @@
 
 /**
  * @brief Dijkstra
- * @docs docs/dijkstra.md
  */
 
 #include "graph-template.hpp"

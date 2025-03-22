@@ -2,7 +2,6 @@
 
 /**
  * @brief LCA(ダブリング)
- * @docs docs/lca-doubling.md
  */
 
 #include "graph-template.hpp"

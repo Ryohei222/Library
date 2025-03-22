@@ -2,7 +2,6 @@
 
 /**
  * @brief Fenwick Tree
- * @docs docs/fenwick-tree.md
  */
 
 template <typename T = long long int>

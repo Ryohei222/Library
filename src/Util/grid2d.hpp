@@ -2,7 +2,6 @@
 
 /**
  * @brief Grid(2D)
- * @docs docs/grid2d.md
  */
 
 template <typename T>

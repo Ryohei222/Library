@@ -2,7 +2,6 @@
 
 /**
  * @brief テンプレート
- * @docs docs/template.md
  */
 
 // #pragma GCC target("avx2")
