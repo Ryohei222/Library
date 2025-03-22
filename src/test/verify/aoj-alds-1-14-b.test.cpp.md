@@ -22,13 +22,13 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B
   bundledCode: "#line 1 \"src/test/verify/aoj-alds-1-14-b.test.cpp\"\n#define PROBLEM\
     \ \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B\"\n#line 2 \"src/template.hpp\"\
-    \n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n * @docs docs/template.md\n\
-    \ */\n\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
-    \ GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\nusing namespace\
-    \ std;\n\nusing ll = long long;\nusing ull = unsigned long long;\nusing vl = vector<ll>;\n\
-    using vvl = vector<vl>;\nusing vvvl = vector<vvl>;\nusing pl = pair<ll, ll>;\n\
-    using vp = vector<pl>;\nusing vvp = vector<vp>;\nusing vs = vector<string>;\n\
-    using vvs = vector<vs>;\nusing vb = vector<bool>;\nusing vvb = vector<vb>;\nusing\
+    \n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n */\n\n// #pragma GCC\
+    \ target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
+    unroll-loops\")\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nusing ll\
+    \ = long long;\nusing ull = unsigned long long;\nusing vl = vector<ll>;\nusing\
+    \ vvl = vector<vl>;\nusing vvvl = vector<vvl>;\nusing pl = pair<ll, ll>;\nusing\
+    \ vp = vector<pl>;\nusing vvp = vector<vp>;\nusing vs = vector<string>;\nusing\
+    \ vvs = vector<vs>;\nusing vb = vector<bool>;\nusing vvb = vector<vb>;\nusing\
     \ vvvb = vector<vvb>;\nusing vd = vector<double>;\nusing vvd = vector<vd>;\nusing\
     \ vvvd = vector<vvd>;\n\n#define _overload3(_1, _2, _3, name, ...) name\n#define\
     \ _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(ll i = ll(a); i < ll(b);\
@@ -53,8 +53,8 @@ data:
     }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
     \    }\n} iosetup;\n#line 3 \"src/test/verify/aoj-alds-1-14-b.test.cpp\"\n\n#line\
-    \ 2 \"src/String/rolling-hash.hpp\"\n\n/**\n * @brief Rolling Hash\n * @docs docs/rolling-hash.md\n\
-    \ */\n\n#line 2 \"src/Math/modint.hpp\"\n\n/**\n * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
+    \ 2 \"src/String/rolling-hash.hpp\"\n\n/**\n * @brief Rolling Hash\n */\n\n#line\
+    \ 2 \"src/Math/modint.hpp\"\n\n/**\n * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
     \ */\n\ntemplate <uint32_t mod>\nstruct LazyMontgomeryModInt {\n    using mint\
     \ = LazyMontgomeryModInt;\n    using i32 = int32_t;\n    using u32 = uint32_t;\n\
     \    using u64 = uint64_t;\n\n    static constexpr u32 get_r() {\n        u32\
@@ -97,7 +97,7 @@ data:
     \ mod; }\n};\n\nconstexpr long long mod998 = 998244353;\nconstexpr long long mod107\
     \ = 1000000007;\nusing mint998 = LazyMontgomeryModInt<mod998>;\nusing mint107\
     \ = LazyMontgomeryModInt<mod107>;\n\n#define vm vector<mint>\n#define vvm vector<vm>\n\
-    #define vvvm vector<vvm>\n#line 9 \"src/String/rolling-hash.hpp\"\n\nconst uint32_t\
+    #define vvvm vector<vvm>\n#line 8 \"src/String/rolling-hash.hpp\"\n\nconst uint32_t\
     \ rhmod1 = 1'000'000'007ll, rhmod2 = 1'000'000'009ll;\nusing rhmint1 = LazyMontgomeryModInt<rhmod1>;\n\
     using rhmint2 = LazyMontgomeryModInt<rhmod2>;\n\nstruct Hash {\n    rhmint1 hash1;\n\
     \    rhmint2 hash2;\n    int length;\n    Hash(rhmint1 h1, rhmint2 h2, int length)\n\
@@ -144,7 +144,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-alds-1-14-b.test.cpp
   requiredBy: []
-  timestamp: '2025-01-16 14:57:49+09:00'
+  timestamp: '2025-03-22 12:22:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-alds-1-14-b.test.cpp

@@ -18,7 +18,7 @@ data:
     links: []
   bundledCode: "#line 2 \"src/Graph/prim.hpp\"\n\n/**\n * @brief Prim\n * @docs docs/prim.md\n\
     \ */\n\n#line 2 \"src/Graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template\n\
-    \ * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
+    \ * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
     \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <typename T = int>\nstruct Edge\
     \ {\n    int from, to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n\
     \    Edge(int from, int to, T cost = 1, int idx = -1)\n        : from(from)\n\
@@ -87,7 +87,7 @@ data:
   isVerificationFile: false
   path: src/Graph/prim.hpp
   requiredBy: []
-  timestamp: '2024-01-23 19:55:54+09:00'
+  timestamp: '2025-03-22 12:22:02+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - src/test/verify/aoj-grl-2-a2.test.cpp

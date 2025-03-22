@@ -49,12 +49,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
-    _deprecated_at_docs: docs/graph-template.md
     document_title: Graph Template
     links:
     - https://github.com/ei1333/library/blob/master/graph/graph-template.hpp
   bundledCode: "#line 2 \"src/Graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template\n\
-    \ * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
+    \ * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
     \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <typename T = int>\nstruct Edge\
     \ {\n    int from, to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n\
     \    Edge(int from, int to, T cost = 1, int idx = -1)\n        : from(from)\n\
@@ -79,8 +78,7 @@ data:
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n"
-  code: "#pragma once\n\n/**\n * @brief Graph Template\n * @docs docs/graph-template.md\n\
-    \ * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
+  code: "#pragma once\n\n/**\n * @brief Graph Template\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
     \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <typename T = int>\nstruct Edge\
     \ {\n    int from, to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n\
     \    Edge(int from, int to, T cost = 1, int idx = -1)\n        : from(from)\n\
@@ -116,7 +114,7 @@ data:
   - src/Graph/prim.hpp
   - src/Graph/kruskal.hpp
   - src/Graph/dijkstra.hpp
-  timestamp: '2024-01-23 19:55:54+09:00'
+  timestamp: '2025-03-22 12:22:02+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - src/test/verify/aoj-grl-3-c.test.cpp

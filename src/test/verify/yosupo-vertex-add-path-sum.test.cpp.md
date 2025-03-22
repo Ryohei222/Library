@@ -26,53 +26,51 @@ data:
   bundledCode: "#line 1 \"src/test/verify/yosupo-vertex-add-path-sum.test.cpp\"\n\
     #define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n#line\
     \ 2 \"src/template.hpp\"\n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
-    \n * @docs docs/template.md\n */\n\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\
-    \nusing namespace std;\n\nusing ll = long long;\nusing ull = unsigned long long;\n\
-    using vl = vector<ll>;\nusing vvl = vector<vl>;\nusing vvvl = vector<vvl>;\nusing\
-    \ pl = pair<ll, ll>;\nusing vp = vector<pl>;\nusing vvp = vector<vp>;\nusing vs\
-    \ = vector<string>;\nusing vvs = vector<vs>;\nusing vb = vector<bool>;\nusing\
-    \ vvb = vector<vb>;\nusing vvvb = vector<vvb>;\nusing vd = vector<double>;\nusing\
-    \ vvd = vector<vd>;\nusing vvvd = vector<vvd>;\n\n#define _overload3(_1, _2, _3,\
-    \ name, ...) name\n#define _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(ll\
-    \ i = ll(a); i < ll(b); ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep,\
-    \ )(__VA_ARGS__)\n#define all(x) std::begin(x), std::end(x)\n\nconstexpr ll inf\
-    \ = 0x1fffffffffffffffLL; // 2.3 * 10^18\n\ntemplate <class T, class U>\nistream\
-    \ &operator>>(istream &is, pair<T, U> &p) {\n    is >> p.first >> p.second;\n\
-    \    return is;\n}\n\ntemplate <class T, class U>\nostream &operator<<(ostream\
-    \ &os, pair<T, U> &p) {\n    os << p.first << \" \" << p.second;\n    return os;\n\
-    }\n\ntemplate <class T>\nistream &operator>>(istream &is, vector<T> &v) {\n  \
-    \  for(auto &x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate\
-    \ <class T>\nostream &operator<<(ostream &os, const vector<T> &v) {\n    for(int\
-    \ i = 0; i < (int)v.size(); i++) {\n        if(i != (int)v.size() - 1)\n     \
-    \       os << v[i] << \" \";\n        else\n            os << v[i];\n    }\n \
-    \   return os;\n}\n\ntemplate <typename T, typename... Args>\nauto vec(T x, int\
-    \ arg, Args... args) {\n    if constexpr(sizeof...(args) == 0)\n        return\
-    \ vector<T>(arg, x);\n    else\n        return vector(arg, vec<T>(x, args...));\n\
-    }\n\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a\
-    \ = b, true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n\
-    \    return a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return\
-    \ 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \n */\n\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n//\
+    \ #pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\nusing namespace\
+    \ std;\n\nusing ll = long long;\nusing ull = unsigned long long;\nusing vl = vector<ll>;\n\
+    using vvl = vector<vl>;\nusing vvvl = vector<vvl>;\nusing pl = pair<ll, ll>;\n\
+    using vp = vector<pl>;\nusing vvp = vector<vp>;\nusing vs = vector<string>;\n\
+    using vvs = vector<vs>;\nusing vb = vector<bool>;\nusing vvb = vector<vb>;\nusing\
+    \ vvvb = vector<vvb>;\nusing vd = vector<double>;\nusing vvd = vector<vd>;\nusing\
+    \ vvvd = vector<vvd>;\n\n#define _overload3(_1, _2, _3, name, ...) name\n#define\
+    \ _rep(i, n) repi(i, 0, n)\n#define repi(i, a, b) for(ll i = ll(a); i < ll(b);\
+    \ ++i)\n#define rep(...) _overload3(__VA_ARGS__, repi, _rep, )(__VA_ARGS__)\n\
+    #define all(x) std::begin(x), std::end(x)\n\nconstexpr ll inf = 0x1fffffffffffffffLL;\
+    \ // 2.3 * 10^18\n\ntemplate <class T, class U>\nistream &operator>>(istream &is,\
+    \ pair<T, U> &p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate\
+    \ <class T, class U>\nostream &operator<<(ostream &os, pair<T, U> &p) {\n    os\
+    \ << p.first << \" \" << p.second;\n    return os;\n}\n\ntemplate <class T>\n\
+    istream &operator>>(istream &is, vector<T> &v) {\n    for(auto &x : v) {\n   \
+    \     is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\nostream &operator<<(ostream\
+    \ &os, const vector<T> &v) {\n    for(int i = 0; i < (int)v.size(); i++) {\n \
+    \       if(i != (int)v.size() - 1)\n            os << v[i] << \" \";\n       \
+    \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
+    \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
+    \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
+    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nbool chmin(T &a, const T &b)\
+    \ {\n    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
+    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
+    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
+    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
+    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
     \    }\n} iosetup;\n#line 3 \"src/test/verify/yosupo-vertex-add-path-sum.test.cpp\"\
     \n\n#line 2 \"src/DataStructure/fenwick-tree.hpp\"\n\n/**\n * @brief Fenwick Tree\n\
-    \ * @docs docs/fenwick-tree.md\n */\n\ntemplate <typename T = long long int>\n\
-    struct FenwickTree {\n    int n;\n    vector<T> bit;\n    FenwickTree(int n)\n\
-    \        : n(n) {\n        bit.assign(n + 1, T(0));\n    }\n    FenwickTree(const\
-    \ vector<T> &a) {\n        n = (int)a.size();\n        bit.assign(n + 1, T(0));\n\
-    \        for(int i = 0; i < n; ++i) {\n            apply(i, a[i]);\n        }\n\
-    \    }\n    void apply(int idx, T x) {\n        ++idx;\n        while(idx <= n)\
-    \ {\n            bit[idx] += x;\n            idx += idx & -idx;\n        }\n \
-    \   }\n    void set(int idx, T x) {\n        T pre = prod(idx, idx + 1);\n   \
-    \     apply(idx, x - pre);\n    }\n    T prod(int r) {\n        T ret = T(0);\n\
-    \        ++r;\n        while(r > 0) {\n            ret += bit[r];\n          \
-    \  r -= r & -r;\n        }\n        return ret;\n    }\n    T prod(int l, int\
-    \ r) {\n        if(l == 0)\n            return prod(r - 1);\n        else\n  \
-    \          return prod(r - 1) - prod(l - 1);\n    }\n};\n#line 2 \"src/Graph/hld.hpp\"\
-    \n\n#line 2 \"src/Graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template\n\
-    \ * @docs docs/graph-template.md\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
+    \ */\n\ntemplate <typename T = long long int>\nstruct FenwickTree {\n    int n;\n\
+    \    vector<T> bit;\n    FenwickTree(int n)\n        : n(n) {\n        bit.assign(n\
+    \ + 1, T(0));\n    }\n    FenwickTree(const vector<T> &a) {\n        n = (int)a.size();\n\
+    \        bit.assign(n + 1, T(0));\n        for(int i = 0; i < n; ++i) {\n    \
+    \        apply(i, a[i]);\n        }\n    }\n    void apply(int idx, T x) {\n \
+    \       ++idx;\n        while(idx <= n) {\n            bit[idx] += x;\n      \
+    \      idx += idx & -idx;\n        }\n    }\n    void set(int idx, T x) {\n  \
+    \      T pre = prod(idx, idx + 1);\n        apply(idx, x - pre);\n    }\n    T\
+    \ prod(int r) {\n        T ret = T(0);\n        ++r;\n        while(r > 0) {\n\
+    \            ret += bit[r];\n            r -= r & -r;\n        }\n        return\
+    \ ret;\n    }\n    T prod(int l, int r) {\n        if(l == 0)\n            return\
+    \ prod(r - 1);\n        else\n            return prod(r - 1) - prod(l - 1);\n\
+    \    }\n};\n#line 2 \"src/Graph/hld.hpp\"\n\n#line 2 \"src/Graph/graph-template.hpp\"\
+    \n\n/**\n * @brief Graph Template\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
     \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <typename T = int>\nstruct Edge\
     \ {\n    int from, to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n\
     \    Edge(int from, int to, T cost = 1, int idx = -1)\n        : from(from)\n\
@@ -161,7 +159,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   requiredBy: []
-  timestamp: '2025-01-16 14:57:49+09:00'
+  timestamp: '2025-03-22 12:22:02+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
