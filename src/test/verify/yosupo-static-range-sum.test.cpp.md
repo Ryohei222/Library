@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/cumulative-sum.hpp
     title: "\u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
@@ -69,20 +69,20 @@ data:
     \    }\n};\n#line 5 \"src/test/verify/yosupo-static-range-sum.test.cpp\"\n\nint\
     \ main() {\n    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >> a;\n \
     \   CumulativeSum cs(a);\n    while(Q--) {\n        int l, r;\n        cin >>\
-    \ l >> r;\n        cout << cs.sum(l, r) << endl;\n    }\n}\n"
+    \ l >> r;\n        cout << cs.sum(l, r) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n\
     #include \"../../template.hpp\"\n#include \"../../DataStructure/cumulative-sum.hpp\"\
     \n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >>\
     \ a;\n    CumulativeSum cs(a);\n    while(Q--) {\n        int l, r;\n        cin\
-    \ >> l >> r;\n        cout << cs.sum(l, r) << endl;\n    }\n}"
+    \ >> l >> r;\n        cout << cs.sum(l, r) << '\\n';\n    }\n}"
   dependsOn:
   - src/template.hpp
   - src/DataStructure/cumulative-sum.hpp
   isVerificationFile: true
   path: src/test/verify/yosupo-static-range-sum.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-29 13:19:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yosupo-static-range-sum.test.cpp
 layout: document

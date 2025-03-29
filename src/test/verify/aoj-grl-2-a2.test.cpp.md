@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/prim.hpp
     title: Prim
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
@@ -76,7 +76,7 @@ data:
     \       else\n                add_edge(a, b, c);\n        }\n    }\n\n    void\
     \ debug() {\n        rep(i, g.size()) {\n            cerr << i << \": \";\n  \
     \          for(auto& e : g[i]) {\n                cerr << e.to << \", \";\n  \
-    \          }\n            cerr << endl;\n        }\n    }\n\n    inline vector<Edge<T>>&\
+    \          }\n            cerr << '\\n';\n        }\n    }\n\n    inline vector<Edge<T>>&\
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n#line\
@@ -101,11 +101,12 @@ data:
     \ mst);\n    else\n        return pair<T, Edges<T>>((T)-1, mst);\n}\n#line 6 \"\
     src/test/verify/aoj-grl-2-a2.test.cpp\"\n\nint main() {\n    ll V, E;\n    cin\
     \ >> V >> E;\n    Graph G(V);\n    G.read(E, 0, true, false);\n    auto [cost,\
-    \ mst] = prim(G);\n    cout << cost << endl;\n}\n"
+    \ mst] = prim(G);\n    cout << cost << '\\n';\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n\n#include \"../../template.hpp\"\n\n#include \"../../Graph/prim.hpp\"\n\nint\
     \ main() {\n    ll V, E;\n    cin >> V >> E;\n    Graph G(V);\n    G.read(E, 0,\
-    \ true, false);\n    auto [cost, mst] = prim(G);\n    cout << cost << endl;\n}"
+    \ true, false);\n    auto [cost, mst] = prim(G);\n    cout << cost << '\\n';\n\
+    }"
   dependsOn:
   - src/template.hpp
   - src/Graph/prim.hpp
@@ -113,8 +114,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-2-a2.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-29 13:19:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-2-a2.test.cpp
 layout: document

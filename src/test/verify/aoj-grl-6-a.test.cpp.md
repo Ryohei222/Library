@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Flow/ford-fulkerson.hpp
     title: Ford-Fulkerson
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_6_A
@@ -67,27 +67,27 @@ data:
     \    }\n\n    T max_flow(int s, int t) {\n        T flow = 0, INF = numeric_limits<T>::max();\n\
     \        while(true) {\n            vis.assign(N, false);\n            T f = dfs(s,\
     \ t, INF);\n            if(f == (T)0) return flow;\n            flow += f;\n \
-    \       }\n    }\n\n    void debug() {\n        cerr << \"---------\" << endl;\n\
+    \       }\n    }\n\n    void debug() {\n        cerr << \"---------\" << '\\n';\n\
     \        for(int i = 0; i < N; i++) {\n            for(auto &e : G[i]) {\n   \
     \             if(e.to < i) continue;\n                cerr << i << \" -> \" <<\
-    \ e.to << \": \" << G[e.to][e.rev_idx].cap << endl;\n            }\n        }\n\
+    \ e.to << \": \" << G[e.to][e.rev_idx].cap << '\\n';\n            }\n        }\n\
     \    }\n};\n#line 5 \"src/test/verify/aoj-grl-6-a.test.cpp\"\n\nint main() {\n\
     \    int V, E;\n    cin >> V >> E;\n    FordFulkerson<int> flow(V);\n    rep(i,\
     \ E) {\n        ll u, v, c;\n        cin >> u >> v >> c;\n        flow.add_edge(u,\
-    \ v, c);\n    }\n    cout << flow.max_flow(0, V - 1) << endl;\n}\n"
+    \ v, c);\n    }\n    cout << flow.max_flow(0, V - 1) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_6_A\"\n#include\
     \ \"../../template.hpp\"\n\n#include \"../../Flow/ford-fulkerson.hpp\"\n\nint\
     \ main() {\n    int V, E;\n    cin >> V >> E;\n    FordFulkerson<int> flow(V);\n\
     \    rep(i, E) {\n        ll u, v, c;\n        cin >> u >> v >> c;\n        flow.add_edge(u,\
-    \ v, c);\n    }\n    cout << flow.max_flow(0, V - 1) << endl;\n}"
+    \ v, c);\n    }\n    cout << flow.max_flow(0, V - 1) << '\\n';\n}"
   dependsOn:
   - src/template.hpp
   - src/Flow/ford-fulkerson.hpp
   isVerificationFile: true
   path: src/test/verify/aoj-grl-6-a.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-29 13:19:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-6-a.test.cpp
 layout: document

@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
@@ -75,7 +75,7 @@ data:
     \       else\n                add_edge(a, b, c);\n        }\n    }\n\n    void\
     \ debug() {\n        rep(i, g.size()) {\n            cerr << i << \": \";\n  \
     \          for(auto& e : g[i]) {\n                cerr << e.to << \", \";\n  \
-    \          }\n            cerr << endl;\n        }\n    }\n\n    inline vector<Edge<T>>&\
+    \          }\n            cerr << '\\n';\n        }\n    }\n\n    inline vector<Edge<T>>&\
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n#line\
@@ -85,21 +85,22 @@ data:
     \ = 0;\n    priority_queue<P, vector<P>, greater<P>> que;\n    que.emplace(0,\
     \ s);\n    while(!que.empty()) {\n        P t = que.top();\n        que.pop();\n\
     \        T cost = t.first;\n        int u = t.second;\n        if(cost > dist[u])\
-    \ continue;\n        for(auto e : G[u]) {\n            T v = e.to;\n         \
-    \   if(cost + e.cost < dist[v]) {\n                dist[v] = cost + e.cost;\n\
-    \                que.emplace(dist[v], v);\n            }\n        }\n    }\n \
-    \   return dist;\n}\n#line 6 \"src/test/verify/aoj-grl-1-a.test.cpp\"\n\nint main()\
-    \ {\n    ll v, e, r;\n    cin >> v >> e >> r;\n    Graph<ll> G(v);\n    G.read(e,\
-    \ 0, true, true);\n    auto dist = dijkstra(G, r);\n    const ll INF = std::numeric_limits<ll>::max();\n\
-    \    for(auto d : dist) {\n        if(d == INF)\n            cout << \"INF\" <<\
-    \ endl;\n        else\n            cout << d << endl;\n    }\n}\n"
+    \ continue;\n        for(auto &e : G[u]) {\n            int v = e.to;\n      \
+    \      T ncost = cost + e.cost;\n            if(ncost < dist[v]) {\n         \
+    \       dist[v] = ncost;\n                que.emplace(dist[v], v);\n         \
+    \   }\n        }\n    }\n    return dist;\n}\n#line 6 \"src/test/verify/aoj-grl-1-a.test.cpp\"\
+    \n\nint main() {\n    ll v, e, r;\n    cin >> v >> e >> r;\n    Graph<ll> G(v);\n\
+    \    G.read(e, 0, true, true);\n    auto dist = dijkstra(G, r);\n    const ll\
+    \ INF = std::numeric_limits<ll>::max();\n    for(auto d : dist) {\n        if(d\
+    \ == INF)\n            cout << \"INF\" << '\\n';\n        else\n            cout\
+    \ << d << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
     \n\n#include \"../../template.hpp\"\n\n#include \"../../Graph/dijkstra.hpp\"\n\
     \nint main() {\n    ll v, e, r;\n    cin >> v >> e >> r;\n    Graph<ll> G(v);\n\
     \    G.read(e, 0, true, true);\n    auto dist = dijkstra(G, r);\n    const ll\
     \ INF = std::numeric_limits<ll>::max();\n    for(auto d : dist) {\n        if(d\
-    \ == INF)\n            cout << \"INF\" << endl;\n        else\n            cout\
-    \ << d << endl;\n    }\n}"
+    \ == INF)\n            cout << \"INF\" << '\\n';\n        else\n            cout\
+    \ << d << '\\n';\n    }\n}"
   dependsOn:
   - src/template.hpp
   - src/Graph/dijkstra.hpp
@@ -107,8 +108,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-29 13:43:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-1-a.test.cpp
 layout: document

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -66,20 +66,20 @@ data:
     \    cin >> n >> q;\n    UnionFind uf(n);\n    for(int i = 0; i < q; ++i) {\n\
     \        int com, x, y;\n        cin >> com >> x >> y;\n        if(com == 0)\n\
     \            uf.unite(x, y);\n        else\n            cout << uf.same(x, y)\
-    \ << endl;\n    }\n}\n"
+    \ << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_A\"\n#include\
     \ \"../../template.hpp\"\n\n#include \"../../DataStructure/union-find.hpp\"\n\n\
     int main() {\n    int n, q;\n    cin >> n >> q;\n    UnionFind uf(n);\n    for(int\
     \ i = 0; i < q; ++i) {\n        int com, x, y;\n        cin >> com >> x >> y;\n\
     \        if(com == 0)\n            uf.unite(x, y);\n        else\n           \
-    \ cout << uf.same(x, y) << endl;\n    }\n}"
+    \ cout << uf.same(x, y) << '\\n';\n    }\n}"
   dependsOn:
   - src/template.hpp
   - src/DataStructure/union-find.hpp
   isVerificationFile: true
   path: src/test/verify/aoj-dsl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
+  timestamp: '2025-03-29 13:19:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-dsl-1-a.test.cpp

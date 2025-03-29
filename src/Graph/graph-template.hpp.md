@@ -2,52 +2,52 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/diameter.hpp
     title: Tree-Diameter
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/dijkstra.hpp
     title: Dijkstra
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/hld.hpp
     title: Heavy-Light Decomposition
   - icon: ':heavy_check_mark:'
     path: src/Graph/kruskal.hpp
     title: Kruskal
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/lca.hpp
     title: "LCA(\u30C0\u30D6\u30EA\u30F3\u30B0)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/prim.hpp
     title: Prim
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/scc.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-2-a.test.cpp
     title: src/test/verify/aoj-grl-2-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-2-a2.test.cpp
     title: src/test/verify/aoj-grl-2-a2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-3-c.test.cpp
     title: src/test/verify/aoj-grl-3-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-5-a.test.cpp
     title: src/test/verify/aoj-grl-5-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-lca.test.cpp
     title: src/test/verify/yosupo-lca.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
     title: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Graph Template
     links:
@@ -74,7 +74,7 @@ data:
     \       else\n                add_edge(a, b, c);\n        }\n    }\n\n    void\
     \ debug() {\n        rep(i, g.size()) {\n            cerr << i << \": \";\n  \
     \          for(auto& e : g[i]) {\n                cerr << e.to << \", \";\n  \
-    \          }\n            cerr << endl;\n        }\n    }\n\n    inline vector<Edge<T>>&\
+    \          }\n            cerr << '\\n';\n        }\n    }\n\n    inline vector<Edge<T>>&\
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n"
@@ -99,7 +99,7 @@ data:
     \       else\n                add_edge(a, b, c);\n        }\n    }\n\n    void\
     \ debug() {\n        rep(i, g.size()) {\n            cerr << i << \": \";\n  \
     \          for(auto& e : g[i]) {\n                cerr << e.to << \", \";\n  \
-    \          }\n            cerr << endl;\n        }\n    }\n\n    inline vector<Edge<T>>&\
+    \          }\n            cerr << '\\n';\n        }\n    }\n\n    inline vector<Edge<T>>&\
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;"
@@ -114,8 +114,8 @@ data:
   - src/Graph/prim.hpp
   - src/Graph/kruskal.hpp
   - src/Graph/dijkstra.hpp
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2025-03-29 13:19:14+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-3-c.test.cpp
   - src/test/verify/yosupo-vertex-add-path-sum.test.cpp

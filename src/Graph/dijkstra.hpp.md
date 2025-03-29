@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-1-a.test.cpp
     title: src/test/verify/aoj-grl-1-a.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Dijkstra
     links: []
@@ -38,7 +38,7 @@ data:
     \       else\n                add_edge(a, b, c);\n        }\n    }\n\n    void\
     \ debug() {\n        rep(i, g.size()) {\n            cerr << i << \": \";\n  \
     \          for(auto& e : g[i]) {\n                cerr << e.to << \", \";\n  \
-    \          }\n            cerr << endl;\n        }\n    }\n\n    inline vector<Edge<T>>&\
+    \          }\n            cerr << '\\n';\n        }\n    }\n\n    inline vector<Edge<T>>&\
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n#line\
@@ -48,10 +48,10 @@ data:
     \ = 0;\n    priority_queue<P, vector<P>, greater<P>> que;\n    que.emplace(0,\
     \ s);\n    while(!que.empty()) {\n        P t = que.top();\n        que.pop();\n\
     \        T cost = t.first;\n        int u = t.second;\n        if(cost > dist[u])\
-    \ continue;\n        for(auto e : G[u]) {\n            T v = e.to;\n         \
-    \   if(cost + e.cost < dist[v]) {\n                dist[v] = cost + e.cost;\n\
-    \                que.emplace(dist[v], v);\n            }\n        }\n    }\n \
-    \   return dist;\n}\n"
+    \ continue;\n        for(auto &e : G[u]) {\n            int v = e.to;\n      \
+    \      T ncost = cost + e.cost;\n            if(ncost < dist[v]) {\n         \
+    \       dist[v] = ncost;\n                que.emplace(dist[v], v);\n         \
+    \   }\n        }\n    }\n    return dist;\n}\n"
   code: "#pragma once\n\n/**\n * @brief Dijkstra\n */\n\n#include \"graph-template.hpp\"\
     \n\ntemplate <typename T>\nvector<T> dijkstra(Graph<T> &G, int s) {\n    const\
     \ auto INF = numeric_limits<T>::max();\n    using P = pair<T, int>;\n    int n\
@@ -59,16 +59,17 @@ data:
     \ vector<P>, greater<P>> que;\n    que.emplace(0, s);\n    while(!que.empty())\
     \ {\n        P t = que.top();\n        que.pop();\n        T cost = t.first;\n\
     \        int u = t.second;\n        if(cost > dist[u]) continue;\n        for(auto\
-    \ e : G[u]) {\n            T v = e.to;\n            if(cost + e.cost < dist[v])\
-    \ {\n                dist[v] = cost + e.cost;\n                que.emplace(dist[v],\
-    \ v);\n            }\n        }\n    }\n    return dist;\n}"
+    \ &e : G[u]) {\n            int v = e.to;\n            T ncost = cost + e.cost;\n\
+    \            if(ncost < dist[v]) {\n                dist[v] = ncost;\n       \
+    \         que.emplace(dist[v], v);\n            }\n        }\n    }\n    return\
+    \ dist;\n}"
   dependsOn:
   - src/Graph/graph-template.hpp
   isVerificationFile: false
   path: src/Graph/dijkstra.hpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2025-03-29 13:43:36+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-1-a.test.cpp
 documentation_of: src/Graph/dijkstra.hpp

@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/scc.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C
@@ -76,7 +76,7 @@ data:
     \       else\n                add_edge(a, b, c);\n        }\n    }\n\n    void\
     \ debug() {\n        rep(i, g.size()) {\n            cerr << i << \": \";\n  \
     \          for(auto& e : g[i]) {\n                cerr << e.to << \", \";\n  \
-    \          }\n            cerr << endl;\n        }\n    }\n\n    inline vector<Edge<T>>&\
+    \          }\n            cerr << '\\n';\n        }\n    }\n\n    inline vector<Edge<T>>&\
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n#line\
@@ -110,13 +110,13 @@ data:
     \ {\n    int V, E, Q;\n    cin >> V >> E;\n    Graph<int> G(V);\n    G.read(E,\
     \ 0, false, true);\n    SCC<int> scc(G);\n    cin >> Q;\n    scc.build();\n  \
     \  rep(i, Q) {\n        int u, v;\n        cin >> u >> v;\n        cout << (scc.group[u]\
-    \ == scc.group[v]) << endl;\n    }\n}\n"
+    \ == scc.group[v]) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
     \n\n#include \"../../template.hpp\"\n\n#include \"../../Graph/scc.hpp\"\n\nint\
     \ main() {\n    int V, E, Q;\n    cin >> V >> E;\n    Graph<int> G(V);\n    G.read(E,\
     \ 0, false, true);\n    SCC<int> scc(G);\n    cin >> Q;\n    scc.build();\n  \
     \  rep(i, Q) {\n        int u, v;\n        cin >> u >> v;\n        cout << (scc.group[u]\
-    \ == scc.group[v]) << endl;\n    }\n}"
+    \ == scc.group[v]) << '\\n';\n    }\n}"
   dependsOn:
   - src/template.hpp
   - src/Graph/scc.hpp
@@ -124,8 +124,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-3-c.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-29 13:19:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-3-c.test.cpp
 layout: document

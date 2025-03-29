@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-grl-6-a.test.cpp
     title: src/test/verify/aoj-grl-6-a.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/ford-fulkerson.md
     document_title: Ford-Fulkerson
@@ -30,10 +30,10 @@ data:
     \    }\n\n    T max_flow(int s, int t) {\n        T flow = 0, INF = numeric_limits<T>::max();\n\
     \        while(true) {\n            vis.assign(N, false);\n            T f = dfs(s,\
     \ t, INF);\n            if(f == (T)0) return flow;\n            flow += f;\n \
-    \       }\n    }\n\n    void debug() {\n        cerr << \"---------\" << endl;\n\
+    \       }\n    }\n\n    void debug() {\n        cerr << \"---------\" << '\\n';\n\
     \        for(int i = 0; i < N; i++) {\n            for(auto &e : G[i]) {\n   \
     \             if(e.to < i) continue;\n                cerr << i << \" -> \" <<\
-    \ e.to << \": \" << G[e.to][e.rev_idx].cap << endl;\n            }\n        }\n\
+    \ e.to << \": \" << G[e.to][e.rev_idx].cap << '\\n';\n            }\n        }\n\
     \    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief Ford-Fulkerson\n * @docs docs/ford-fulkerson.md\n\
     \ */\n\ntemplate <typename T>\nstruct FordFulkerson {\n    struct Edge {\n   \
@@ -52,16 +52,16 @@ data:
     \ = 0, INF = numeric_limits<T>::max();\n        while(true) {\n            vis.assign(N,\
     \ false);\n            T f = dfs(s, t, INF);\n            if(f == (T)0) return\
     \ flow;\n            flow += f;\n        }\n    }\n\n    void debug() {\n    \
-    \    cerr << \"---------\" << endl;\n        for(int i = 0; i < N; i++) {\n  \
-    \          for(auto &e : G[i]) {\n                if(e.to < i) continue;\n   \
-    \             cerr << i << \" -> \" << e.to << \": \" << G[e.to][e.rev_idx].cap\
-    \ << endl;\n            }\n        }\n    }\n};"
+    \    cerr << \"---------\" << '\\n';\n        for(int i = 0; i < N; i++) {\n \
+    \           for(auto &e : G[i]) {\n                if(e.to < i) continue;\n  \
+    \              cerr << i << \" -> \" << e.to << \": \" << G[e.to][e.rev_idx].cap\
+    \ << '\\n';\n            }\n        }\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: src/Flow/ford-fulkerson.hpp
   requiredBy: []
-  timestamp: '2024-01-23 19:55:54+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2025-03-29 13:19:14+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-6-a.test.cpp
 documentation_of: src/Flow/ford-fulkerson.hpp

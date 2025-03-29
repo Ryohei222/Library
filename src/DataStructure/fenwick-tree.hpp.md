@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
     title: src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
     title: src/test/verify/yosupo-vertex-add-path-sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Fenwick Tree
     links: []
@@ -48,7 +48,7 @@ data:
   path: src/DataStructure/fenwick-tree.hpp
   requiredBy: []
   timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/yosupo-vertex-add-path-sum.test.cpp
   - src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp

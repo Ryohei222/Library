@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
   - icon: ':heavy_check_mark:'
     path: src/Graph/kruskal.hpp
     title: Kruskal
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -79,7 +79,7 @@ data:
     \       else\n                add_edge(a, b, c);\n        }\n    }\n\n    void\
     \ debug() {\n        rep(i, g.size()) {\n            cerr << i << \": \";\n  \
     \          for(auto& e : g[i]) {\n                cerr << e.to << \", \";\n  \
-    \          }\n            cerr << endl;\n        }\n    }\n\n    inline vector<Edge<T>>&\
+    \          }\n            cerr << '\\n';\n        }\n    }\n\n    inline vector<Edge<T>>&\
     \ operator[](const int& k) {\n        return g[k];\n    }\n\n    inline const\
     \ vector<Edge<T>>& operator[](const int& k) const {\n        return g[k];\n  \
     \  }\n};\n\ntemplate <typename T = int>\nusing Edges = vector<Edge<T>>;\n#line\
@@ -109,13 +109,13 @@ data:
     \ == N)\n        return pair<T, Edges<T>>(cost, mst);\n    else\n        return\
     \ pair<T, Edges<T>>((T)-1, mst);\n}\n#line 6 \"src/test/verify/aoj-grl-2-a.test.cpp\"\
     \n\nint main() {\n    ll V, E;\n    cin >> V >> E;\n    Graph G(V);\n    G.read(E,\
-    \ 0, true, false);\n    auto [cost, mst] = kruskal(G);\n    cout << cost << endl;\n\
-    }\n"
+    \ 0, true, false);\n    auto [cost, mst] = kruskal(G);\n    cout << cost << '\\\
+    n';\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n\n#include \"../../template.hpp\"\n\n#include \"../../Graph/kruskal.hpp\"\n\n\
     int main() {\n    ll V, E;\n    cin >> V >> E;\n    Graph G(V);\n    G.read(E,\
-    \ 0, true, false);\n    auto [cost, mst] = kruskal(G);\n    cout << cost << endl;\n\
-    }"
+    \ 0, true, false);\n    auto [cost, mst] = kruskal(G);\n    cout << cost << '\\\
+    n';\n}"
   dependsOn:
   - src/template.hpp
   - src/Graph/kruskal.hpp
@@ -124,7 +124,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-2-a.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
+  timestamp: '2025-03-29 13:19:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-2-a.test.cpp

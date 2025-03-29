@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/String/rolling-hash.hpp
     title: Rolling Hash
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -130,13 +130,13 @@ data:
     \n\nint main() {\n    string T, P;\n    cin >> T >> P;\n    RollingHash rhT(T),\
     \ rhP(P);\n    Hash hashP = rhP.get(0, P.size());\n    rep(i, T.size() - P.size()\
     \ + 1) {\n        Hash hashT = rhT.get(i, i + P.size());\n        if(hashT ==\
-    \ hashP) {\n            cout << i << endl;\n        }\n    }\n}\n"
+    \ hashP) {\n            cout << i << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B\"\n\
     #include \"../../template.hpp\"\n\n#include \"../../String/rolling-hash.hpp\"\n\
     \nint main() {\n    string T, P;\n    cin >> T >> P;\n    RollingHash rhT(T),\
     \ rhP(P);\n    Hash hashP = rhP.get(0, P.size());\n    rep(i, T.size() - P.size()\
     \ + 1) {\n        Hash hashT = rhT.get(i, i + P.size());\n        if(hashT ==\
-    \ hashP) {\n            cout << i << endl;\n        }\n    }\n}"
+    \ hashP) {\n            cout << i << '\\n';\n        }\n    }\n}"
   dependsOn:
   - src/template.hpp
   - src/String/rolling-hash.hpp
@@ -144,7 +144,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-alds-1-14-b.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
+  timestamp: '2025-03-29 13:19:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-alds-1-14-b.test.cpp

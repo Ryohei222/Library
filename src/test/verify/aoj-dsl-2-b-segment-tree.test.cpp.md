@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/DataStructure/segment-tree.hpp
     title: Segment Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -77,7 +77,7 @@ data:
     \  ll n, q;\n    cin >> n >> q;\n    auto f = [](ll a, ll b) {\n        return\
     \ a + b;\n    };\n    auto seg = get_segment_tree(n, f, 0ll);\n    rep(i, q) {\n\
     \        ll com, x, y;\n        cin >> com >> x >> y;\n        if(com == 0) seg.apply(x\
-    \ - 1, y);\n        if(com == 1) cout << seg.prod(x - 1, y) << endl;\n    }\n\
+    \ - 1, y);\n        if(com == 1) cout << seg.prod(x - 1, y) << '\\n';\n    }\n\
     }\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B\"\n#include\
     \ \"../../template.hpp\"\n\n#include \"../../DataStructure/segment-tree.hpp\"\n\
@@ -85,14 +85,14 @@ data:
     \ {\n        return a + b;\n    };\n    auto seg = get_segment_tree(n, f, 0ll);\n\
     \    rep(i, q) {\n        ll com, x, y;\n        cin >> com >> x >> y;\n     \
     \   if(com == 0) seg.apply(x - 1, y);\n        if(com == 1) cout << seg.prod(x\
-    \ - 1, y) << endl;\n    }\n}"
+    \ - 1, y) << '\\n';\n    }\n}"
   dependsOn:
   - src/template.hpp
   - src/DataStructure/segment-tree.hpp
   isVerificationFile: true
   path: src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
+  timestamp: '2025-03-29 13:19:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp

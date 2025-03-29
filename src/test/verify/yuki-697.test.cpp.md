@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/DataStructure/union-find.hpp
     title: Union-Find
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Util/grid2d.hpp
     title: Grid(2D)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/697
@@ -91,7 +91,7 @@ data:
     \  uf.unite(grid.encode(i, j), grid.encode(ni, nj));\n                }\n    \
     \        }\n        }\n    }\n    ll ans = 0;\n    for(auto i : uf.leaders())\
     \ {\n        auto [nx, ny] = grid.decode(i);\n        if(grid[nx][ny] == 1) ans++;\n\
-    \    }\n    cout << ans << endl;\n}\n"
+    \    }\n    cout << ans << '\\n';\n}\n"
   code: "#define PROBLEM \"https://yukicoder.me/problems/no/697\"\n#include \"../../template.hpp\"\
     \n\n#include \"../../DataStructure/union-find.hpp\"\n#include \"../../Util/grid2d.hpp\"\
     \n\nint main() {\n    ll H, W;\n    cin >> H >> W;\n    Grid2D<int> grid(H, W);\n\
@@ -101,7 +101,7 @@ data:
     \  uf.unite(grid.encode(i, j), grid.encode(ni, nj));\n                }\n    \
     \        }\n        }\n    }\n    ll ans = 0;\n    for(auto i : uf.leaders())\
     \ {\n        auto [nx, ny] = grid.decode(i);\n        if(grid[nx][ny] == 1) ans++;\n\
-    \    }\n    cout << ans << endl;\n}"
+    \    }\n    cout << ans << '\\n';\n}"
   dependsOn:
   - src/template.hpp
   - src/DataStructure/union-find.hpp
@@ -109,8 +109,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/yuki-697.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-29 13:19:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yuki-697.test.cpp
 layout: document

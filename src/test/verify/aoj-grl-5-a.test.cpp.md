@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/diameter.hpp
     title: Tree-Diameter
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/Graph/graph-template.hpp
     title: Graph Template
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
@@ -75,8 +75,8 @@ data:
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
     \  }\n\n    void debug() {\n        rep(i, g.size()) {\n            cerr << i\
     \ << \": \";\n            for(auto& e : g[i]) {\n                cerr << e.to\
-    \ << \", \";\n            }\n            cerr << endl;\n        }\n    }\n\n \
-    \   inline vector<Edge<T>>& operator[](const int& k) {\n        return g[k];\n\
+    \ << \", \";\n            }\n            cerr << '\\n';\n        }\n    }\n\n\
+    \    inline vector<Edge<T>>& operator[](const int& k) {\n        return g[k];\n\
     \    }\n\n    inline const vector<Edge<T>>& operator[](const int& k) const {\n\
     \        return g[k];\n    }\n};\n\ntemplate <typename T = int>\nusing Edges =\
     \ vector<Edge<T>>;\n#line 8 \"src/Graph/diameter.hpp\"\n\ntemplate <typename T\
@@ -89,11 +89,11 @@ data:
     \ 0, -1);\n    auto [d, v2] = dfs(dfs, v1, -1);\n    return tuple<T, int, int>(d,\
     \ v1, v2);\n}\n#line 5 \"src/test/verify/aoj-grl-5-a.test.cpp\"\n\nint main()\
     \ {\n    int n;\n    cin >> n;\n    Graph T(n);\n    T.read(n - 1, 0, true);\n\
-    \    auto [d, v1, v2] = diameter(T);\n    cout << d << endl;\n}\n"
+    \    auto [d, v1, v2] = diameter(T);\n    cout << d << '\\n';\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A\"\
     \n#include \"../../template.hpp\"\n\n#include \"../../Graph/diameter.hpp\"\n\n\
     int main() {\n    int n;\n    cin >> n;\n    Graph T(n);\n    T.read(n - 1, 0,\
-    \ true);\n    auto [d, v1, v2] = diameter(T);\n    cout << d << endl;\n}"
+    \ true);\n    auto [d, v1, v2] = diameter(T);\n    cout << d << '\\n';\n}"
   dependsOn:
   - src/template.hpp
   - src/Graph/diameter.hpp
@@ -101,8 +101,8 @@ data:
   isVerificationFile: true
   path: src/test/verify/aoj-grl-5-a.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-29 13:19:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-5-a.test.cpp
 layout: document
