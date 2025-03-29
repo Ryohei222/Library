@@ -12,5 +12,5 @@ int main() {
         cin >> u >> v >> c;
         flow.add_edge(u, v, c);
     }
-    cout << flow.max_flow(0, V - 1) << endl;
+    cout << flow.max_flow(0, V - 1) << '\n';
 }

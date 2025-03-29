@@ -13,8 +13,8 @@ int main() {
     const ll INF = std::numeric_limits<ll>::max();
     for(auto d : dist) {
         if(d == INF)
-            cout << "INF" << endl;
+            cout << "INF" << '\n';
         else
-            cout << d << endl;
+            cout << d << '\n';
     }
 }

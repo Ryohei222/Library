@@ -51,11 +51,11 @@ struct FordFulkerson {
     }
 
     void debug() {
-        cerr << "---------" << endl;
+        cerr << "---------" << '\n';
         for(int i = 0; i < N; i++) {
             for(auto &e : G[i]) {
                 if(e.to < i) continue;
-                cerr << i << " -> " << e.to << ": " << G[e.to][e.rev_idx].cap << endl;
+                cerr << i << " -> " << e.to << ": " << G[e.to][e.rev_idx].cap << '\n';
             }
         }
     }

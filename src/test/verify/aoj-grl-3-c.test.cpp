@@ -15,6 +15,6 @@ int main() {
     rep(i, Q) {
         int u, v;
         cin >> u >> v;
-        cout << (scc.group[u] == scc.group[v]) << endl;
+        cout << (scc.group[u] == scc.group[v]) << '\n';
     }
 }

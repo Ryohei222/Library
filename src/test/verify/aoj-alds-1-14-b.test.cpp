@@ -11,7 +11,7 @@ int main() {
     rep(i, T.size() - P.size() + 1) {
         Hash hashT = rhT.get(i, i + P.size());
         if(hashT == hashP) {
-            cout << i << endl;
+            cout << i << '\n';
         }
     }
 }

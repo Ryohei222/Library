@@ -74,7 +74,7 @@ struct Graph {
             for(auto& e : g[i]) {
                 cerr << e.to << ", ";
             }
-            cerr << endl;
+            cerr << '\n';
         }
     }
 

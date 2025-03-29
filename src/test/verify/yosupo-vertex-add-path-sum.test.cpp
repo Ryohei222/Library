@@ -28,7 +28,7 @@ int main() {
             for(auto [p, q] : paths) {
                 ans += seg.prod(p, q);
             }
-            cout << ans << endl;
+            cout << ans << '\n';
         }
     }
 }
