@@ -8,6 +8,9 @@ data:
     path: src/String/rolling-hash.hpp
     title: Rolling Hash
   - icon: ':heavy_check_mark:'
+    path: src/Util/debug.hpp
+    title: Debug
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -45,18 +48,20 @@ data:
     \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
     \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
     \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
-    \ vec<T>(x, args...));\n}\n\n#ifdef LOCAL\n#define dbg(x) cerr << __LINE__ <<\
-    \ \" : \" << #x << \" = \" << (x) << endl\n#else\n#define dbg(x) true\n#endif\n\
-    \ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a = b,\
-    \ true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n    return\
-    \ a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return 1LL\
-    \ << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nbool chmin(T &a, const T &b)\
+    \ {\n    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
+    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
+    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
+    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
+    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 3 \"src/test/verify/aoj-alds-1-14-b.test.cpp\"\n\n#line\
-    \ 2 \"src/String/rolling-hash.hpp\"\n\n/**\n * @brief Rolling Hash\n */\n\n#line\
-    \ 2 \"src/Math/modint.hpp\"\n\n/**\n * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
+    \    }\n} iosetup;\n\n#line 2 \"src/Util/debug.hpp\"\n\n/**\n * @brief Debug\n\
+    \ */\n\n#ifdef LOCAL\n#define debug_assert(exp) assert(exp)\n#else\n#define debug_assert(exp)\
+    \ true\n#endif\n\n#ifdef LOCAL\n#define dbg(x) std::cerr << __LINE__ << \" : \"\
+    \ << #x << \" = \" << (x) << std::endl\n#else\n#define dbg(x) true\n#endif\n#line\
+    \ 3 \"src/test/verify/aoj-alds-1-14-b.test.cpp\"\n\n#line 2 \"src/String/rolling-hash.hpp\"\
+    \n\n/**\n * @brief Rolling Hash\n */\n\n#line 2 \"src/Math/modint.hpp\"\n\n/**\n\
+    \ * @brief Modint\n * @cite https://nyaannyaan.github.io/library/modint/modint.hpp\n\
     \ */\n\ntemplate <uint32_t mod>\nstruct LazyMontgomeryModInt {\n    using mint\
     \ = LazyMontgomeryModInt;\n    using i32 = int32_t;\n    using u32 = uint32_t;\n\
     \    using u64 = uint64_t;\n\n    static constexpr u32 get_r() {\n        u32\
@@ -141,12 +146,13 @@ data:
     \ hashP) {\n            cout << i << '\\n';\n        }\n    }\n}"
   dependsOn:
   - src/template.hpp
+  - src/Util/debug.hpp
   - src/String/rolling-hash.hpp
   - src/Math/modint.hpp
   isVerificationFile: true
   path: src/test/verify/aoj-alds-1-14-b.test.cpp
   requiredBy: []
-  timestamp: '2025-03-30 09:55:15+09:00'
+  timestamp: '2025-03-30 10:22:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-alds-1-14-b.test.cpp

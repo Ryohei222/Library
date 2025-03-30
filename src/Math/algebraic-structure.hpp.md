@@ -2,60 +2,64 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: src/DataStructure/abstract-cumulative-sum.hpp
+    title: "\u62BD\u8C61\u5316\u7D2F\u7A4D\u548C"
   - icon: ':warning:'
     path: src/Math/algebraic-structure-test.hpp
     title: src/Math/algebraic-structure-test.hpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
+    title: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/Math/algebraic-structure.hpp\"\n\n#include <numeric>\n\
-    #include <concepts>\n\ntemplate <typename T>\nconcept inner_type = requires()\
-    \ {\n    typename T::S;\n};\n\ntemplate <typename T>\nconcept identity = requires()\
-    \ {\n    { T::e() } -> std::same_as<typename T::S>; // \u5358\u4F4D\u5143\n};\n\
-    \ntemplate <typename T>\nconcept inverse = requires() {\n    { T::inv(std::declval<typename\
-    \ T::S>()) } -> std::same_as<typename T::S>; // \u9006\u5143\n};\n\ntemplate <typename\
-    \ T>\nconcept binary_operation = requires() {\n    { T::op(std::declval<typename\
-    \ T::S>(), std::declval<typename T::S>()) } -> std::same_as<typename T::S>; //\
-    \ \u4E8C\u9805\u6F14\u7B97\n};\n\ntemplate <class T>\nconcept MonoidConcept =\
-    \ inner_type<T> && identity<T> && binary_operation<T>;\n\ntemplate <class T>\n\
-    concept GroupConcept = MonoidConcept<T> && inverse<T>;\n\ntemplate <std::integral\
-    \ T>\nstruct MinMonoid {\n    using S = T;\n    static constexpr S e() { return\
-    \ std::numeric_limits<S>::max(); }\n    static constexpr S op(const S &a, const\
-    \ S &b) { return std::min(a, b); }\n};\n\ntemplate <std::integral T>\nstruct MaxMonoid\
-    \ {\n    using S = T;\n    static constexpr S e() { return std::numeric_limits<S>::min();\
-    \ }\n    static constexpr S op(const S &a, const S &b) { return std::max(a, b);\
-    \ }\n};\n\ntemplate <typename T>\nstruct MultiplicativeMonoid {\n    using S =\
-    \ T;\n    static constexpr S e() { return S(1); }\n    static constexpr S op(const\
-    \ S &a, const S &b) { return a * b; }\n};\n\ntemplate <typename T>\nstruct AdditiveGroup\
-    \ {\n    using S = T;\n    static constexpr S e() { return S(); }\n    static\
-    \ constexpr S op(const S &a, const S &b) { return a + b; }\n    static constexpr\
-    \ S inv(const S &a) { return -a; }\n};\n\ntemplate <typename T>\nstruct XORGroup\
-    \ {\n    using S = T;\n    static constexpr S e() { return S(); }\n    static\
-    \ constexpr S op(const S &a, const S &b) { return a ^ b; }\n    static constexpr\
-    \ S inv(const S &a) { return a; }\n};\n"
-  code: "#pragma once\n\n#include <numeric>\n#include <concepts>\n\ntemplate <typename\
-    \ T>\nconcept inner_type = requires() {\n    typename T::S;\n};\n\ntemplate <typename\
-    \ T>\nconcept identity = requires() {\n    { T::e() } -> std::same_as<typename\
-    \ T::S>; // \u5358\u4F4D\u5143\n};\n\ntemplate <typename T>\nconcept inverse =\
-    \ requires() {\n    { T::inv(std::declval<typename T::S>()) } -> std::same_as<typename\
-    \ T::S>; // \u9006\u5143\n};\n\ntemplate <typename T>\nconcept binary_operation\
+    #include <concepts>\n\ntemplate <typename T>\nconcept HasInnerType = requires()\
+    \ {\n    typename T::S;\n};\n\ntemplate <typename T>\nconcept HasIdentity = requires()\
+    \ {\n    { T::e() } -> std::same_as<typename T::S>;\n};\n\ntemplate <typename\
+    \ T>\nconcept HasInverse = requires() {\n    { T::inv(std::declval<typename T::S>())\
+    \ } -> std::same_as<typename T::S>;\n};\n\ntemplate <typename T>\nconcept HasBinaryOperation\
     \ = requires() {\n    { T::op(std::declval<typename T::S>(), std::declval<typename\
-    \ T::S>()) } -> std::same_as<typename T::S>; // \u4E8C\u9805\u6F14\u7B97\n};\n\
-    \ntemplate <class T>\nconcept MonoidConcept = inner_type<T> && identity<T> &&\
-    \ binary_operation<T>;\n\ntemplate <class T>\nconcept GroupConcept = MonoidConcept<T>\
-    \ && inverse<T>;\n\ntemplate <std::integral T>\nstruct MinMonoid {\n    using\
-    \ S = T;\n    static constexpr S e() { return std::numeric_limits<S>::max(); }\n\
-    \    static constexpr S op(const S &a, const S &b) { return std::min(a, b); }\n\
-    };\n\ntemplate <std::integral T>\nstruct MaxMonoid {\n    using S = T;\n    static\
-    \ constexpr S e() { return std::numeric_limits<S>::min(); }\n    static constexpr\
-    \ S op(const S &a, const S &b) { return std::max(a, b); }\n};\n\ntemplate <typename\
-    \ T>\nstruct MultiplicativeMonoid {\n    using S = T;\n    static constexpr S\
-    \ e() { return S(1); }\n    static constexpr S op(const S &a, const S &b) { return\
-    \ a * b; }\n};\n\ntemplate <typename T>\nstruct AdditiveGroup {\n    using S =\
-    \ T;\n    static constexpr S e() { return S(); }\n    static constexpr S op(const\
+    \ T::S>()) } -> std::same_as<typename T::S>;\n};\n\ntemplate <class T>\nconcept\
+    \ MonoidConcept = HasInnerType<T> && HasIdentity<T> && HasBinaryOperation<T>;\n\
+    \ntemplate <class T>\nconcept GroupConcept = MonoidConcept<T> && HasInverse<T>;\n\
+    \ntemplate <std::integral T>\nstruct MinMonoid {\n    using S = T;\n    static\
+    \ constexpr S e() { return std::numeric_limits<S>::max(); }\n    static constexpr\
+    \ S op(const S &a, const S &b) { return std::min(a, b); }\n};\n\ntemplate <std::integral\
+    \ T>\nstruct MaxMonoid {\n    using S = T;\n    static constexpr S e() { return\
+    \ std::numeric_limits<S>::min(); }\n    static constexpr S op(const S &a, const\
+    \ S &b) { return std::max(a, b); }\n};\n\ntemplate <typename T>\nstruct MultiplicativeMonoid\
+    \ {\n    using S = T;\n    static constexpr S e() { return S(1); }\n    static\
+    \ constexpr S op(const S &a, const S &b) { return a * b; }\n};\n\ntemplate <typename\
+    \ T>\nstruct AdditiveGroup {\n    using S = T;\n    static constexpr S e() { return\
+    \ S(); }\n    static constexpr S op(const S &a, const S &b) { return a + b; }\n\
+    \    static constexpr S inv(const S &a) { return -a; }\n};\n\ntemplate <typename\
+    \ T>\nstruct XORGroup {\n    using S = T;\n    static constexpr S e() { return\
+    \ S(); }\n    static constexpr S op(const S &a, const S &b) { return a ^ b; }\n\
+    \    static constexpr S inv(const S &a) { return a; }\n};\n"
+  code: "#pragma once\n\n#include <numeric>\n#include <concepts>\n\ntemplate <typename\
+    \ T>\nconcept HasInnerType = requires() {\n    typename T::S;\n};\n\ntemplate\
+    \ <typename T>\nconcept HasIdentity = requires() {\n    { T::e() } -> std::same_as<typename\
+    \ T::S>;\n};\n\ntemplate <typename T>\nconcept HasInverse = requires() {\n   \
+    \ { T::inv(std::declval<typename T::S>()) } -> std::same_as<typename T::S>;\n\
+    };\n\ntemplate <typename T>\nconcept HasBinaryOperation = requires() {\n    {\
+    \ T::op(std::declval<typename T::S>(), std::declval<typename T::S>()) } -> std::same_as<typename\
+    \ T::S>;\n};\n\ntemplate <class T>\nconcept MonoidConcept = HasInnerType<T> &&\
+    \ HasIdentity<T> && HasBinaryOperation<T>;\n\ntemplate <class T>\nconcept GroupConcept\
+    \ = MonoidConcept<T> && HasInverse<T>;\n\ntemplate <std::integral T>\nstruct MinMonoid\
+    \ {\n    using S = T;\n    static constexpr S e() { return std::numeric_limits<S>::max();\
+    \ }\n    static constexpr S op(const S &a, const S &b) { return std::min(a, b);\
+    \ }\n};\n\ntemplate <std::integral T>\nstruct MaxMonoid {\n    using S = T;\n\
+    \    static constexpr S e() { return std::numeric_limits<S>::min(); }\n    static\
+    \ constexpr S op(const S &a, const S &b) { return std::max(a, b); }\n};\n\ntemplate\
+    \ <typename T>\nstruct MultiplicativeMonoid {\n    using S = T;\n    static constexpr\
+    \ S e() { return S(1); }\n    static constexpr S op(const S &a, const S &b) {\
+    \ return a * b; }\n};\n\ntemplate <typename T>\nstruct AdditiveGroup {\n    using\
+    \ S = T;\n    static constexpr S e() { return S(); }\n    static constexpr S op(const\
     \ S &a, const S &b) { return a + b; }\n    static constexpr S inv(const S &a)\
     \ { return -a; }\n};\n\ntemplate <typename T>\nstruct XORGroup {\n    using S\
     \ = T;\n    static constexpr S e() { return S(); }\n    static constexpr S op(const\
@@ -66,9 +70,11 @@ data:
   path: src/Math/algebraic-structure.hpp
   requiredBy:
   - src/Math/algebraic-structure-test.hpp
-  timestamp: '2025-03-30 09:54:01+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  - src/DataStructure/abstract-cumulative-sum.hpp
+  timestamp: '2025-03-30 10:23:25+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - src/test/verify/yosupo-static-range-sum-abstract.test.cpp
 documentation_of: src/Math/algebraic-structure.hpp
 layout: document
 redirect_from:

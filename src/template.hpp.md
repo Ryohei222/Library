@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: src/Util/debug.hpp
+    title: Debug
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -36,6 +39,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-lca.test.cpp
     title: src/test/verify/yosupo-lca.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
+    title: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-static-range-sum.test.cpp
     title: src/test/verify/yosupo-static-range-sum.test.cpp
@@ -75,15 +81,18 @@ data:
     \   return os;\n}\n\ntemplate <typename T, typename... Args>\nauto vec(T x, int\
     \ arg, Args... args) {\n    if constexpr(sizeof...(args) == 0)\n        return\
     \ vector<T>(arg, x);\n    else\n        return vector(arg, vec<T>(x, args...));\n\
-    }\n\n#ifdef LOCAL\n#define dbg(x) cerr << __LINE__ << \" : \" << #x << \" = \"\
-    \ << (x) << endl\n#else\n#define dbg(x) true\n#endif\n\ntemplate <class T>\nbool\
-    \ chmin(T &a, const T &b) {\n    return a > b ? a = b, true : false;\n}\ntemplate\
-    \ <class T>\nbool chmax(T &a, const T &b) {\n    return a < b ? a = b, true :\
-    \ false;\n}\n\nconstexpr ll bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll\
-    \ msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr bool stand(ll x, int i)\
-    \ {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
-    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
-    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n"
+    }\n\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a\
+    \ = b, true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n\
+    \    return a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return\
+    \ 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
+    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
+    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
+    \    }\n} iosetup;\n\n#line 2 \"src/Util/debug.hpp\"\n\n/**\n * @brief Debug\n\
+    \ */\n\n#ifdef LOCAL\n#define debug_assert(exp) assert(exp)\n#else\n#define debug_assert(exp)\
+    \ true\n#endif\n\n#ifdef LOCAL\n#define dbg(x) std::cerr << __LINE__ << \" : \"\
+    \ << #x << \" = \" << (x) << std::endl\n#else\n#define dbg(x) true\n#endif\n#line\
+    \ 107 \"src/template.hpp\"\n"
   code: "#pragma once\n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n */\n\
     \n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
     \ GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\nusing namespace\
@@ -107,21 +116,20 @@ data:
     \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
     \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
     \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
-    \ vec<T>(x, args...));\n}\n\n#ifdef LOCAL\n#define dbg(x) cerr << __LINE__ <<\
-    \ \" : \" << #x << \" = \" << (x) << endl\n#else\n#define dbg(x) true\n#endif\n\
-    \ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a = b,\
-    \ true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n    return\
-    \ a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return 1LL\
-    \ << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nbool chmin(T &a, const T &b)\
+    \ {\n    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
+    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
+    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
+    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
+    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;"
-  dependsOn: []
+    \    }\n} iosetup;\n\n#include \"Util/debug.hpp\""
+  dependsOn:
+  - src/Util/debug.hpp
   isVerificationFile: false
   path: src/template.hpp
   requiredBy: []
-  timestamp: '2025-03-30 09:55:15+09:00'
+  timestamp: '2025-03-30 10:22:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-3-c.test.cpp
@@ -134,6 +142,7 @@ data:
   - src/test/verify/yosupo-lca.test.cpp
   - src/test/verify/yosupo-static-range-sum.test.cpp
   - src/test/verify/aoj-dsl-1-a.test.cpp
+  - src/test/verify/yosupo-static-range-sum-abstract.test.cpp
   - src/test/verify/aoj-grl-1-a.test.cpp
   - src/test/verify/aoj-dsl-2-b-fenwick-tree.test.cpp
   - src/test/verify/aoj-grl-2-a2.test.cpp

@@ -11,6 +11,9 @@ data:
     path: src/Graph/kruskal.hpp
     title: Kruskal
   - icon: ':heavy_check_mark:'
+    path: src/Util/debug.hpp
+    title: Debug
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedRequiredBy: []
@@ -48,19 +51,20 @@ data:
     \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
     \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
     \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
-    \ vec<T>(x, args...));\n}\n\n#ifdef LOCAL\n#define dbg(x) cerr << __LINE__ <<\
-    \ \" : \" << #x << \" = \" << (x) << endl\n#else\n#define dbg(x) true\n#endif\n\
-    \ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a = b,\
-    \ true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n    return\
-    \ a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return 1LL\
-    \ << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nbool chmin(T &a, const T &b)\
+    \ {\n    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
+    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
+    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
+    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
+    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 4 \"src/test/verify/aoj-grl-2-a.test.cpp\"\n\n#line\
-    \ 2 \"src/Graph/kruskal.hpp\"\n\n/**\n * @brief Kruskal\n * @docs docs/kruskal.md\n\
-    \ */\n\n#line 2 \"src/Graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template\n\
-    \ * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
+    \    }\n} iosetup;\n\n#line 2 \"src/Util/debug.hpp\"\n\n/**\n * @brief Debug\n\
+    \ */\n\n#ifdef LOCAL\n#define debug_assert(exp) assert(exp)\n#else\n#define debug_assert(exp)\
+    \ true\n#endif\n\n#ifdef LOCAL\n#define dbg(x) std::cerr << __LINE__ << \" : \"\
+    \ << #x << \" = \" << (x) << std::endl\n#else\n#define dbg(x) true\n#endif\n#line\
+    \ 4 \"src/test/verify/aoj-grl-2-a.test.cpp\"\n\n#line 2 \"src/Graph/kruskal.hpp\"\
+    \n\n/**\n * @brief Kruskal\n * @docs docs/kruskal.md\n */\n\n#line 2 \"src/Graph/graph-template.hpp\"\
+    \n\n/**\n * @brief Graph Template\n * @cite https://github.com/ei1333/library/blob/master/graph/graph-template.hpp\
     \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <typename T = int>\nstruct Edge\
     \ {\n    int from, to;\n    T cost;\n    int idx;\n\n    Edge() = default;\n\n\
     \    Edge(int from, int to, T cost = 1, int idx = -1)\n        : from(from)\n\
@@ -120,13 +124,14 @@ data:
     n';\n}"
   dependsOn:
   - src/template.hpp
+  - src/Util/debug.hpp
   - src/Graph/kruskal.hpp
   - src/Graph/graph-template.hpp
   - src/DataStructure/union-find.hpp
   isVerificationFile: true
   path: src/test/verify/aoj-grl-2-a.test.cpp
   requiredBy: []
-  timestamp: '2025-03-30 09:55:15+09:00'
+  timestamp: '2025-03-30 10:22:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-grl-2-a.test.cpp

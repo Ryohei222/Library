@@ -12,6 +12,9 @@ data:
   - name: src/DataStructure
     pages:
     - icon: ':heavy_check_mark:'
+      path: src/DataStructure/abstract-cumulative-sum.hpp
+      title: "\u62BD\u8C61\u5316\u7D2F\u7A4D\u548C"
+    - icon: ':heavy_check_mark:'
       path: src/DataStructure/cumulative-sum.hpp
       title: "\u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B"
     - icon: ':heavy_check_mark:'
@@ -59,7 +62,7 @@ data:
     - icon: ':warning:'
       path: src/Math/algebraic-structure-test.hpp
       title: src/Math/algebraic-structure-test.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/Math/algebraic-structure.hpp
       title: src/Math/algebraic-structure.hpp
     - icon: ':heavy_check_mark:'
@@ -77,6 +80,9 @@ data:
       title: src/Tree/euler-tour.hpp
   - name: src/Util
     pages:
+    - icon: ':heavy_check_mark:'
+      path: src/Util/debug.hpp
+      title: Debug
     - icon: ':heavy_check_mark:'
       path: src/Util/grid2d.hpp
       title: Grid(2D)
@@ -121,6 +127,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/test/verify/yosupo-lca.test.cpp
       title: src/test/verify/yosupo-lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
+      title: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
     - icon: ':heavy_check_mark:'
       path: src/test/verify/yosupo-static-range-sum.test.cpp
       title: src/test/verify/yosupo-static-range-sum.test.cpp
