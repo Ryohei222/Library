@@ -6,10 +6,7 @@
 int main() {
     ll n, q;
     cin >> n >> q;
-    auto f = [](ll a, ll b) {
-        return a + b;
-    };
-    auto seg = get_segment_tree(n, f, 0ll);
+    auto seg = SegmentTree<AdditiveGroup<ll>>(n);
     rep(i, q) {
         ll com, x, y;
         cin >> com >> x >> y;
