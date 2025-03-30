@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/DataStructure/cumulative-sum.hpp
-    title: "\u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B"
+    title: "\u7D2F\u7A4D\u548C"
   - icon: ':heavy_check_mark:'
     path: src/Util/debug.hpp
     title: Debug
@@ -56,25 +56,19 @@ data:
     \ */\n\n#ifdef LOCAL\n#define debug_assert(exp) assert(exp)\n#else\n#define debug_assert(exp)\
     \ true\n#endif\n\n#ifdef LOCAL\n#define dbg(x) std::cerr << __LINE__ << \" : \"\
     \ << #x << \" = \" << (x) << std::endl\n#else\n#define dbg(x) true\n#endif\n#line\
-    \ 4 \"src/DataStructure/cumulative-sum.hpp\"\n#include <concepts>\n\ntemplate\
-    \ <std::integral T>\nstruct CumulativeSum {\n  private:\n    bool built = false;\n\
-    \n  public:\n    int n;\n    std::vector<T> data;\n    CumulativeSum(int n)\n\
-    \        : n(n), data(n + 1, T()) {}\n    CumulativeSum(const std::vector<T> &a)\n\
-    \        : n((int)a.size()), data(n + 1, T()) {\n        for(int i = 0; i < n;\
-    \ i++)\n            add(i, a[i]);\n        build();\n    }\n    /**\n     * @brief\
-    \ \u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B\n     *\n     */\n    void\
-    \ build() {\n#ifdef LOCAL\n        assert(!built);\n#endif\n        for(int i\
-    \ = 0; i < n; i++) {\n            data[i + 1] = data[i] + data[i + 1];\n     \
-    \   }\n        built = true;\n    }\n    /**\n     * @brief data[idx + 1] += x\n\
-    \     *\n     * @param idx \u52A0\u7B97\u3059\u308B\u4F4D\u7F6E (0-indexed)\n\
-    \     * @param x \u52A0\u7B97\u3059\u308B\u5024\n     */\n    void add(int idx,\
-    \ T x) {\n#ifdef LOCAL\n        assert(!built);\n#endif\n        assert(!built);\n\
-    \        data[idx + 1] += x;\n    }\n    /**\n     * @brief [l, r) \u306E\u548C\
-    , data[r] - data[l]\n     *\n     * @param l \u5DE6\u7AEF\u306E\u4F4D\u7F6E (0-indexed,\
-    \ \u9589\u533A\u9593)\n     * @param r \u53F3\u7AEF\u306E\u4F4D\u7F6E (0-indexed,\
-    \ \u958B\u533A\u9593)\n     * @return T \u533A\u9593\u306E\u7DCF\u548C\n     */\n\
-    \    T sum(int l, int r) {\n#ifdef LOCAL\n        assert(built);\n#endif\n   \
-    \     return data[r] - data[l];\n    }\n};\n#line 5 \"src/test/verify/yosupo-static-range-sum.test.cpp\"\
+    \ 2 \"src/DataStructure/cumulative-sum.hpp\"\n\n/**\n * @brief \u7D2F\u7A4D\u548C\
+    \n */\n\n#line 9 \"src/DataStructure/cumulative-sum.hpp\"\n#include <concepts>\n\
+    #line 11 \"src/DataStructure/cumulative-sum.hpp\"\n\ntemplate <std::integral T>\n\
+    struct CumulativeSum {\n  private:\n    bool built = false;\n\n  public:\n   \
+    \ int n;\n    std::vector<T> data;\n\n    CumulativeSum(int n)\n        : n(n),\
+    \ data(n + 1, T()) {}\n    CumulativeSum(const std::vector<T> &a)\n        : n((int)a.size()),\
+    \ data(n + 1, T()) {\n        for(int i = 0; i < n; i++)\n            add(i, a[i]);\n\
+    \        build();\n    }\n\n    void build() {\n        debug_assert(!built);\n\
+    \        for(int i = 0; i < n; i++) {\n            data[i + 1] = data[i] + data[i\
+    \ + 1];\n        }\n        built = true;\n    }\n\n    void add(int idx, T x)\
+    \ {\n        debug_assert(!built);\n        data[idx + 1] += x;\n    }\n\n   \
+    \ T sum(int l, int r) {\n        debug_assert(built);\n        return data[r]\
+    \ - data[l];\n    }\n};\n#line 5 \"src/test/verify/yosupo-static-range-sum.test.cpp\"\
     \n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >>\
     \ a;\n    CumulativeSum cs(a);\n    while(Q--) {\n        int l, r;\n        cin\
     \ >> l >> r;\n        cout << cs.sum(l, r) << '\\n';\n    }\n}\n"
@@ -90,7 +84,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/yosupo-static-range-sum.test.cpp
   requiredBy: []
-  timestamp: '2025-03-30 10:22:16+09:00'
+  timestamp: '2025-03-30 10:43:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yosupo-static-range-sum.test.cpp

@@ -16,7 +16,7 @@ data:
       title: "\u62BD\u8C61\u5316\u7D2F\u7A4D\u548C"
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/cumulative-sum.hpp
-      title: "\u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B"
+      title: "\u7D2F\u7A4D\u548C"
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/fenwick-tree.hpp
       title: Fenwick Tree

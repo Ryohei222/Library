@@ -6,6 +6,9 @@ data:
     path: src/DataStructure/abstract-cumulative-sum.hpp
     title: "\u62BD\u8C61\u5316\u7D2F\u7A4D\u548C"
   - icon: ':heavy_check_mark:'
+    path: src/DataStructure/cumulative-sum.hpp
+    title: "\u7D2F\u7A4D\u548C"
+  - icon: ':heavy_check_mark:'
     path: src/template.hpp
     title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   _extendedVerifiedWith:
@@ -73,6 +76,7 @@ data:
   path: src/Util/debug.hpp
   requiredBy:
   - src/template.hpp
+  - src/DataStructure/cumulative-sum.hpp
   - src/DataStructure/abstract-cumulative-sum.hpp
   timestamp: '2025-03-30 10:12:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
