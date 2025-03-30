@@ -5,6 +5,9 @@ data:
     path: src/DataStructure/segment-tree.hpp
     title: Segment Tree
   - icon: ':heavy_check_mark:'
+    path: src/Math/algebraic-structure.hpp
+    title: src/Math/algebraic-structure.hpp
+  - icon: ':heavy_check_mark:'
     path: src/Util/debug.hpp
     title: Debug
   - icon: ':heavy_check_mark:'
@@ -57,39 +60,78 @@ data:
     \ true\n#endif\n\n#ifdef LOCAL\n#define dbg(x) std::cerr << __LINE__ << \" : \"\
     \ << #x << \" = \" << (x) << std::endl\n#else\n#define dbg(x) true\n#endif\n#line\
     \ 3 \"src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp\"\n\n#line 2 \"src/DataStructure/segment-tree.hpp\"\
-    \n\n/**\n * @brief Segment Tree\n */\n\ntemplate <typename T, typename F>\nstruct\
-    \ SegmentTree {\n    int n, sz;\n    vector<T> seg;\n    T id;\n    F f;\n   \
-    \ SegmentTree(int n, const F f, const T id)\n        : n(n), f(f), id(id) {\n\
-    \        sz = 1;\n        while(sz < n)\n            sz <<= 1;\n        seg.assign(2\
-    \ * sz, id);\n    }\n    SegmentTree(const vector<T> &v, const F f, const T id)\n\
-    \        : id(id), f(f) {\n        n = (int)v.size();\n        sz = 1;\n     \
-    \   while(sz < n)\n            sz *= 2;\n        seg.assign(2 * sz, id);\n   \
-    \     build(v);\n    }\n    void build(const vector<T> &v) {\n        for(int\
-    \ i = 0; i < n; i++)\n            seg[sz + i] = v[i];\n        for(int i = sz\
-    \ - 1; i > 0; --i)\n            seg[i] = f(seg[i * 2], seg[i * 2 + 1]);\n    }\n\
-    \    void set(int idx, T x) {\n        seg[sz + idx] = x;\n        int par = (sz\
-    \ + idx) >> 1;\n        while(par > 0) {\n            seg[par] = f(seg[par * 2],\
-    \ seg[par * 2 + 1]);\n            par >>= 1;\n        }\n    }\n    T get(int\
-    \ idx) {\n        return seg[sz + idx];\n    }\n    void apply(int idx, T x) {\n\
-    \        set(idx, f(x, get(idx)));\n    }\n    T prod(int l, int r) {\n      \
-    \  T sl = id, sr = id;\n        l += sz, r += sz;\n        while(l < r) {\n  \
-    \          if(l & 1) sl = f(sl, seg[l++]);\n            if(r & 1) sr = f(seg[--r],\
-    \ sr);\n            l >>= 1, r >>= 1;\n        }\n        return f(sl, sr);\n\
-    \    }\n};\n\n// https://ei1333.github.io/library/structure/segment-tree/segment-tree.hpp\n\
-    \ntemplate <typename T, typename F>\nSegmentTree<T, F> get_segment_tree(int N,\
-    \ const F &f, const T &ti) {\n    return SegmentTree{N, f, ti};\n}\n\ntemplate\
-    \ <typename T, typename F>\nSegmentTree<T, F> get_segment_tree(const vector<T>\
-    \ &v, const F &f, const T &ti) {\n    return SegmentTree{v, f, ti};\n}\n#line\
-    \ 5 \"src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp\"\n\nint main() {\n  \
-    \  ll n, q;\n    cin >> n >> q;\n    auto f = [](ll a, ll b) {\n        return\
-    \ a + b;\n    };\n    auto seg = get_segment_tree(n, f, 0ll);\n    rep(i, q) {\n\
-    \        ll com, x, y;\n        cin >> com >> x >> y;\n        if(com == 0) seg.apply(x\
-    \ - 1, y);\n        if(com == 1) cout << seg.prod(x - 1, y) << '\\n';\n    }\n\
-    }\n"
+    \n\n#line 2 \"src/Math/algebraic-structure.hpp\"\n\n#line 4 \"src/Math/algebraic-structure.hpp\"\
+    \n#include <concepts>\n\ntemplate <typename T>\nconcept HasInnerType = requires()\
+    \ {\n    typename T::S;\n};\n\ntemplate <typename T>\nconcept HasIdentity = requires()\
+    \ {\n    { T::e() } -> std::same_as<typename T::S>;\n};\n\ntemplate <typename\
+    \ T>\nconcept HasInverse = requires() {\n    { T::inv(std::declval<typename T::S>())\
+    \ } -> std::same_as<typename T::S>;\n};\n\ntemplate <typename T>\nconcept HasBinaryOperation\
+    \ = requires() {\n    { T::op(std::declval<typename T::S>(), std::declval<typename\
+    \ T::S>()) } -> std::same_as<typename T::S>;\n};\n\ntemplate <class T>\nconcept\
+    \ MonoidConcept = HasInnerType<T> && HasIdentity<T> && HasBinaryOperation<T>;\n\
+    \ntemplate <class T>\nconcept GroupConcept = MonoidConcept<T> && HasInverse<T>;\n\
+    \ntemplate <std::integral T>\nstruct MinMonoid {\n    using S = T;\n    static\
+    \ constexpr S e() { return std::numeric_limits<S>::max(); }\n    static constexpr\
+    \ S op(const S &a, const S &b) { return std::min(a, b); }\n};\n\ntemplate <std::integral\
+    \ T>\nstruct MaxMonoid {\n    using S = T;\n    static constexpr S e() { return\
+    \ std::numeric_limits<S>::min(); }\n    static constexpr S op(const S &a, const\
+    \ S &b) { return std::max(a, b); }\n};\n\ntemplate <typename T>\nstruct MultiplicativeMonoid\
+    \ {\n    using S = T;\n    static constexpr S e() { return S(1); }\n    static\
+    \ constexpr S op(const S &a, const S &b) { return a * b; }\n};\n\ntemplate <typename\
+    \ T>\nstruct AdditiveGroup {\n    using S = T;\n    static constexpr S e() { return\
+    \ S(); }\n    static constexpr S op(const S &a, const S &b) { return a + b; }\n\
+    \    static constexpr S inv(const S &a) { return -a; }\n};\n\ntemplate <typename\
+    \ T>\nstruct XORGroup {\n    using S = T;\n    static constexpr S e() { return\
+    \ S(); }\n    static constexpr S op(const S &a, const S &b) { return a ^ b; }\n\
+    \    static constexpr S inv(const S &a) { return a; }\n};\n#line 4 \"src/DataStructure/segment-tree.hpp\"\
+    \n\n/**\n * @brief Segment Tree\n * @cite https://ei1333.github.io/library/structure/segment-tree/segment-tree.hpp\
+    \ (\u6539\u5909\u3042\u308A)\n */\n\ntemplate <MonoidConcept Monoid>\nstruct SegmentTree\
+    \ {\n    using S = typename Monoid::S;\n\n  private:\n    int n, sz;\n\n    vector<S>\
+    \ seg;\n\n  public:\n    SegmentTree() = default;\n\n    explicit SegmentTree(int\
+    \ n)\n        : n(n) {\n        sz = 1;\n        while(sz < n)\n            sz\
+    \ <<= 1;\n        seg.assign(2 * sz, Monoid::e());\n    }\n\n    explicit SegmentTree(const\
+    \ vector<S> &v)\n        : SegmentTree((int)v.size()) {\n        build(v);\n \
+    \   }\n\n    void build(const vector<S> &v) {\n        assert(n == (int)v.size());\n\
+    \        for(int k = 0; k < n; k++)\n            seg[k + sz] = v[k];\n       \
+    \ for(int k = sz - 1; k > 0; k--) {\n            seg[k] = Monoid::op(seg[2 * k\
+    \ + 0], seg[2 * k + 1]);\n        }\n    }\n\n    void set(int k, const S &x)\
+    \ {\n        k += sz;\n        seg[k] = x;\n        while(k >>= 1) {\n       \
+    \     seg[k] = Monoid::op(seg[2 * k + 0], seg[2 * k + 1]);\n        }\n    }\n\
+    \n    S get(int k) const { return seg[k + sz]; }\n\n    S operator[](int k) const\
+    \ { return get(k); }\n\n    void apply(int k, const S &x) {\n        k += sz;\n\
+    \        seg[k] = Monoid::op(seg[k], x);\n        while(k >>= 1) {\n         \
+    \   seg[k] = Monoid::op(seg[2 * k + 0], seg[2 * k + 1]);\n        }\n    }\n\n\
+    \    S prod(int l, int r) const {\n        if(l >= r) return Monoid::e();\n  \
+    \      S L = Monoid::e(), R = Monoid::e();\n        for(l += sz, r += sz; l <\
+    \ r; l >>= 1, r >>= 1) {\n            if(l & 1) L = Monoid::op(L, seg[l++]);\n\
+    \            if(r & 1) R = Monoid::op(seg[--r], R);\n        }\n        return\
+    \ Monoid::op(L, R);\n    }\n\n    S all_prod() const { return seg[1]; }\n\n  \
+    \  template <typename C>\n    int find_first(int l, const C &check) const {\n\
+    \        if(l >= n) return n;\n        l += sz;\n        S sum = Monoid::e();\n\
+    \        do {\n            while((l & 1) == 0)\n                l >>= 1;\n   \
+    \         if(check(Monoid::op(sum, seg[l]))) {\n                while(l < sz)\
+    \ {\n                    l <<= 1;\n                    auto nxt = Monoid::op(sum,\
+    \ seg[l]);\n                    if(not check(nxt)) {\n                       \
+    \ sum = nxt;\n                        l++;\n                    }\n          \
+    \      }\n                return l + 1 - sz;\n            }\n            sum =\
+    \ Monoid::op(sum, seg[l++]);\n        } while((l & -l) != l);\n        return\
+    \ n;\n    }\n\n    template <typename C>\n    int find_last(int r, const C &check)\
+    \ const {\n        if(r <= 0) return -1;\n        r += sz;\n        S sum = Monoid::e();\n\
+    \        do {\n            r--;\n            while(r > 1 and (r & 1))\n      \
+    \          r >>= 1;\n            if(check(Monoid::op(seg[r], sum))) {\n      \
+    \          while(r < sz) {\n                    r = (r << 1) + 1;\n          \
+    \          auto nxt = Monoid::op(seg[r], sum);\n                    if(not check(nxt))\
+    \ {\n                        sum = nxt;\n                        r--;\n      \
+    \              }\n                }\n                return r - sz;\n        \
+    \    }\n            sum = Monoid::op(seg[r], sum);\n        } while((r & -r) !=\
+    \ r);\n        return -1;\n    }\n};\n#line 5 \"src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp\"\
+    \n\nint main() {\n    ll n, q;\n    cin >> n >> q;\n    auto seg = SegmentTree<AdditiveGroup<ll>>(n);\n\
+    \    rep(i, q) {\n        ll com, x, y;\n        cin >> com >> x >> y;\n     \
+    \   if(com == 0) seg.apply(x - 1, y);\n        if(com == 1) cout << seg.prod(x\
+    \ - 1, y) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B\"\n#include\
     \ \"../../template.hpp\"\n\n#include \"../../DataStructure/segment-tree.hpp\"\n\
-    \nint main() {\n    ll n, q;\n    cin >> n >> q;\n    auto f = [](ll a, ll b)\
-    \ {\n        return a + b;\n    };\n    auto seg = get_segment_tree(n, f, 0ll);\n\
+    \nint main() {\n    ll n, q;\n    cin >> n >> q;\n    auto seg = SegmentTree<AdditiveGroup<ll>>(n);\n\
     \    rep(i, q) {\n        ll com, x, y;\n        cin >> com >> x >> y;\n     \
     \   if(com == 0) seg.apply(x - 1, y);\n        if(com == 1) cout << seg.prod(x\
     \ - 1, y) << '\\n';\n    }\n}"
@@ -97,10 +139,11 @@ data:
   - src/template.hpp
   - src/Util/debug.hpp
   - src/DataStructure/segment-tree.hpp
+  - src/Math/algebraic-structure.hpp
   isVerificationFile: true
   path: src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
   requiredBy: []
-  timestamp: '2025-03-30 10:22:16+09:00'
+  timestamp: '2025-03-30 10:41:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp

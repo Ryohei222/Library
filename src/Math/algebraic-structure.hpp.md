@@ -5,10 +5,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/DataStructure/abstract-cumulative-sum.hpp
     title: "\u62BD\u8C61\u5316\u7D2F\u7A4D\u548C"
+  - icon: ':heavy_check_mark:'
+    path: src/DataStructure/segment-tree.hpp
+    title: Segment Tree
   - icon: ':warning:'
     path: src/Math/algebraic-structure-test.hpp
     title: src/Math/algebraic-structure-test.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
+    title: src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
     title: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
@@ -70,10 +76,12 @@ data:
   path: src/Math/algebraic-structure.hpp
   requiredBy:
   - src/Math/algebraic-structure-test.hpp
+  - src/DataStructure/segment-tree.hpp
   - src/DataStructure/abstract-cumulative-sum.hpp
   timestamp: '2025-03-30 10:23:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - src/test/verify/aoj-dsl-2-b-segment-tree.test.cpp
   - src/test/verify/yosupo-static-range-sum-abstract.test.cpp
 documentation_of: src/Math/algebraic-structure.hpp
 layout: document
