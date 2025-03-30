@@ -24,5 +24,5 @@ int main() {
         auto [nx, ny] = grid.decode(i);
         if(grid[nx][ny] == 1) ans++;
     }
-    cout << ans << endl;
+    cout << ans << '\n';
 }

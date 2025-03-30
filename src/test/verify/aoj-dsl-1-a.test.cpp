@@ -13,6 +13,6 @@ int main() {
         if(com == 0)
             uf.unite(x, y);
         else
-            cout << uf.same(x, y) << endl;
+            cout << uf.same(x, y) << '\n';
     }
 }

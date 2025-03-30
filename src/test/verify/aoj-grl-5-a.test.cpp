@@ -9,5 +9,5 @@ int main() {
     Graph T(n);
     T.read(n - 1, 0, true);
     auto [d, v1, v2] = diameter(T);
-    cout << d << endl;
+    cout << d << '\n';
 }

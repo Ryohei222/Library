@@ -12,6 +12,6 @@ int main() {
     while(Q--) {
         int l, r;
         cin >> l >> r;
-        cout << cs.sum(l, r) << endl;
+        cout << cs.sum(l, r) << '\n';
     }
 }

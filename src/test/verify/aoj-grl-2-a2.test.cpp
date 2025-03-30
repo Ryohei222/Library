@@ -10,5 +10,5 @@ int main() {
     Graph G(V);
     G.read(E, 0, true, false);
     auto [cost, mst] = prim(G);
-    cout << cost << endl;
+    cout << cost << '\n';
 }

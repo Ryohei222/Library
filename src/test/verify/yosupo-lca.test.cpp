@@ -15,6 +15,6 @@ int main() {
     rep(i, Q) {
         ll u, v;
         cin >> u >> v;
-        cout << lca.query(u, v) << endl;
+        cout << lca.query(u, v) << '\n';
     }
 }

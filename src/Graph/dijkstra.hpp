@@ -21,10 +21,11 @@ vector<T> dijkstra(Graph<T> &G, int s) {
         T cost = t.first;
         int u = t.second;
         if(cost > dist[u]) continue;
-        for(auto e : G[u]) {
-            T v = e.to;
-            if(cost + e.cost < dist[v]) {
-                dist[v] = cost + e.cost;
+        for(auto &e : G[u]) {
+            int v = e.to;
+            T ncost = cost + e.cost;
+            if(ncost < dist[v]) {
+                dist[v] = ncost;
                 que.emplace(dist[v], v);
             }
         }

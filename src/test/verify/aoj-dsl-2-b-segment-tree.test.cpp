@@ -14,6 +14,6 @@ int main() {
         ll com, x, y;
         cin >> com >> x >> y;
         if(com == 0) seg.apply(x - 1, y);
-        if(com == 1) cout << seg.prod(x - 1, y) << endl;
+        if(com == 1) cout << seg.prod(x - 1, y) << '\n';
     }
 }
