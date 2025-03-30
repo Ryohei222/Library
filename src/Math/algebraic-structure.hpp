@@ -4,30 +4,30 @@
 #include <concepts>
 
 template <typename T>
-concept inner_type = requires() {
+concept HasInnerType = requires() {
     typename T::S;
 };
 
 template <typename T>
-concept identity = requires() {
-    { T::e() } -> std::same_as<typename T::S>; // 単位元
+concept HasIdentity = requires() {
+    { T::e() } -> std::same_as<typename T::S>;
 };
 
 template <typename T>
-concept inverse = requires() {
-    { T::inv(std::declval<typename T::S>()) } -> std::same_as<typename T::S>; // 逆元
+concept HasInverse = requires() {
+    { T::inv(std::declval<typename T::S>()) } -> std::same_as<typename T::S>;
 };
 
 template <typename T>
-concept binary_operation = requires() {
-    { T::op(std::declval<typename T::S>(), std::declval<typename T::S>()) } -> std::same_as<typename T::S>; // 二項演算
+concept HasBinaryOperation = requires() {
+    { T::op(std::declval<typename T::S>(), std::declval<typename T::S>()) } -> std::same_as<typename T::S>;
 };
 
 template <class T>
-concept MonoidConcept = inner_type<T> && identity<T> && binary_operation<T>;
+concept MonoidConcept = HasInnerType<T> && HasIdentity<T> && HasBinaryOperation<T>;
 
 template <class T>
-concept GroupConcept = MonoidConcept<T> && inverse<T>;
+concept GroupConcept = MonoidConcept<T> && HasInverse<T>;
 
 template <std::integral T>
 struct MinMonoid {
