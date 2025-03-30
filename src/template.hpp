@@ -75,6 +75,12 @@ auto vec(T x, int arg, Args... args) {
         return vector(arg, vec<T>(x, args...));
 }
 
+#ifdef LOCAL
+#define dbg(x) cerr << __LINE__ << " : " << #x << " = " << (x) << endl
+#else
+#define dbg(x) true
+#endif
+
 template <class T>
 bool chmin(T &a, const T &b) {
     return a > b ? a = b, true : false;
