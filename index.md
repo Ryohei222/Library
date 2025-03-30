@@ -56,6 +56,12 @@ data:
       title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - name: src/Math
     pages:
+    - icon: ':warning:'
+      path: src/Math/algebraic-structure-test.hpp
+      title: src/Math/algebraic-structure-test.hpp
+    - icon: ':warning:'
+      path: src/Math/algebraic-structure.hpp
+      title: src/Math/algebraic-structure.hpp
     - icon: ':heavy_check_mark:'
       path: src/Math/modint.hpp
       title: Modint
