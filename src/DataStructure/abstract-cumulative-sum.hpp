@@ -7,8 +7,8 @@
 #include <vector>
 #include <cassert>
 #include <concepts>
-#include "Util/debug.hpp"
-#include "Math/algebraic-structure.hpp"
+#include "../Util/debug.hpp"
+#include "../Math/algebraic-structure.hpp"
 
 template <GroupConcept T>
 struct AbstructCumulativeSum {
@@ -38,7 +38,7 @@ struct AbstructCumulativeSum {
         debug_assert(!built);
         data[idx + 1] = T::op(data[idx + 1], x);
     }
-    T sum(int l, int r) {
+    S sum(int l, int r) {
         debug_assert(built);
         return T::op(T::inv(data[l]), data[r]);
     }
