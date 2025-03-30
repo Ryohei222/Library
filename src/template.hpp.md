@@ -75,14 +75,15 @@ data:
     \   return os;\n}\n\ntemplate <typename T, typename... Args>\nauto vec(T x, int\
     \ arg, Args... args) {\n    if constexpr(sizeof...(args) == 0)\n        return\
     \ vector<T>(arg, x);\n    else\n        return vector(arg, vec<T>(x, args...));\n\
-    }\n\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a\
-    \ = b, true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n\
-    \    return a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return\
-    \ 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
-    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n"
+    }\n\n#ifdef LOCAL\n#define dbg(x) cerr << __LINE__ << \" : \" << #x << \" = \"\
+    \ << (x) << endl\n#else\n#define dbg(x) true\n#endif\n\ntemplate <class T>\nbool\
+    \ chmin(T &a, const T &b) {\n    return a > b ? a = b, true : false;\n}\ntemplate\
+    \ <class T>\nbool chmax(T &a, const T &b) {\n    return a < b ? a = b, true :\
+    \ false;\n}\n\nconstexpr ll bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll\
+    \ msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr bool stand(ll x, int i)\
+    \ {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
+    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
+    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n"
   code: "#pragma once\n\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n */\n\
     \n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
     \ GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\nusing namespace\
@@ -106,19 +107,21 @@ data:
     \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
     \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
     \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
-    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nbool chmin(T &a, const T &b)\
-    \ {\n    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
-    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
-    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
-    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
-    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \ vec<T>(x, args...));\n}\n\n#ifdef LOCAL\n#define dbg(x) cerr << __LINE__ <<\
+    \ \" : \" << #x << \" = \" << (x) << endl\n#else\n#define dbg(x) true\n#endif\n\
+    \ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a = b,\
+    \ true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n    return\
+    \ a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return 1LL\
+    \ << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
+    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
+    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
     \    }\n} iosetup;"
   dependsOn: []
   isVerificationFile: false
   path: src/template.hpp
   requiredBy: []
-  timestamp: '2025-03-22 12:22:02+09:00'
+  timestamp: '2025-03-30 09:55:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - src/test/verify/aoj-grl-3-c.test.cpp

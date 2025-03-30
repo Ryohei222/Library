@@ -42,34 +42,38 @@ data:
     \ else\n            os << v[i];\n    }\n    return os;\n}\n\ntemplate <typename\
     \ T, typename... Args>\nauto vec(T x, int arg, Args... args) {\n    if constexpr(sizeof...(args)\
     \ == 0)\n        return vector<T>(arg, x);\n    else\n        return vector(arg,\
-    \ vec<T>(x, args...));\n}\n\ntemplate <class T>\nbool chmin(T &a, const T &b)\
-    \ {\n    return a > b ? a = b, true : false;\n}\ntemplate <class T>\nbool chmax(T\
-    \ &a, const T &b) {\n    return a < b ? a = b, true : false;\n}\n\nconstexpr ll\
-    \ bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL\
-    \ << x) - 1;\n}\nconstexpr bool stand(ll x, int i) {\n    return x & bit(i);\n\
-    }\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \ vec<T>(x, args...));\n}\n\n#ifdef LOCAL\n#define dbg(x) cerr << __LINE__ <<\
+    \ \" : \" << #x << \" = \" << (x) << endl\n#else\n#define dbg(x) true\n#endif\n\
+    \ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a = b,\
+    \ true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n    return\
+    \ a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return 1LL\
+    \ << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
+    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
+    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 1 \"src/DataStructure/cumulative-sum.hpp\"\ntemplate\
-    \ <typename T = long long int>\nstruct CumulativeSum {\n  private:\n    bool built\
-    \ = false;\n\n  public:\n    int n;\n    vector<T> wa;\n    CumulativeSum(int\
-    \ n)\n        : n(n), wa(n + 1, T(0)) {}\n    CumulativeSum(const vector<T> &a)\n\
-    \        : n((int)a.size()), wa(n + 1, T(0)) {\n        for(int i = 0; i < n;\
-    \ i++)\n            add(i, a[i]);\n        build();\n    }\n    /**\n     * @brief\
-    \ \u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B\n     *\n     */\n    void\
-    \ build() {\n        assert(!built);\n        for(int i = 0; i < n; i++) {\n \
-    \           wa[i + 1] = wa[i] + wa[i + 1];\n        }\n        built = true;\n\
-    \    }\n    /**\n     * @brief wa[idx + 1] += x\n     *\n     * @param idx \u52A0\
-    \u7B97\u3059\u308B\u4F4D\u7F6E (0-indexed)\n     * @param x \u52A0\u7B97\u3059\
-    \u308B\u5024\n     */\n    void add(int idx, T x) {\n        assert(!built);\n\
-    \        wa[idx + 1] += x;\n    }\n    /**\n     * @brief [l, r) \u306E\u548C\
-    , wa[r] - wa[l]\n     *\n     * @param l \u5DE6\u7AEF\u306E\u4F4D\u7F6E (0-indexed,\
-    \ \u9589\u533A\u9593)\n     * @param r \u53F3\u7AEF\u306E\u4F4D\u7F6E (0-indexed,\
-    \ \u958B\u533A\u9593)\n     * @return T \u533A\u9593\u306E\u7DCF\u548C\n     */\n\
-    \    T sum(int l, int r) {\n        assert(built);\n        return wa[r] - wa[l];\n\
-    \    }\n};\n#line 5 \"src/test/verify/yosupo-static-range-sum.test.cpp\"\n\nint\
-    \ main() {\n    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >> a;\n \
-    \   CumulativeSum cs(a);\n    while(Q--) {\n        int l, r;\n        cin >>\
-    \ l >> r;\n        cout << cs.sum(l, r) << '\\n';\n    }\n}\n"
+    \    }\n} iosetup;\n#line 4 \"src/DataStructure/cumulative-sum.hpp\"\n#include\
+    \ <concepts>\n\ntemplate <std::integral T>\nstruct CumulativeSum {\n  private:\n\
+    \    bool built = false;\n\n  public:\n    int n;\n    std::vector<T> data;\n\
+    \    CumulativeSum(int n)\n        : n(n), data(n + 1, T()) {}\n    CumulativeSum(const\
+    \ std::vector<T> &a)\n        : n((int)a.size()), data(n + 1, T()) {\n       \
+    \ for(int i = 0; i < n; i++)\n            add(i, a[i]);\n        build();\n  \
+    \  }\n    /**\n     * @brief \u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B\n\
+    \     *\n     */\n    void build() {\n#ifdef LOCAL\n        assert(!built);\n\
+    #endif\n        for(int i = 0; i < n; i++) {\n            data[i + 1] = data[i]\
+    \ + data[i + 1];\n        }\n        built = true;\n    }\n    /**\n     * @brief\
+    \ data[idx + 1] += x\n     *\n     * @param idx \u52A0\u7B97\u3059\u308B\u4F4D\
+    \u7F6E (0-indexed)\n     * @param x \u52A0\u7B97\u3059\u308B\u5024\n     */\n\
+    \    void add(int idx, T x) {\n#ifdef LOCAL\n        assert(!built);\n#endif\n\
+    \        assert(!built);\n        data[idx + 1] += x;\n    }\n    /**\n     *\
+    \ @brief [l, r) \u306E\u548C, data[r] - data[l]\n     *\n     * @param l \u5DE6\
+    \u7AEF\u306E\u4F4D\u7F6E (0-indexed, \u9589\u533A\u9593)\n     * @param r \u53F3\
+    \u7AEF\u306E\u4F4D\u7F6E (0-indexed, \u958B\u533A\u9593)\n     * @return T \u533A\
+    \u9593\u306E\u7DCF\u548C\n     */\n    T sum(int l, int r) {\n#ifdef LOCAL\n \
+    \       assert(built);\n#endif\n        return data[r] - data[l];\n    }\n};\n\
+    #line 5 \"src/test/verify/yosupo-static-range-sum.test.cpp\"\n\nint main() {\n\
+    \    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >> a;\n    CumulativeSum\
+    \ cs(a);\n    while(Q--) {\n        int l, r;\n        cin >> l >> r;\n      \
+    \  cout << cs.sum(l, r) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n\
     #include \"../../template.hpp\"\n#include \"../../DataStructure/cumulative-sum.hpp\"\
     \n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >>\
@@ -81,7 +85,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/yosupo-static-range-sum.test.cpp
   requiredBy: []
-  timestamp: '2025-03-29 13:19:14+09:00'
+  timestamp: '2025-03-30 09:55:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yosupo-static-range-sum.test.cpp

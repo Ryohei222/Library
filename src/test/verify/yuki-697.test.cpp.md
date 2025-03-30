@@ -45,41 +45,42 @@ data:
     \    }\n    return os;\n}\n\ntemplate <typename T, typename... Args>\nauto vec(T\
     \ x, int arg, Args... args) {\n    if constexpr(sizeof...(args) == 0)\n      \
     \  return vector<T>(arg, x);\n    else\n        return vector(arg, vec<T>(x, args...));\n\
-    }\n\ntemplate <class T>\nbool chmin(T &a, const T &b) {\n    return a > b ? a\
-    \ = b, true : false;\n}\ntemplate <class T>\nbool chmax(T &a, const T &b) {\n\
-    \    return a < b ? a = b, true : false;\n}\n\nconstexpr ll bit(ll x) {\n    return\
-    \ 1LL << x;\n}\nconstexpr ll msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr\
-    \ bool stand(ll x, int i) {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n \
-    \   IoSetup() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
-    \        cout << fixed << setprecision(10);\n        cerr << fixed << setprecision(10);\n\
-    \    }\n} iosetup;\n#line 3 \"src/test/verify/yuki-697.test.cpp\"\n\n#line 2 \"\
-    src/DataStructure/union-find.hpp\"\n\n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n\
-    \ */\n\nstruct UnionFind {\n    vector<int> par;\n    UnionFind(int n) {\n   \
-    \     par.assign(n, -1);\n    };\n    int find(int x) {\n        if(par[x] < 0)\n\
-    \            return x;\n        else\n            return par[x] = find(par[x]);\n\
-    \    }\n    int size(int x) {\n        x = find(x);\n        return -1 * par[x];\n\
-    \    }\n    bool unite(int x, int y) {\n        x = find(x);\n        y = find(y);\n\
-    \        if(x == y)\n            return false;\n        if(size(x) < size(y))\n\
-    \            swap(x, y);\n        par[x] += par[y];\n        par[y] = x;\n   \
-    \     return true;\n    }\n    bool same(int x, int y) {\n        return find(x)\
-    \ == find(y);\n    }\n    vector<int> leaders() {\n        vector<int> res;\n\
-    \        for(int i = 0; i < (int)par.size(); i++) {\n            if(par[i] < 0)\n\
-    \                res.push_back(i);\n        }\n        return res;\n    }\n};\n\
-    #line 2 \"src/Util/grid2d.hpp\"\n\n/**\n * @brief Grid(2D)\n */\n\ntemplate <typename\
-    \ T>\nstruct Grid2D {\n    int H, W;\n    vector<vector<T>> data;\n    vector<int>\
-    \ dx = {1, -1, 0, 0, 1, -1, 1, -1};\n    vector<int> dy = {0, 0, 1, -1, 1, -1,\
-    \ -1, 1};\n    Grid2D(int H, int W)\n        : H(H), W(W), data(H, vector<T>(W))\
-    \ {}\n    Grid2D(int H, int W, T x)\n        : H(H), W(W), data(H, vector<T>(W,\
-    \ x)) {}\n    Grid2D(const vector<vector<T>> &data)\n        : H(data.size()),\
-    \ W(data[0].size()), data(data) {}\n    vector<T> &operator[](int i) {\n     \
-    \   return data[i];\n    }\n    void read() {\n        for(int i = 0; i < H; i++)\
-    \ {\n            for(int j = 0; j < W; j++) {\n                cin >> data[i][j];\n\
-    \            }\n        }\n    }\n    bool in(int i, int j) {\n        return\
-    \ 0 <= i && i < H && 0 <= j && j < W;\n    }\n    int encode(int i, int j) {\n\
-    \        return i * W + j;\n    }\n    pair<int, int> decode(int x) {\n      \
-    \  return make_pair(x / W, x % W);\n    }\n    vector<pair<int, int>> next4(int\
-    \ i, int j) {\n        return next(i, j, 4);\n    }\n    vector<pair<int, int>>\
-    \ next8(int i, int j) {\n        return next(i, j, 8);\n    }\n\n  private:\n\
+    }\n\n#ifdef LOCAL\n#define dbg(x) cerr << __LINE__ << \" : \" << #x << \" = \"\
+    \ << (x) << endl\n#else\n#define dbg(x) true\n#endif\n\ntemplate <class T>\nbool\
+    \ chmin(T &a, const T &b) {\n    return a > b ? a = b, true : false;\n}\ntemplate\
+    \ <class T>\nbool chmax(T &a, const T &b) {\n    return a < b ? a = b, true :\
+    \ false;\n}\n\nconstexpr ll bit(ll x) {\n    return 1LL << x;\n}\nconstexpr ll\
+    \ msk(ll x) {\n    return (1LL << x) - 1;\n}\nconstexpr bool stand(ll x, int i)\
+    \ {\n    return x & bit(i);\n}\n\nstruct IoSetup {\n    IoSetup() {\n        cin.tie(nullptr);\n\
+    \        ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
+    \        cerr << fixed << setprecision(10);\n    }\n} iosetup;\n#line 3 \"src/test/verify/yuki-697.test.cpp\"\
+    \n\n#line 2 \"src/DataStructure/union-find.hpp\"\n\n/**\n * @brief Union-Find\n\
+    \ * @docs docs/union-find.md\n */\n\nstruct UnionFind {\n    vector<int> par;\n\
+    \    UnionFind(int n) {\n        par.assign(n, -1);\n    };\n    int find(int\
+    \ x) {\n        if(par[x] < 0)\n            return x;\n        else\n        \
+    \    return par[x] = find(par[x]);\n    }\n    int size(int x) {\n        x =\
+    \ find(x);\n        return -1 * par[x];\n    }\n    bool unite(int x, int y) {\n\
+    \        x = find(x);\n        y = find(y);\n        if(x == y)\n            return\
+    \ false;\n        if(size(x) < size(y))\n            swap(x, y);\n        par[x]\
+    \ += par[y];\n        par[y] = x;\n        return true;\n    }\n    bool same(int\
+    \ x, int y) {\n        return find(x) == find(y);\n    }\n    vector<int> leaders()\
+    \ {\n        vector<int> res;\n        for(int i = 0; i < (int)par.size(); i++)\
+    \ {\n            if(par[i] < 0)\n                res.push_back(i);\n        }\n\
+    \        return res;\n    }\n};\n#line 2 \"src/Util/grid2d.hpp\"\n\n/**\n * @brief\
+    \ Grid(2D)\n */\n\ntemplate <typename T>\nstruct Grid2D {\n    int H, W;\n   \
+    \ vector<vector<T>> data;\n    vector<int> dx = {1, -1, 0, 0, 1, -1, 1, -1};\n\
+    \    vector<int> dy = {0, 0, 1, -1, 1, -1, -1, 1};\n    Grid2D(int H, int W)\n\
+    \        : H(H), W(W), data(H, vector<T>(W)) {}\n    Grid2D(int H, int W, T x)\n\
+    \        : H(H), W(W), data(H, vector<T>(W, x)) {}\n    Grid2D(const vector<vector<T>>\
+    \ &data)\n        : H(data.size()), W(data[0].size()), data(data) {}\n    vector<T>\
+    \ &operator[](int i) {\n        return data[i];\n    }\n    void read() {\n  \
+    \      for(int i = 0; i < H; i++) {\n            for(int j = 0; j < W; j++) {\n\
+    \                cin >> data[i][j];\n            }\n        }\n    }\n    bool\
+    \ in(int i, int j) {\n        return 0 <= i && i < H && 0 <= j && j < W;\n   \
+    \ }\n    int encode(int i, int j) {\n        return i * W + j;\n    }\n    pair<int,\
+    \ int> decode(int x) {\n        return make_pair(x / W, x % W);\n    }\n    vector<pair<int,\
+    \ int>> next4(int i, int j) {\n        return next(i, j, 4);\n    }\n    vector<pair<int,\
+    \ int>> next8(int i, int j) {\n        return next(i, j, 8);\n    }\n\n  private:\n\
     \    vector<pair<int, int>> next(int i, int j, int k) {\n        vector<pair<int,\
     \ int>> res;\n        for(int t = 0; t < k; t++) {\n            int ni = i + dx[t],\
     \ nj = j + dy[t];\n            if(in(ni, nj)) res.push_back(make_pair(ni, nj));\n\
@@ -109,7 +110,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/yuki-697.test.cpp
   requiredBy: []
-  timestamp: '2025-03-29 13:19:14+09:00'
+  timestamp: '2025-03-30 09:55:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yuki-697.test.cpp
