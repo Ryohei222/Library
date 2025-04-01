@@ -60,42 +60,63 @@ data:
     \ true\n#endif\n\n#ifdef LOCAL\n#define dbg(x) std::cerr << __LINE__ << \" : \"\
     \ << #x << \" = \" << (x) << std::endl\n#else\n#define dbg(x) true\n#endif\n#line\
     \ 2 \"src/DataStructure/abstract-cumulative-sum.hpp\"\n\n/**\n * @brief \u62BD\
-    \u8C61\u5316\u7D2F\u7A4D\u548C\n */\n\n#line 9 \"src/DataStructure/abstract-cumulative-sum.hpp\"\
-    \n#include <concepts>\n#line 2 \"src/Math/algebraic-structure.hpp\"\n\n#line 5\
-    \ \"src/Math/algebraic-structure.hpp\"\n\ntemplate <typename T>\nconcept HasInnerType\
-    \ = requires() {\n    typename T::S;\n};\n\ntemplate <typename T>\nconcept HasIdentity\
-    \ = requires() {\n    { T::e() } -> std::same_as<typename T::S>;\n};\n\ntemplate\
-    \ <typename T>\nconcept HasInverse = requires() {\n    { T::inv(std::declval<typename\
-    \ T::S>()) } -> std::same_as<typename T::S>;\n};\n\ntemplate <typename T>\nconcept\
-    \ HasBinaryOperation = requires() {\n    { T::op(std::declval<typename T::S>(),\
-    \ std::declval<typename T::S>()) } -> std::same_as<typename T::S>;\n};\n\ntemplate\
-    \ <class T>\nconcept MonoidConcept = HasInnerType<T> && HasIdentity<T> && HasBinaryOperation<T>;\n\
-    \ntemplate <class T>\nconcept GroupConcept = MonoidConcept<T> && HasInverse<T>;\n\
-    \ntemplate <std::integral T>\nstruct MinMonoid {\n    using S = T;\n    static\
-    \ constexpr S e() { return std::numeric_limits<S>::max(); }\n    static constexpr\
-    \ S op(const S &a, const S &b) { return std::min(a, b); }\n};\n\ntemplate <std::integral\
-    \ T>\nstruct MaxMonoid {\n    using S = T;\n    static constexpr S e() { return\
-    \ std::numeric_limits<S>::min(); }\n    static constexpr S op(const S &a, const\
-    \ S &b) { return std::max(a, b); }\n};\n\ntemplate <typename T>\nstruct MultiplicativeMonoid\
-    \ {\n    using S = T;\n    static constexpr S e() { return S(1); }\n    static\
-    \ constexpr S op(const S &a, const S &b) { return a * b; }\n};\n\ntemplate <typename\
-    \ T>\nstruct AdditiveGroup {\n    using S = T;\n    static constexpr S e() { return\
-    \ S(); }\n    static constexpr S op(const S &a, const S &b) { return a + b; }\n\
-    \    static constexpr S inv(const S &a) { return -a; }\n};\n\ntemplate <typename\
-    \ T>\nstruct XORGroup {\n    using S = T;\n    static constexpr S e() { return\
-    \ S(); }\n    static constexpr S op(const S &a, const S &b) { return a ^ b; }\n\
-    \    static constexpr S inv(const S &a) { return a; }\n};\n#line 12 \"src/DataStructure/abstract-cumulative-sum.hpp\"\
+    \u8C61\u5316\u7D2F\u7A4D\u548C\n * @docs docs/abstract-cumulative-sum.md\n */\n\
+    \n#line 10 \"src/DataStructure/abstract-cumulative-sum.hpp\"\n#include <concepts>\n\
+    #line 2 \"src/Math/algebraic-structure.hpp\"\n\n#line 5 \"src/Math/algebraic-structure.hpp\"\
+    \n\ntemplate <typename T>\nconcept HasInnerType = requires() {\n    typename T::S;\n\
+    };\n\ntemplate <typename T>\nconcept HasIdentity = requires() {\n    { T::e()\
+    \ } -> std::same_as<typename T::S>;\n};\n\ntemplate <typename T>\nconcept HasInverse\
+    \ = requires() {\n    { T::inv(std::declval<typename T::S>()) } -> std::same_as<typename\
+    \ T::S>;\n};\n\ntemplate <typename T>\nconcept HasBinaryOperation = requires()\
+    \ {\n    { T::op(std::declval<typename T::S>(), std::declval<typename T::S>())\
+    \ } -> std::same_as<typename T::S>;\n};\n\ntemplate <class T>\nconcept MonoidConcept\
+    \ = HasInnerType<T> && HasIdentity<T> && HasBinaryOperation<T>;\n\ntemplate <class\
+    \ T>\nconcept GroupConcept = MonoidConcept<T> && HasInverse<T>;\n\ntemplate <std::integral\
+    \ T>\nstruct MinMonoid {\n    using S = T;\n    static constexpr S e() { return\
+    \ std::numeric_limits<S>::max(); }\n    static constexpr S op(const S &a, const\
+    \ S &b) { return std::min(a, b); }\n};\n\ntemplate <std::integral T>\nstruct MaxMonoid\
+    \ {\n    using S = T;\n    static constexpr S e() { return std::numeric_limits<S>::min();\
+    \ }\n    static constexpr S op(const S &a, const S &b) { return std::max(a, b);\
+    \ }\n};\n\ntemplate <typename T>\nstruct MultiplicativeMonoid {\n    using S =\
+    \ T;\n    static constexpr S e() { return S(1); }\n    static constexpr S op(const\
+    \ S &a, const S &b) { return a * b; }\n};\n\ntemplate <typename T>\nstruct AdditiveGroup\
+    \ {\n    using S = T;\n    static constexpr S e() { return S(); }\n    static\
+    \ constexpr S op(const S &a, const S &b) { return a + b; }\n    static constexpr\
+    \ S inv(const S &a) { return -a; }\n};\n\ntemplate <typename T>\nstruct XORGroup\
+    \ {\n    using S = T;\n    static constexpr S e() { return S(); }\n    static\
+    \ constexpr S op(const S &a, const S &b) { return a ^ b; }\n    static constexpr\
+    \ S inv(const S &a) { return a; }\n};\n#line 13 \"src/DataStructure/abstract-cumulative-sum.hpp\"\
     \n\ntemplate <GroupConcept T>\nstruct AbstructCumulativeSum {\n  private:\n  \
     \  bool built = false;\n\n  public:\n    using S = typename T::S;\n    int n;\n\
-    \    std::vector<S> data;\n    AbstructCumulativeSum(int n)\n        : n(n), data(n\
-    \ + 1, T::e()) {}\n    AbstructCumulativeSum(const std::vector<S> &a)\n      \
-    \  : n((int)a.size()), data(n + 1, T::e()) {\n        for(int i = 0; i < n; i++)\n\
-    \            add(i, a[i]);\n        build();\n    }\n    void build() {\n    \
-    \    debug_assert(!built);\n        for(int i = 0; i < n; i++) {\n           \
-    \ data[i + 1] = T::op(data[i], data[i + 1]);\n        }\n        built = true;\n\
-    \    }\n    void add(int idx, S x) {\n        debug_assert(!built);\n        data[idx\
-    \ + 1] = T::op(data[idx + 1], x);\n    }\n    S sum(int l, int r) {\n        debug_assert(built);\n\
-    \        return T::op(T::inv(data[l]), data[r]);\n    }\n};\n#line 5 \"src/test/verify/yosupo-static-range-sum-abstract.test.cpp\"\
+    \    std::vector<S> data;\n\n    /**\n     * @brief \u30B3\u30F3\u30B9\u30C8\u30E9\
+    \u30AF\u30BF\n     * @param n \u8981\u7D20\u6570\n     * @note \u6642\u9593\u8A08\
+    \u7B97\u91CF: O(n)\n     */\n    AbstructCumulativeSum(int n)\n        : n(n),\
+    \ data(n + 1, T::e()) {}\n    \n    /**\n     * @brief \u914D\u5217\u304B\u3089\
+    \u306E\u521D\u671F\u5316\u30B3\u30F3\u30B9\u30C8\u30E9\u30AF\u30BF\n     * @param\
+    \ a \u521D\u671F\u5024\u3092\u6301\u3064\u914D\u5217\n     * @note \u6642\u9593\
+    \u8A08\u7B97\u91CF: O(n)\n     */\n    AbstructCumulativeSum(const std::vector<S>\
+    \ &a)\n        : n((int)a.size()), data(n + 1, T::e()) {\n        for(int i =\
+    \ 0; i < n; i++)\n            add(i, a[i]);\n        build();\n    }\n    \n \
+    \   /**\n     * @brief \u7D2F\u7A4D\u548C\u3092\u69CB\u7BC9\u3059\u308B\n    \
+    \ * @note \u6642\u9593\u8A08\u7B97\u91CF: O(n)\n     * @note add\u95A2\u6570\u3067\
+    \u5024\u3092\u5168\u3066\u8FFD\u52A0\u3057\u305F\u5F8C\u306B\u547C\u3073\u51FA\
+    \u3059\u5FC5\u8981\u304C\u3042\u308B\n     */\n    void build() {\n        debug_assert(!built);\n\
+    \        for(int i = 0; i < n; i++) {\n            data[i + 1] = T::op(data[i],\
+    \ data[i + 1]);\n        }\n        built = true;\n    }\n    \n    /**\n    \
+    \ * @brief \u6307\u5B9A\u4F4D\u7F6E\u306B\u5024\u3092\u8FFD\u52A0\u3059\u308B\n\
+    \     * @param idx \u30A4\u30F3\u30C7\u30C3\u30AF\u30B9 (0-indexed)\n     * @param\
+    \ x \u8FFD\u52A0\u3059\u308B\u5024\n     * @note \u6642\u9593\u8A08\u7B97\u91CF\
+    : O(1)\n     * @note build\u95A2\u6570\u3092\u547C\u3073\u51FA\u3059\u524D\u306B\
+    \u306E\u307F\u4F7F\u7528\u53EF\u80FD\n     */\n    void add(int idx, S x) {\n\
+    \        debug_assert(!built);\n        data[idx + 1] = T::op(data[idx + 1], x);\n\
+    \    }\n    \n    /**\n     * @brief \u533A\u9593[l, r)\u306E\u7DCF\u548C\u3092\
+    \u6C42\u3081\u308B\n     * @param l \u5DE6\u7AEF\uFF08\u542B\u3080\uFF09\n   \
+    \  * @param r \u53F3\u7AEF\uFF08\u542B\u307E\u306A\u3044\uFF09\n     * @return\
+    \ \u533A\u9593[l, r)\u306E\u7DCF\u548C\n     * @note \u6642\u9593\u8A08\u7B97\u91CF\
+    : O(1)\n     * @note build\u95A2\u6570\u3092\u547C\u3073\u51FA\u3057\u305F\u5F8C\
+    \u306B\u306E\u307F\u4F7F\u7528\u53EF\u80FD\n     */\n    S sum(int l, int r) {\n\
+    \        debug_assert(built);\n        return T::op(T::inv(data[l]), data[r]);\n\
+    \    }\n};\n#line 5 \"src/test/verify/yosupo-static-range-sum-abstract.test.cpp\"\
     \n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n    vl a(N);\n    cin >>\
     \ a;\n    AbstructCumulativeSum<AdditiveGroup<ll>> cs(a);\n    while(Q--) {\n\
     \        int l, r;\n        cin >> l >> r;\n        cout << cs.sum(l, r) << '\\\
@@ -114,7 +135,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/yosupo-static-range-sum-abstract.test.cpp
   requiredBy: []
-  timestamp: '2025-03-30 10:23:25+09:00'
+  timestamp: '2025-04-01 15:31:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yosupo-static-range-sum-abstract.test.cpp

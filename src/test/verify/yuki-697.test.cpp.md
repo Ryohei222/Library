@@ -61,37 +61,63 @@ data:
     \ << #x << \" = \" << (x) << std::endl\n#else\n#define dbg(x) true\n#endif\n#line\
     \ 3 \"src/test/verify/yuki-697.test.cpp\"\n\n#line 2 \"src/DataStructure/union-find.hpp\"\
     \n\n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n */\n\nstruct UnionFind\
-    \ {\n    vector<int> par;\n    UnionFind(int n) {\n        par.assign(n, -1);\n\
-    \    };\n    int find(int x) {\n        if(par[x] < 0)\n            return x;\n\
-    \        else\n            return par[x] = find(par[x]);\n    }\n    int size(int\
-    \ x) {\n        x = find(x);\n        return -1 * par[x];\n    }\n    bool unite(int\
-    \ x, int y) {\n        x = find(x);\n        y = find(y);\n        if(x == y)\n\
-    \            return false;\n        if(size(x) < size(y))\n            swap(x,\
-    \ y);\n        par[x] += par[y];\n        par[y] = x;\n        return true;\n\
-    \    }\n    bool same(int x, int y) {\n        return find(x) == find(y);\n  \
-    \  }\n    vector<int> leaders() {\n        vector<int> res;\n        for(int i\
-    \ = 0; i < (int)par.size(); i++) {\n            if(par[i] < 0)\n             \
-    \   res.push_back(i);\n        }\n        return res;\n    }\n};\n#line 2 \"src/Util/grid2d.hpp\"\
-    \n\n/**\n * @brief Grid(2D)\n */\n\ntemplate <typename T>\nstruct Grid2D {\n \
-    \   int H, W;\n    vector<vector<T>> data;\n    vector<int> dx = {1, -1, 0, 0,\
-    \ 1, -1, 1, -1};\n    vector<int> dy = {0, 0, 1, -1, 1, -1, -1, 1};\n    Grid2D(int\
-    \ H, int W)\n        : H(H), W(W), data(H, vector<T>(W)) {}\n    Grid2D(int H,\
-    \ int W, T x)\n        : H(H), W(W), data(H, vector<T>(W, x)) {}\n    Grid2D(const\
-    \ vector<vector<T>> &data)\n        : H(data.size()), W(data[0].size()), data(data)\
-    \ {}\n    vector<T> &operator[](int i) {\n        return data[i];\n    }\n   \
-    \ void read() {\n        for(int i = 0; i < H; i++) {\n            for(int j =\
-    \ 0; j < W; j++) {\n                cin >> data[i][j];\n            }\n      \
-    \  }\n    }\n    bool in(int i, int j) {\n        return 0 <= i && i < H && 0\
-    \ <= j && j < W;\n    }\n    int encode(int i, int j) {\n        return i * W\
-    \ + j;\n    }\n    pair<int, int> decode(int x) {\n        return make_pair(x\
-    \ / W, x % W);\n    }\n    vector<pair<int, int>> next4(int i, int j) {\n    \
-    \    return next(i, j, 4);\n    }\n    vector<pair<int, int>> next8(int i, int\
-    \ j) {\n        return next(i, j, 8);\n    }\n\n  private:\n    vector<pair<int,\
-    \ int>> next(int i, int j, int k) {\n        vector<pair<int, int>> res;\n   \
-    \     for(int t = 0; t < k; t++) {\n            int ni = i + dx[t], nj = j + dy[t];\n\
-    \            if(in(ni, nj)) res.push_back(make_pair(ni, nj));\n        }\n   \
-    \     return res;\n    }\n};\n#line 6 \"src/test/verify/yuki-697.test.cpp\"\n\n\
-    int main() {\n    ll H, W;\n    cin >> H >> W;\n    Grid2D<int> grid(H, W);\n\
+    \ {\n    vector<int> par;\n    /**\n     * @brief \u30B3\u30F3\u30B9\u30C8\u30E9\
+    \u30AF\u30BF\n     * @param n \u8981\u7D20\u6570\n     * @note \u6642\u9593\u8A08\
+    \u7B97\u91CF: O(n)\n     */\n    UnionFind(int n) {\n        par.assign(n, -1);\n\
+    \    };\n    /**\n     * @brief \u9802\u70B9x\u306E\u6839\u3092\u6C42\u3081\u308B\
+    \n     * @param x \u9802\u70B9\n     * @return int \u6839\u306E\u9802\u70B9\u756A\
+    \u53F7\n     * @note \u6642\u9593\u8A08\u7B97\u91CF: \u511F\u5374O(\u03B1(n))\n\
+    \     *       \u03B1(n)\u306F\u30A2\u30C3\u30AB\u30FC\u30DE\u30F3\u95A2\u6570\u306E\
+    \u9006\u95A2\u6570\u3067\u3001\u307B\u307CO(1)\u3068\u8003\u3048\u3066\u826F\u3044\
+    \n     */\n    int find(int x) {\n        if(par[x] < 0)\n            return x;\n\
+    \        else\n            return par[x] = find(par[x]);\n    }\n    /**\n   \
+    \  * @brief \u9802\u70B9x\u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\u30B5\u30A4\
+    \u30BA\u3092\u6C42\u3081\u308B\n     * @param x \u9802\u70B9\n     * @return int\
+    \ \u96C6\u5408\u306E\u30B5\u30A4\u30BA\n     * @note \u6642\u9593\u8A08\u7B97\u91CF\
+    : \u511F\u5374O(\u03B1(n))\n     */\n    int size(int x) {\n        x = find(x);\n\
+    \        return -1 * par[x];\n    }\n    /**\n     * @brief \u9802\u70B9x\u3068\
+    \u9802\u70B9y\u304C\u5C5E\u3059\u308B\u96C6\u5408\u3092\u4F75\u5408\u3059\u308B\
+    \n     * @param x \u9802\u70B9\n     * @param y \u9802\u70B9\n     * @return bool\
+    \ \u4F75\u5408\u306B\u6210\u529F\u3057\u305F\u304B\u3069\u3046\u304B\uFF08\u65E2\
+    \u306B\u540C\u3058\u96C6\u5408\u306E\u5834\u5408\u306Ffalse\uFF09\n     * @note\
+    \ \u6642\u9593\u8A08\u7B97\u91CF: \u511F\u5374O(\u03B1(n))\n     *       \u5C0F\
+    \u3055\u3044\u65B9\u306E\u96C6\u5408\u3092\u5927\u304D\u3044\u65B9\u306B\u4F75\
+    \u5408\u3059\u308B\uFF08union by size\uFF09\n     */\n    bool unite(int x, int\
+    \ y) {\n        x = find(x);\n        y = find(y);\n        if(x == y)\n     \
+    \       return false;\n        if(size(x) < size(y))\n            swap(x, y);\n\
+    \        par[x] += par[y];\n        par[y] = x;\n        return true;\n    }\n\
+    \    /**\n     * @brief \u9802\u70B9x\u3068\u9802\u70B9y\u304C\u540C\u3058\u96C6\
+    \u5408\u306B\u5C5E\u3059\u308B\u304B\u3069\u3046\u304B\u3092\u5224\u5B9A\u3059\
+    \u308B\n     * @param x \u9802\u70B9\n     * @param y \u9802\u70B9\n     * @return\
+    \ bool \u540C\u3058\u96C6\u5408\u306B\u5C5E\u3059\u308B\u306A\u3089true\n    \
+    \ * @note \u6642\u9593\u8A08\u7B97\u91CF: \u511F\u5374O(\u03B1(n))\n     */\n\
+    \    bool same(int x, int y) {\n        return find(x) == find(y);\n    }\n  \
+    \  /**\n     * @brief \u5404\u96C6\u5408\u306E\u4EE3\u8868\u5143\uFF08\u6839\uFF09\
+    \u306E\u30EA\u30B9\u30C8\u3092\u53D6\u5F97\u3059\u308B\n     * @return vector<int>\
+    \ \u4EE3\u8868\u5143\u306E\u30EA\u30B9\u30C8\n     * @note \u6642\u9593\u8A08\u7B97\
+    \u91CF: O(n)\n     */\n    vector<int> leaders() {\n        vector<int> res;\n\
+    \        for(int i = 0; i < (int)par.size(); i++) {\n            if(par[i] < 0)\n\
+    \                res.push_back(i);\n        }\n        return res;\n    }\n};\n\
+    #line 2 \"src/Util/grid2d.hpp\"\n\n/**\n * @brief Grid(2D)\n */\n\ntemplate <typename\
+    \ T>\nstruct Grid2D {\n    int H, W;\n    vector<vector<T>> data;\n    vector<int>\
+    \ dx = {1, -1, 0, 0, 1, -1, 1, -1};\n    vector<int> dy = {0, 0, 1, -1, 1, -1,\
+    \ -1, 1};\n    Grid2D(int H, int W)\n        : H(H), W(W), data(H, vector<T>(W))\
+    \ {}\n    Grid2D(int H, int W, T x)\n        : H(H), W(W), data(H, vector<T>(W,\
+    \ x)) {}\n    Grid2D(const vector<vector<T>> &data)\n        : H(data.size()),\
+    \ W(data[0].size()), data(data) {}\n    vector<T> &operator[](int i) {\n     \
+    \   return data[i];\n    }\n    void read() {\n        for(int i = 0; i < H; i++)\
+    \ {\n            for(int j = 0; j < W; j++) {\n                cin >> data[i][j];\n\
+    \            }\n        }\n    }\n    bool in(int i, int j) {\n        return\
+    \ 0 <= i && i < H && 0 <= j && j < W;\n    }\n    int encode(int i, int j) {\n\
+    \        return i * W + j;\n    }\n    pair<int, int> decode(int x) {\n      \
+    \  return make_pair(x / W, x % W);\n    }\n    vector<pair<int, int>> next4(int\
+    \ i, int j) {\n        return next(i, j, 4);\n    }\n    vector<pair<int, int>>\
+    \ next8(int i, int j) {\n        return next(i, j, 8);\n    }\n\n  private:\n\
+    \    vector<pair<int, int>> next(int i, int j, int k) {\n        vector<pair<int,\
+    \ int>> res;\n        for(int t = 0; t < k; t++) {\n            int ni = i + dx[t],\
+    \ nj = j + dy[t];\n            if(in(ni, nj)) res.push_back(make_pair(ni, nj));\n\
+    \        }\n        return res;\n    }\n};\n#line 6 \"src/test/verify/yuki-697.test.cpp\"\
+    \n\nint main() {\n    ll H, W;\n    cin >> H >> W;\n    Grid2D<int> grid(H, W);\n\
     \    grid.read();\n    UnionFind uf(H * W);\n    for(int i = 0; i < H; i++) {\n\
     \        for(int j = 0; j < W; j++) {\n            for(auto [ni, nj] : grid.next4(i,\
     \ j)) {\n                if(grid[i][j] == grid[ni][nj]) {\n                  \
@@ -117,7 +143,7 @@ data:
   isVerificationFile: true
   path: src/test/verify/yuki-697.test.cpp
   requiredBy: []
-  timestamp: '2025-03-30 10:22:16+09:00'
+  timestamp: '2025-04-01 15:31:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: src/test/verify/yuki-697.test.cpp

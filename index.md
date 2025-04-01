@@ -22,10 +22,10 @@ data:
       title: "\u7D2F\u7A4D\u548C"
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/fenwick-tree.hpp
-      title: Fenwick Tree
+      title: Fenwick Tree (Binary Indexed Tree)
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/segment-tree.hpp
-      title: Segment Tree
+      title: "Segment Tree\uFF08\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\uFF09"
     - icon: ':heavy_check_mark:'
       path: src/DataStructure/union-find.hpp
       title: Union-Find
